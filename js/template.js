@@ -1,45 +1,83 @@
-/**
- * @package     Joomla.Site
- * @subpackage  Templates.protostar
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @since       3.2
- */
+/****   Custom JQuery  *****/
+        
+        var footerShowed = false;
+        
+        // Select right size of background images in slider
+        function chooseSize(){
+            var folder; // folder for choosing images
+            var slidesCount = $('.back').size(); // number of carousel slides
+            
+            if ( $(window).width() < 1200 )
+                folder = 'middle';
+            else if ( $(window).width() < 1600 )
+                folder = 'large';
+            else if ( $(window).width() < 2000 )
+                folder = 'x-large';
+            else folder = 'xx-large';
+            
+            //alert(folder);
+        }
+        
+        // Set the carousel height to the user screen height without header
+        function setCarouselHeight(){
+            $('.back').css({
+                height: ($(document).height() - 
+                         $('#top-bar').outerHeight() - 
+                         $('#nav-bar').outerHeight()) + "px"
+                           })
+        }
+        
+        // Show info footer by scrolling down to the end of the page
+        function showFooter(){
+            $('#footer').slideDown();
+            $('html, body').animate( { scrollTop: $(window).height() }, 2000 );
+            $('#button-up').show();
+            footerShowed = true;
+        }
+        
+        function hideFooter(){
+            $('#footer').slideUp(1000);
+            $('#button-down').show();
+            footerShowed = false;
+        }
+        
+        // Enable Bootstrap tooltips and Set initial carousel height
+        $(document).ready(
+            function(){
+                //$("#attention").remove(); // Delete JS warning
+                $('[data-toggle="tooltip"]').tooltip(); 
+                setCarouselHeight();
+            });
+        
+        
+        // Window events: 
+        // Set carousel height when the window is resized
 
-(function($)
-{
-	$(document).ready(function()
-	{
-		$('*[rel=tooltip]').tooltip()
-
-		// Turn radios into btn-group
-		$('.radio.btn-group label').addClass('btn');
-		$(".btn-group label:not(.active)").click(function()
-		{
-			var label = $(this);
-			var input = $('#' + label.attr('for'));
-
-			if (!input.prop('checked')) {
-				label.closest('.btn-group').find("label").removeClass('active btn-success btn-danger btn-primary');
-				if (input.val() == '') {
-					label.addClass('active btn-primary');
-				} else if (input.val() == 0) {
-					label.addClass('active btn-danger');
-				} else {
-					label.addClass('active btn-success');
-				}
-				input.prop('checked', true);
-			}
-		});
-		$(".btn-group input[checked=checked]").each(function()
-		{
-			if ($(this).val() == '') {
-				$("label[for=" + $(this).attr('id') + "]").addClass('active btn-primary');
-			} else if ($(this).val() == 0) {
-				$("label[for=" + $(this).attr('id') + "]").addClass('active btn-danger');
-			} else {
-				$("label[for=" + $(this).attr('id') + "]").addClass('active btn-success');
-			}
-		});
-	})
-})(jQuery);
+        $(window).resize(
+            function(){
+                if ( $(window).height() > 600 ) {
+                    $('.back').css({
+                        height: ( $(window).height() - 
+                                  $('#top-bar').outerHeight() - 
+                                  $('#nav-bar').outerHeight()) + "px"
+                                  })
+                    }
+                    });
+        
+        // Hide footer when the window is scrolled to the top
+        $(window).scroll(function(){
+            if ( ($(window).scrollTop() == 0) 
+                && (footerShowed == true) )  
+                                            hideFooter();
+         });
+        
+        // Buttons Down and Up events:
+        $('#button-down').click(function (){
+            $(this).hide();
+            showFooter();
+        });
+        
+         $('#button-up').click(function(){
+             $(this).hide();
+             hideFooter();
+         });
