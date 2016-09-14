@@ -39,15 +39,11 @@ else
 	$fullWidth = 0;
 }
 
-// Add JavaScript from Bootstrap - call method "framework" from class "joomla/libraries/cms/html/bootstrap.php"
-JHtml::_('bootstrap.framework');
-
-//Add own js-script
-$doc->addScriptVersion($this->baseurl . '/templates/' . $this->template . '/js/template.js');
-
-// Add Stylesheets
-$doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/template.css');
-
+/*
+ * Add stylesheets
+ */
+// Bootstrap 3 stylesheet
+$doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/bootstrap.min.css' );
 // Use of Google Font
 if ($this->params->get('googleFont'))
 {
@@ -57,6 +53,27 @@ if ($this->params->get('googleFont'))
 		font-family: '" . str_replace('+', ' ', $this->params->get('googleFontName')) . "', sans-serif;
 	}");
 }
+// Template stylesheet
+$doc->addStyleSheetVersion($this->baseurl . '/templates/' . $this->template . '/css/template.css');
+// Custom overrides of Bootstrap 3 CSS
+$doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/overrides.css' );
+// Media queries
+$doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
+
+/*
+// Add JavaScript from Bootstrap - call method "framework" from class "joomla/libraries/cms/html/bootstrap.php"
+JHtml::_('bootstrap.framework');
+*/
+
+/*
+ * Add js-scripts
+ */
+//Add bootstrap 3 js-script
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
+//Add template js-script
+$doc->addScriptVersion($this->baseurl . '/templates/' . $this->template . '/js/template.js');
+// Use Fontawesome CDN
+$doc->addScript ("https://use.fontawesome.com/7f0000df30.js");
 
 // Цвет шаблона
 if ($this->params->get('templateColor'))
@@ -81,17 +98,6 @@ if ($this->params->get('templateColor'))
 		background: " . $this->params->get('templateColor') . ";
 	}");
 }
-/*
-// Check for a custom CSS file
-$userCss = $this->baseurl . '/templates/' . $this->template . '/css/user.css';
-
-if (file_exists($userCss) && filesize($userCss) > 0)
-{
-	$doc->addStyleSheetVersion('templates/' . $this->template . '/css/user.css');
-}
-*/
-// Load LTR Bootstrap CSS
-JHtml::_('bootstrap.loadCss', true, $this->direction);
 
 // Adjusting content width
 if ($this->countModules('position-7') && $this->countModules('position-8'))
