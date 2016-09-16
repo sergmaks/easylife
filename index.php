@@ -15,7 +15,7 @@ unset(
     $this->_scripts[$this->baseurl . '/media/jui/js/jquery-noconflict.js'],
     $this->_scripts[$this->baseurl . '/media/jui/js/jquery-migrate.min.js'],
     $this->_scripts[$this->baseurl . '/media/system/js/caption.js']
-        );
+        ); 
 
 $app             = JFactory::getApplication();
 $doc             = JFactory::getDocument();
