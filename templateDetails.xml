@@ -18,7 +18,7 @@
 		<filename>template_preview.png</filename>
 		<filename>template_thumbnail.png</filename>
 		<folder>css</folder>
-                <folder>fonts</folder>
+        <folder>fonts</folder>
 		<folder>html</folder>
 		<folder>images</folder>
 		<folder>img</folder>
@@ -26,6 +26,7 @@
 		<folder>language</folder>
 		<folder>less</folder>
 	</files>
+    <!--
 	<positions>
 		<position>banner</position>
 		<position>debug</position>
@@ -46,6 +47,7 @@
 		<position>position-14</position>
 		<position>footer</position>
 	</positions>
+	-->
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_easylife.ini</language>
 		<language tag="en-GB">en-GB/en-GB.tpl_easylife.sys.ini</language>

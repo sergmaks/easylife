@@ -12,7 +12,6 @@ defined('_JEXEC') or die;
 
 //Отключаем ненужные скрипты
 unset(
-    $this->_scripts[$this->baseurl . '/media/jui/js/jquery-noconflict.js'],
     $this->_scripts[$this->baseurl . '/media/jui/js/jquery-migrate.min.js'],
     $this->_scripts[$this->baseurl . '/media/system/js/caption.js']
         ); 
@@ -56,7 +55,9 @@ $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/o
 $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
 
 // Use Fontawesome CDN
-$doc->addScript ("https://use.fontawesome.com/7f0000df30.js");
+$doc->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
+// Add Bootstrap 3 script
+$doc->addScript( $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
 
 /*
 // Цвет шаблона
@@ -125,22 +126,22 @@ else
 	<!--[if lt IE 9]><script src="<?php echo JUri::root(true); ?>/media/jui/js/html5.js"></script><![endif]-->
 </head>
 <body>
-    <header>
     <div class="container-fluid">
+    <header>
     <!-- Top bar -->
 		<div class="row" id="top-bar">
            <div id="logo">
                 <img <?php echo 'src="' . $this->baseurl . '/templates/' . $this->template . '/images/logo.png' . '"'?>  alt="easy-life"> 
             </div>
-		    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
+		   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
                <span class="fa fa-phone fa-lg" style="margin-right: 10px"></span>8 9XX XXX XX XX
 		    </div>
-		    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+		   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                <span class="fa fa-phone fa-lg"></span>
                <span class="fa fa-reply" style="margin: 0 5px 0 -5px"></span>
                <a href="#" id="call"> перезвоните мне</a>
 		    </div>
-		    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1  col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+		   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1  col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
 		        <a href="#"  style="margin-right: 50px" data-toggle="tooltip" data-placement="left" title="Авторизоваться в системе">
 		            <span class="fa fa-user fa-lg"></span> Войти
 		        </a>
@@ -195,12 +196,10 @@ else
 		    </div>
 		</div>
 		</nav>
-	</div>	
     </header>
-    
-       <!-- Main Content -->
+
+<!-- Main Content -->
     <main>
-      <div class="container-fluid">
          <div class="row">
              <!-- Carousel -->
              <div id="carousel" class="carousel slide" data-interval="6000" data-ride="carousel" data-pause="none">
@@ -283,10 +282,8 @@ else
                  </div>
              </div>
          </div>
-      </div>
     </main>
     <footer>
-        <div class="container-fluid">
             <div class="row" id="footer">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
                     <h3>Контакты</h3>
@@ -311,11 +308,9 @@ else
                     <span class="fa fa-chevron-up fa-lg"></span>
                 </div>
             </div>
-        </div>
     </footer>
+    </div>
     <jdoc:include type="modules" name="debug" style="none" />
-    <!-- Bootstrap 3 js-script -->
-    <script <?php echo 'src="' . $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js' . '"' ?>></script>
     <!-- Custom js-script -->
     <script <?php echo 'src="' . $this->baseurl . '/templates/' . $this->template . '/js/template.js' . '"' ?>></script>
 </body>
