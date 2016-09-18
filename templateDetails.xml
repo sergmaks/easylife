@@ -26,28 +26,20 @@
 		<folder>language</folder>
 		<folder>less</folder>
 	</files>
-    <!--
 	<positions>
-		<position>banner</position>
+		<position>logo</position>
+		<position>phone</position>
+		<position>callme</position>
+		<position>profile</position>
+		<position>navigation</position>
+		<position>socials</position>
+		<position>carousel</position>
+		<position>article</position>
+		<position>footer1</position>
+		<position>footer2</position>
+		<position>footer3</position>
 		<position>debug</position>
-		<position>position-0</position>
-		<position>position-1</position>
-		<position>position-2</position>
-		<position>position-3</position>
-		<position>position-4</position>
-		<position>position-5</position>
-		<position>position-6</position>
-		<position>position-7</position>
-		<position>position-8</position>
-		<position>position-9</position>
-		<position>position-10</position>
-		<position>position-11</position>
-		<position>position-12</position>
-		<position>position-13</position>
-		<position>position-14</position>
-		<position>footer</position>
 	</positions>
-	-->
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_easylife.ini</language>
 		<language tag="en-GB">en-GB/en-GB.tpl_easylife.sys.ini</language>
