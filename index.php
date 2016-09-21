@@ -39,7 +39,6 @@ $sitename = $app->get('sitename');
 /*
  * Add stylesheets
  */
-
 // Bootstrap 3 stylesheet
 $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/bootstrap.min.css' );
 // Use of Google Font
@@ -121,7 +120,6 @@ $logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="'
     <!-- Top bar -->
 		<div class="row" id="top-bar">
            <div id="logo">
-               <jdoc:include type="modules" name="logo" stlyle="none"/>
                <?php echo $logo ?>
             </div>
 		   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
