@@ -136,22 +136,28 @@ else
             </div>
 		   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
                <jdoc:include type="modules" name="phone" style="none"/>
+               <!--
                <span class="fa fa-phone fa-lg" style="margin-right: 10px"></span>8 9XX XXX XX XX
+               -->
 		    </div>
 		   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                <jdoc:include type="modules" name="callme" style="none"/>
+               <!--
                <span class="fa fa-phone fa-lg"></span>
                <span class="fa fa-reply" style="margin: 0 5px 0 -5px"></span>
                <a href="#" id="call"> перезвоните мне</a>
+               -->
 		    </div>
 		   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1  col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
                <jdoc:include type="modules" name="profile" style="none"/>
+               <!--
                <a href="#"  style="margin-right: 50px" data-toggle="tooltip" data-placement="left" title="Авторизоваться в системе">
 		            <span class="fa fa-user fa-lg"></span> Войти
 		        </a>
                 <a href="#" data-toggle="tooltip" data-placement="bottom" title="Перейти к заказу">
 		            <span class="fa fa-shopping-cart fa-lg"></span>
                 </a>
+                -->
             </div>
 		</div>
        <!-- Main navigation -->
@@ -159,6 +165,7 @@ else
         <div class="row" id="nav-bar">
 		    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6">
                 <jdoc:include type="modules" name="navigation" style="none"/>
+                <!--
                 <ul>
 		            <li><a href="#" class="main" data-toggle="tooltip" data-placement="bottom" title="Меню на наделю">МЕНЮ</a></li>
 		            <li><a href="#" class="main">О СЕРВИСЕ</a>
@@ -170,9 +177,11 @@ else
 		            </li>
 		            <li><a href="#" class="main" data-toggle="tooltip" data-placement="bottom" title="Перейти к заказу">КОРЗИНА</a></li>
 		        </ul>
+		        -->
 		    </div>
 		    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <jdoc:include type="modules" name="socials" style="none"/>
+                <!--
 		        <ul>
 		          <li><a href="https://vk.com" class="socials" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Мы в VK">
 		                    <span class="fa-stack">
@@ -199,6 +208,7 @@ else
 		                    </span>
 		                </a></li>  
 		        </ul>
+		        -->
 		    </div>
 		</div>
 		</nav>
