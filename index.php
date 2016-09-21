@@ -101,20 +101,10 @@ else
 {
 	$span = "span12";
 }
+*/
 
-// Logo file or site title param
-if ($this->params->get('logoFile'))
-{
-	$logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
-}
-elseif ($this->params->get('sitetitle'))
-{
-	$logo = '<span class="site-title" title="' . $sitename . '">' . htmlspecialchars($this->params->get('sitetitle'), ENT_COMPAT, 'UTF-8') . '</span>';
-}
-else
-{
-	$logo = '<span class="site-title" title="' . $sitename . '">' . $sitename . '</span>';
-} */
+// Logo file
+$logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
 ?>
 
 <!---------- HTML starts ------------>
@@ -132,7 +122,7 @@ else
 		<div class="row" id="top-bar">
            <div id="logo">
                <jdoc:include type="modules" name="logo" stlyle="none"/>
-               <img <?php echo 'src="' . $this->baseurl . '/templates/' . $this->template . '/images/logo.png' . '"'?>  alt="easy-life">
+               <?php echo $logo ?>
             </div>
 		   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
                <jdoc:include type="modules" name="phone" style="none"/>
