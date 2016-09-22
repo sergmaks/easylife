@@ -39,7 +39,6 @@ $sitename = $app->get('sitename');
 /*
  * Add stylesheets
  */
-
 // Bootstrap 3 stylesheet
 $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/bootstrap.min.css' );
 // Use of Google Font
