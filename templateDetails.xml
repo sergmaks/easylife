@@ -41,6 +41,8 @@
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_easylife.ini</language>
 		<language tag="en-GB">en-GB/en-GB.tpl_easylife.sys.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.tpl_easylife.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.tpl_easylife.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">
@@ -48,10 +50,7 @@
 				<!--<field name="templateColor" class="" type="color" default="#08C"
 					label="TPL_PROTOSTAR_COLOR_LABEL"
 					description="TPL_PROTOSTAR_COLOR_DESC" />
-
-				<field name="templateBackgroundColor" class="" type="color" default="#F4F6F7"
-					label="TPL_PROTOSTAR_BACKGROUND_COLOR_LABEL"
-					description="TPL_PROTOSTAR_BACKGROUND_COLOR_DESC" /> -->
+                 -->
 
 				<field name="logoFile" class="" type="media" default=""
 					label="TPL_EASYLIFE_LOGO_LABEL"
@@ -67,12 +66,12 @@
 					description="JGLOBAL_SUBHEADING_DESC"
 					filter="string" />
                                 
-                                <field name="phoneNumber" 
-                                        type="text" 
-                                        default=""
-                                        label="TPL_EASYLIFE_PHONE_NUMBER"
-                                        description="TPL_EASYLIFE_PHONE_DESCRIPTION"
-                                        filter="string" />
+                <field name="phoneNumber"
+                    type="text"
+                    default=""
+                    label="TPL_EASYLIFE_PHONE_NUMBER"
+                    description="TPL_EASYLIFE_PHONE_DESCRIPTION"
+                    filter="string" />
 
 				<field name="googleFont"
 					type="radio"
