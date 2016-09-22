@@ -27,8 +27,6 @@
 		<folder>less</folder>
 	</files>
 	<positions>
-		<position>logo</position>
-		<position>phone</position>
 		<position>callme</position>
 		<position>profile</position>
 		<position>navigation</position>
@@ -68,6 +66,13 @@
 					label="JGLOBAL_DESCRIPTION"
 					description="JGLOBAL_SUBHEADING_DESC"
 					filter="string" />
+                                
+                                <field name="phoneNumber" 
+                                        type="text" 
+                                        default=""
+                                        label="TPL_EASYLIFE_PHONE_NUMBER"
+                                        description="TPL_EASYLIFE_PHONE_DESCRIPTION"
+                                        filter="string" />
 
 				<field name="googleFont"
 					type="radio"
