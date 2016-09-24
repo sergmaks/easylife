@@ -110,7 +110,7 @@ if ($this->params->get('fontColor'))
 	    .slide-caption,
 	    .button-action,
 	    #button-down,
-	    #button-up {
+	    #button-up:hover {
 		    color: " . $this->params->get('fontColor') . ";
 	    }");
 }
