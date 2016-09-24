@@ -101,6 +101,19 @@ else
 	$span = "span12";
 }
 */
+// Font color
+if ($this->params->get('fontColor'))
+{
+    // встроенный инлайн-стиль
+    $doc->addStyleDeclaration("
+	    html,body,
+	    .slide-caption,
+	    .button-action,
+	    #button-down,
+	    #button-up {
+		    color: " . $this->params->get('fontColor') . ";
+	    }");
+}
 
 // Logo file
 $logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';

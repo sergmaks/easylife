@@ -65,7 +65,13 @@
 					label="JGLOBAL_DESCRIPTION"
 					description="JGLOBAL_SUBHEADING_DESC"
 					filter="string" />
-                                
+
+                <field name="fontColor"
+                    type="color"
+                    default="#3e2423"
+                    label="TPL_EASYLIFE_FONT_COLOR"
+                    description="TPL_EASYLIFE_FONT_COLOR_DESCRIPTION" />
+
                 <field name="phoneNumber"
                     type="text"
                     default=""
@@ -87,7 +93,8 @@
 				<field name="googleFontName" class="" type="text" default="Open+Sans"
 					label="TPL_EASYLIFE_FONT_NAME_LABEL"
 					description="TPL_EASYLIFE_FONT_NAME_DESC" />
-                                <!--
+
+                <!--
 				<field name="fluidContainer"
 					type="radio"
 					class="btn-group btn-group-yesno"
@@ -98,7 +105,7 @@
 					<option value="1">TPL_PROTOSTAR_FLUID</option>
 					<option value="0">TPL_PROTOSTAR_STATIC</option>
 				</field>
-                                -->
+                -->
 			</fieldset>
 		</fields>
 	</config>
