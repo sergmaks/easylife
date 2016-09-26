@@ -25,7 +25,7 @@ $this->direction = $doc->direction;
 // Output as HTML5
 $doc->setHtml5(true);
 
-// Getting params from template
+// Получаем параметры настройки шаблона
 $params = $app->getTemplate(true)->params;
 
 // Detecting Active Variables
@@ -37,29 +37,29 @@ $itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->get('sitename');
 
 /*
- * Add stylesheets
+ * Добавляем CSS
  */
-// Bootstrap 3 stylesheet
+// Bootstrap 3 CSS
 $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/bootstrap.min.css' );
-// Use of Google Font
+// Использование Google Font
 if ($this->params->get('googleFont'))
 {
     $doc->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
 }
-// Template stylesheet
+// Пользовательский стиль шаблона
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
-// Custom overrides of Bootstrap 3 CSS
+// пользовательские переорпеделения Bootstrap 3 CSS
 $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/overrides.css' );
-// Media queries
+// Медиа запросы
 $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
 
-// Use Fontawesome CDN
+// Иcпользуем Fontawesome CDN
 $doc->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
 
-// Add Bootstrap 3 script
+// Добавляем Bootstrap 3 js
 $doc->addScript( $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
 
-// Font color
+// Устанавливаем цвет шрифта из параметра
 if ($this->params->get('fontColor')) {
     // встроенный инлайн-стиль
     $doc->addStyleDeclaration("
@@ -72,7 +72,7 @@ if ($this->params->get('fontColor')) {
 	    }");
 }
 
-// Logo file
+// Логотип
 $logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
 
 // Ширина разделов футера в классах Bootstrap 3
@@ -123,7 +123,7 @@ else
 }
 ?>
 
-<!---------- HTML starts ------------>
+<!-- HTML разметка -->
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
@@ -223,7 +223,7 @@ else
 <!-- Main Content -->
     <main>
          <div class="row">
-             <jdoc:include type="modules" name="carousel" style="none"/>
+            <!-- <jdoc:include type="component" style="none"/>
              <!-- Carousel -->
              <div id="carousel" class="carousel slide" data-interval="6000" data-ride="carousel" data-pause="none">
                  <!-- Indicators  -->
@@ -305,7 +305,6 @@ else
                  </div>
              </div>
          </div>
-        <jdoc:include type="modules" name="article" style="none"/>
     </main>
     <footer>
             <div class="row" id="footer">
