@@ -55,55 +55,12 @@ $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/m
 
 // Use Fontawesome CDN
 $doc->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
+
 // Add Bootstrap 3 script
 $doc->addScript( $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
 
-/*
-// Цвет шаблона
-if ($this->params->get('templateColor'))
-{
-    // встроенный инлайн-стиль
-    $doc->addStyleDeclaration("
-	body.site {
-		border-top: 3px solid " . $this->params->get('templateColor') . ";
-		background-color: " . $this->params->get('templateBackgroundColor') . ";
-	}
-	a {
-		color: " . $this->params->get('templateColor') . ";
-	}
-	.nav-list > .active > a,
-	.nav-list > .active > a:hover,
-	.dropdown-menu li > a:hover,
-	.dropdown-menu .active > a,
-	.dropdown-menu .active > a:hover,
-	.nav-pills > .active > a,
-	.nav-pills > .active > a:hover,
-	.btn-primary {
-		background: " . $this->params->get('templateColor') . ";
-	}");
-}
-
-// Adjusting content width
-if ($this->countModules('position-7') && $this->countModules('position-8'))
-{
-	$span = "span6";
-}
-elseif ($this->countModules('position-7') && !$this->countModules('position-8'))
-{
-	$span = "span9";
-}
-elseif (!$this->countModules('position-7') && $this->countModules('position-8'))
-{
-	$span = "span9";
-}
-else
-{
-	$span = "span12";
-}
-*/
 // Font color
-if ($this->params->get('fontColor'))
-{
+if ($this->params->get('fontColor')) {
     // встроенный инлайн-стиль
     $doc->addStyleDeclaration("
 	    html,body,
@@ -117,6 +74,53 @@ if ($this->params->get('fontColor'))
 
 // Logo file
 $logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
+
+// Ширина разделов футера в классах Bootstrap 3
+// Только footer1
+if ( $this->countModules('footer1')
+    && ! $this->countModules('footer2')
+    && ! $this->countModules('footer3') )
+{
+    $classFooter_1 = "col-lg-11 col-md-11 col-sm-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+}
+// Только footer1 и  footer2
+elseif ( $this->countModules('footer1')
+        && $this->countModules('footer2')
+        && ! $this->countModules('footer3') )
+{
+    $classFooter_1 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+    $classFooter_2 = "col-lg-7 col-md-7 col-sm-7 col-xs-7 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+}
+// Только footer1 и  footer3
+elseif ( $this->countModules('footer1')
+        && ! $this->countModules('footer2')
+        && $this->countModules('footer3') )
+{
+    $classFooter_1 = "col-lg-7 col-md-7 col-sm-7 col-xs-7 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+    $classFooter_3 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+}
+// Только footer2 и  footer3
+elseif ( ! $this->countModules('footer1')
+        && $this->countModules('footer2')
+        && $this->countModules('footer3') )
+{
+    $classFooter_2 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-5";
+    $classFooter_3 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+}
+// Только footer3
+elseif ( ! $this->countModules('footer1')
+        && ! $this->countModules('footer2')
+        && $this->countModules('footer3') )
+{
+    $classFooter_3 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-9 col-md-offset-9 col-sm-offset-9 col-xs-offset-9";
+}
+else
+{
+    $classFooter_1
+    = $classFooter_2
+    = $classFooter_3
+    = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
+}
 ?>
 
 <!---------- HTML starts ------------>
@@ -305,26 +309,32 @@ $logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="'
     </main>
     <footer>
             <div class="row" id="footer">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                <div class="<?php echo $classFooter_1 ?>">
                    <jdoc:include type="modules" name="footer1" style="none"/>
+                   <!--
                    <h3>Контакты</h3>
                    <p>Сервис доставки продуктовых корзин EASY LIFE</p>
                    <p>8 (XXX) XXX XX XX <br> easylife@gmail.com</p>
+                   -->
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                <div class="<?php echo $classFooter_2 ?>">
                     <jdoc:include type="modules" name="footer2" style="none"/>
+                    <!--
                     <h3>Следите за нами</h3>
                     <p><a href="https://vk.com" target="_blank">Вконтакте</a><br>
                        <a href="https://instagram.com" target="_blank">Instagram</a><br>
                        <a href="https://facebook.com" target="_blank">Facebook</a><br>
                        <a href="https://ok.ru" target="_blank">Одноклассники</a>
                     </p>
+                    -->
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+                <div class="<?php echo $classFooter_3 ?>">
                     <jdoc:include type="modules" name="footer3" style="none"/>
+                    <!--
                     <h3>Информация</h3>
                     <p>© 2016 Все права защищены.<br>
                         Сервис доставки продуктовых корзин EASY LIFE</p>
+                    -->
                 </div>
             <!-- Button Hide Footer -->
                 <div id="button-up" data-toggle="tooltip" data-placement="top" title="Свернуть">
