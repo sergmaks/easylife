@@ -43,6 +43,7 @@ function chooseSize(){
   jQuery(document).ready(
       function(){
     //jQuery("#attention").remove(); // Delete JS warning
+    jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});
     jQuery('[data-toggle="tooltip"]').tooltip();
     setCarouselHeight();
       });

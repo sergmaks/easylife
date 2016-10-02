@@ -63,9 +63,10 @@ h1 {
     text-decoration: none;
 }
 
-a.main {
+a.main-nav {
     margin-right: 35px;
     color: #3e2423;
+    text-transform: uppercase;
     line-height: 1.7;
     -webkit-transition: all 0.25s;
     -moz-transition: all 0.25s;
@@ -73,7 +74,7 @@ a.main {
     transition: all 0.25s;
 }
 
-a.main:hover {
+a.main-nav:hover {
     color: #61b73c;
 }
 

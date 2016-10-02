@@ -223,7 +223,7 @@ else
 <!-- Main Content -->
     <main>
          <div class="row">
-            <!-- <jdoc:include type="component" style="none"/>
+            <!--<jdoc:include type="component" />
              <!-- Carousel -->
              <div id="carousel" class="carousel slide" data-interval="6000" data-ride="carousel" data-pause="none">
                  <!-- Indicators  -->

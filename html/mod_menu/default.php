@@ -18,7 +18,7 @@ if (($tagId = $params->get('tag_id', '')))
 
 // The menu class is deprecated. Use nav instead
 ?>
-<ul class="<?php echo $class_sfx; ?>"<?php echo $id; ?>>
+<ul>
 
 <?php
 
