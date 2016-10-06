@@ -20,7 +20,6 @@ $app             = JFactory::getApplication();
 $doc             = JFactory::getDocument();
 $user            = JFactory::getUser();
 $this->language  = $doc->language;
-$this->direction = $doc->direction;
 
 // Output as HTML5
 $doc->setHtml5(true);
@@ -28,12 +27,7 @@ $doc->setHtml5(true);
 // Получаем параметры настройки шаблона
 $params = $app->getTemplate(true)->params;
 
-// Detecting Active Variables
-$option   = $app->input->getCmd('option', '');
-$view     = $app->input->getCmd('view', '');
-$layout   = $app->input->getCmd('layout', '');
-$task     = $app->input->getCmd('task', '');
-$itemid   = $app->input->getCmd('Itemid', '');
+// Получаем имя сайта
 $sitename = $app->get('sitename');
 
 /*
