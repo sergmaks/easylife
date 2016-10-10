@@ -41,6 +41,9 @@ class CarouselViewCarousel extends JViewLegacy {
         // кнопка удаления из списка элементов-слайдов
         // (используется сабконтроллер slides)
         JToolbarHelper::deleteList('', 'slides.edit');
+
+        JToolbarHelper::custom('render', '', '', 'Поднять на позицию');
+        JToolbarHelper::custom('render', '', '', 'Опустить на позицию');
     }
 
     protected function setDocument(){

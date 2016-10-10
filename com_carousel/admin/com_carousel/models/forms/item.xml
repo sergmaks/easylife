@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <form>
+    <!-- Группа полей -->
+    <!-- Имена полей совпадают с полями таблицы #__carousel -->
+    <fieldset name="details" label="COM_CAROUSEL_DETAILS">
+        <field name="id" type="hidden" />
+        <field name="intro"
+               type="text"
+               label="COM_CAROUSEL_INTRO_LABEL"
+               description="COM_CAROUSEL_INTRO_DESC"
+               size="256"
+               class="inputbox"
+               required="true"
+               default="" />
+        <field name="caption"
+               type="text"
+               label="COM_CAROUSEL_CAPTION_LABEL"
+               description="COM_CAROUSEL_CAPTION_DESC"
+               size="256"
+               class="inputbox"
+               required="true"
+               default="" />
+        <field name="image"
+               type="media"
+               label="COM_CAROUSEL_IMAGE_LABEL"
+               description="COM_CAROUSEL_IMAGE_DESC"
+               default="" />
+        <field name="icon"
+               type="text"
+               label="COM_CAROUSEL_ICON_LABEL"
+               description="COM_CAROUSEL_ICON_DESC"
+               size="25"
+               class="inputbox"
+               required="true"
+               default="" />
+    </fieldset>
+ </form>
