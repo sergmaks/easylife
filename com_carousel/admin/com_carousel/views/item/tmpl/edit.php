@@ -11,7 +11,7 @@ JHtml::_('behavior.formvalidation');
 <!-- Создаем форму редактирования элемента Карусели -->
 <!-- Атрибут id="adminForm" нужен для работы кнопок панели управления компонентом
 выборка идет по данному идентификатору формы-->
-<form action="index.php?option=com_carousel&layout=edit&id=" method="POST" id="adminForm" name="adminForm" class="form-validate">
+<form action="index.php?option=com_carousel&layout=edit&id="<?php echo $this->item->id ?> method="POST" id="adminForm" name="adminForm" class="form-validate">
     <div class="form-horizontal">
         <?php foreach( $this->form->getFieldsets() as $name => $fieldset ): ?>
             <fieldset class="adminform">

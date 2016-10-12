@@ -36,8 +36,35 @@ class CarouselModelItem extends JModelAdmin {
         return $form;
     }
 
+    /*
+     * указание модели, с какой таблицей она работает
+     * @param $type - имя таблицы без префикса
+     * @param $prefix - префикс талицы
+     * @param $config - массив параметров (по умолчанию пуст)
+     * @return - объект-одиночка CarouselTableItem
+    */
+    public function getTable($type = 'Item', $prefix = 'CarouselTable', $config = array()) {
+
+        return JTable::getInstance($type, $prefix, $config);
+    }
+
+    protected function loadFormData () {
+
+        $data = $this->getItem($pk = NULL);
+        return $data;
+    }
+
+    /*
+     * получение данных из БД
+     * @param $pk - первичный ключ
+     * @return - объект записи JObject
+     */
     public function getItem($pk = NULL) {
-        return true;
+        if ( $item = parent::getItem($pk) ) {
+            return $item;
+        }
+
+        return false;
     }
 
 }
