@@ -18,5 +18,6 @@ defined('_JEXEC') or die;
 
 class CarouselControllerItem extends JControllerForm {
 
-    protected $view_list = 'carousel';
+    // вид, куда будет осуществленно перенаправление после сохранения элемента в базу данных
+    protected $view_list = 'slides';
 }

@@ -4,7 +4,7 @@ var footerShowed = false;
 // Select right size of background images in slider
 function chooseSize(){
     var folder; // folder for choosing images
-    var slidesCount = jQuery('.back').size(); // number of carousel slides
+    var slidesCount = jQuery('.back').size(); // number of slides slides
       
     if ( jQuery(window).width() < 1200 )
   folder = 'middle';
@@ -16,7 +16,7 @@ function chooseSize(){
  //alert(folder);
   }
   
-  // Set the carousel height to the user screen height without header
+  // Set the slides height to the user screen height without header
   function setCarouselHeight(){
       jQuery('.back').css({
     height: (jQuery(document).height() - 
@@ -39,7 +39,7 @@ function chooseSize(){
       footerShowed = false;
   }
   
-  // Enable Bootstrap tooltips and Set initial carousel height
+  // Enable Bootstrap tooltips and Set initial slides height
   jQuery(document).ready(
       function(){
     //jQuery("#attention").remove(); // Delete JS warning
@@ -50,7 +50,7 @@ function chooseSize(){
   
   
   // Window events: 
-  // Set carousel height when the window is resized
+  // Set slides height when the window is resized
 
   jQuery(window).resize(
       function(){

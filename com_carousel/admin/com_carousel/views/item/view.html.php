@@ -19,10 +19,11 @@ class CarouselViewItem extends JViewLegacy {
 
     // переопределяем метод display
     public function display($tpl = null) {
-        // обращение к методу модели 'getForm'
+        // обращение к методу модели 'getForm()'
+        // Метод "get()" класса JViewLegacy используется для непосредственного взаимодействия с моделью
         $this->form = $this->get('Form');
 
-        // обращение к методу модели 'getItem'
+        // обращение к методу модели 'getItem()'
         $this->item = $this->get('Item');
 
         // добавляем панель управления

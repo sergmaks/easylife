@@ -11,5 +11,5 @@ defined('_JEXEC') or die;
 class CarouselController extends JControllerLegacy {
 
     // переопределяем вид по умолчанию
-    protected $default_view = 'carousel';
+    protected $default_view = 'slides';
 }

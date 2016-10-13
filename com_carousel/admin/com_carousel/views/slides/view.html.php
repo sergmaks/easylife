@@ -10,12 +10,19 @@ defined('_JEXEC') or die;
  * в имени класса:
  * - Carousel - имя компонента
  * - View - класс вида
- * - Carousel - имя вида
+ * - Slides - имя вида
  */
-class CarouselViewCarousel extends JViewLegacy {
+class CarouselViewSlides extends JViewLegacy {
+
+    protected $items; // список слайдов
+    protected $pagination; // объект постраничной навигации
 
     // переопределяем метод display
     public function display($tpl = null) {
+
+        $this->items = $this->get('Items'); // напрямую вызываем метод модели getItems()
+        $this->pagination = $this->get('Pagination'); // getPagination()
+
         // добавляем панель управления
         $this->addToolbar();
 

@@ -20,8 +20,14 @@ class CarouselModelItem extends JModelAdmin {
      * @param $loadData - указание на то, что в форму нужно будет загружать некоторые данные
      * @return объект JForm
      */
-    public function getForm( $data = array(),$loadData = true) {
-        // получаем объект JForm из родительского метода
+    public function getForm( $data = array(), $loadData = true ) {
+        // получаем объект формы JForm из файла "item.xml"
+        /*
+         * метод loadForm() определен в родительском классе JModelAdmin
+         * 'com_carousel.item' - имя формы
+         * 'item' - имя манифеста xml
+         * array(...) - массив опций
+        */
         $form = $this->loadForm( 'com_carousel.item',
                                  'item',
                                  array (
@@ -48,23 +54,26 @@ class CarouselModelItem extends JModelAdmin {
         return JTable::getInstance($type, $prefix, $config);
     }
 
+    /*
+     * получение данных из БД
+     * @param $pk - первичный ключ
+     * @return - объект записи JObject
+    */
+    public function getItem($pk = NULL) {
+        if ( $item = parent::getItem() ) {
+            return $item;
+        }
+
+        return false;
+    }
+
+    //
     protected function loadFormData () {
 
         $data = $this->getItem($pk = NULL);
         return $data;
     }
 
-    /*
-     * получение данных из БД
-     * @param $pk - первичный ключ
-     * @return - объект записи JObject
-     */
-    public function getItem($pk = NULL) {
-        if ( $item = parent::getItem($pk) ) {
-            return $item;
-        }
 
-        return false;
-    }
 
 }

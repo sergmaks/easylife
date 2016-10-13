@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  com_carousel
  *
- * Класс таблицы Item
+ * Класс таблицы Item, котрую использует модель Item
  * в имени класса:
  * - Carousel - имя компонента
  * - Table - указание на класс модели
