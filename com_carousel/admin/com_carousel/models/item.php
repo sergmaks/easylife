@@ -70,7 +70,7 @@ class CarouselModelItem extends JModelAdmin {
     //
     protected function loadFormData () {
 
-        $data = $this->getItem($pk = NULL);
+        $data = $this->getItem();
         return $data;
     }
 

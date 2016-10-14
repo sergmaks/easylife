@@ -23,23 +23,30 @@ defined('_JEXEC') or die;
         </tr>
         </thead>
         <tbody>
+            <!-- Если не полученный из базы список не пуст -->
             <?php if ( ! empty ($this->items) ) :?>
+                <!-- Для каждого элемента списка -->
                 <?php foreach ($this->items as $item_num => $item) : ?>
+                    <!-- Формируем ссылку на текущий элемент списка -->
                     <?php $link = 'index.php?option=com_carousel&task=item.edit&id=' . $item->id; ?>
 
                     <tr>
                         <td>
+                            <!-- Выводим порядковый номер элемента -->
                             <?php echo $this->pagination->getRowOffset($item_num) ?>
                         </td>
                         <td>
+                            <!-- Выводим чекбокс для элемента -->
                             <?php echo JHtml::_('grid.id', $item_num, $item->id); ?>
                         </td>
                         <td>
+                            <!-- Выводим интро ссылкой -->
                             <a href="<?php echo $link; ?>">
                                 <?php echo $item->intro; ?>
                             </a>
                         </td>
                         <td>
+                            <!-- Выводим заголовок слайда ссылкой на текущий элемент-->
                             <a href="<?php echo $link; ?>">
                                 <?php echo $item->caption; ?>
                             </a>
@@ -65,5 +72,7 @@ defined('_JEXEC') or die;
         </tfoot>
     </table>
     <input type="hidden" name="task" value=""/>
+    <!-- Скрытый параметр для передачи выбранного в чекбокса элемента -->
+    <input type="hidden" name="boxchecked" value="0"/>
     <?php echo JHtml::_('form.token'); ?>
 </form>
