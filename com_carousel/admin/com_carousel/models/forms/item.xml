@@ -3,7 +3,7 @@
     <!-- Группа полей -->
     <!-- Имена полей совпадают с полями таблицы #__carousel -->
     <fieldset name="details" label="COM_CAROUSEL_DETAILS">
-        <field name="id" type="hidden" />
+        <field name="id" type="hidden" default="0"/>
         <field name="intro"
                type="text"
                label="COM_CAROUSEL_INTRO_LABEL"

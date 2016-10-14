@@ -42,6 +42,8 @@ JHtml::_('behavior.formvalidation');
 
     <!-- Скрытое поле для передачи задачи -->
     <input type="hidden" name="task" value=""/>
+    <!-- Скрытое поле для передачи текущего id -->
+    <input type="hidden" name="id" value="<?php echo $this->item->id; ?>"/>
     <!-- Safety -->
     <?php echo JHtml::_('form.token'); ?>
 </form>
