@@ -28,8 +28,8 @@ class CarouselModelSlides extends JModelList {
         $db    = JFactory::getDBO(); // получаем объект базы данных
         $query = $db->getQuery(true); // создаем новый пустой запрос
 
-        // SELECT 'id','intro','caption','image','icon'
-        $query->select('id, intro, caption, image, icon');
+        // SELECT all
+        $query->select('*');
 
         // FROM #__carousel
         $query->from('#__carousel');

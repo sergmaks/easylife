@@ -7,6 +7,9 @@
  *
  * Данный класс наследуется от класса JControllerForm (используется работа с формами),
  * который в свою очередь наследуется от JControllerLegacy
+ * But no form was presented to user in this request, 
+ * it just stores item (the ID of the article) in user's session variable 
+ * and redirects to master controller
  *
  * в имени класса:
  * - Carousel - имя компонента

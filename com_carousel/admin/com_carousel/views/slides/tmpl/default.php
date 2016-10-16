@@ -4,11 +4,13 @@
 */
 
 defined('_JEXEC') or die;
+
+JHtml::_('formbehavior.chosen', 'select');
 ?>
 <!-- Создаем форму вывода элементов каусели -->
 <!-- Атрибут id="adminForm" нужен для работы кнопок панели управления компонентом
 выборка идет по данному идентификатору формы-->
-<form action="index.php?option=com_carousel&view=carousel" method="POST" id="adminForm" name="adminForm">
+<form action="index.php?option=com_carousel&view=slides" method="POST" id="adminForm" name="adminForm">
 
     <table class="table table-striped table-hover">
         <thead>
@@ -23,7 +25,7 @@ defined('_JEXEC') or die;
         </tr>
         </thead>
         <tbody>
-            <!-- Если не полученный из базы список не пуст -->
+            <!-- Если полученный из модели список не пуст -->
             <?php if ( ! empty ($this->items) ) :?>
                 <!-- Для каждого элемента списка -->
                 <?php foreach ($this->items as $item_num => $item) : ?>
@@ -66,9 +68,12 @@ defined('_JEXEC') or die;
             <?php endif; ?>
         </tbody>
         <tfoot>
-        <tr>
-            <td colspan="6"></td>
-        </tr>
+            <tr>
+                <td colspan="6">
+                    <!-- Выводим постраничную навигацию -->
+                    <?php echo $this->pagination->getListFooter(); ?>
+                </td>
+            </tr>
         </tfoot>
     </table>
     <input type="hidden" name="task" value=""/>

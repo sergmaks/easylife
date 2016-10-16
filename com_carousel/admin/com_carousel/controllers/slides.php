@@ -18,7 +18,7 @@ defined('_JEXEC') or die;
 
 class CarouselControllerSlides extends JControllerAdmin {
     
-    public function getModel($name = 'Item', $prefix = 'CarouselModel', $config = array()) {
+    public function getModel($name = 'Item', $prefix = 'CarouselModel', $config = array('ignore_request' => true)) {
         
         return parent::getModel($name, $prefix, $config);
     }
