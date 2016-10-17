@@ -10,7 +10,6 @@
                description="COM_CAROUSEL_INTRO_DESC"
                size="256"
                class="inputbox"
-               required="true"
                default="" />
         <field name="caption"
                type="text"
@@ -31,7 +30,6 @@
                description="COM_CAROUSEL_ICON_DESC"
                size="25"
                class="inputbox"
-               required="true"
                default="" />
     </fieldset>
  </form>

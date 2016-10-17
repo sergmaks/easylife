@@ -56,7 +56,7 @@ class CarouselModelItem extends JModelAdmin {
 
     /*
      * получение данных из БД
-     * @param $pk - первичный ключ
+     * @param $pk - первичный ключ. по умолчанию NULL
      * @return - объект записи JObject
     */
     public function getItem($pk = NULL) {
@@ -69,8 +69,15 @@ class CarouselModelItem extends JModelAdmin {
 
     //
     protected function loadFormData () {
-
-        $data = $this->getItem();
+         // Проверка сессии на наличие ранее введеных в форму данных.
+        $data = JFactory::getApplication()->getUserState($this->option . '.edit.item.data', array());
+        
+        var_dump($data);
+        if (empty($data)) 
+        { 
+            $data = $this->getItem();
+        }
+        
         return $data;
     }
 

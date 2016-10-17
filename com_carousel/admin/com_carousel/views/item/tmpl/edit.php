@@ -5,7 +5,6 @@
 
 defined('_JEXEC') or die;
 
-JHtml::_('formbehavior.chosen', 'select');
 JHtml::_('behavior.formvalidator');
 ?>
 <!-- Создаем форму редактирования элемента Карусели -->

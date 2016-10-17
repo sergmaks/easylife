@@ -76,6 +76,8 @@ JHtml::_('formbehavior.chosen', 'select');
             </tr>
         </tfoot>
     </table>
+    <!-- Через скрытое поле task мы передаем задачу, которая подставляется исходя из того, 
+         какую кнопку в панели инструментов мы нажали.-->
     <input type="hidden" name="task" value=""/>
     <!-- Скрытый параметр для передачи выбранного в чекбокса элемента -->
     <input type="hidden" name="boxchecked" value="0"/>
