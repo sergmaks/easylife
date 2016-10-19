@@ -18,10 +18,11 @@ JHtml::_('formbehavior.chosen', 'select');
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_NUM') ?></th>
             <!-- поле Выделить все -->
             <th width="2%" ><?php echo JHtml::_('grid.checkall'); ?></th>
-            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_INTRO'); ?></th>
+            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_STATE'); ?></th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_CAPTION'); ?></th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_IMAGE'); ?></th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_ICON'); ?></th>
+            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_DATE'); ?></th>
         </tr>
         </thead>
         <tbody>
@@ -42,9 +43,17 @@ JHtml::_('formbehavior.chosen', 'select');
                             <?php echo JHtml::_('grid.id', $item_num, $item->id); ?>
                         </td>
                         <td>
-                            <!-- Выводим интро ссылкой -->
+                            <!-- Выводим элемент состояния публикации -->
                             <a href="<?php echo $link; ?>">
-                                <?php echo $item->intro; ?>
+                                <?php
+                                    /*
+                                     *  Вывод кнопки состояния публикации
+                                     *  $item_num - ключ массива записей
+                                     *  'slides.' - сабконтроллер, который будет выполнять задачу публикации/ снятия с публикации
+                                     *  true - кнопка доступна для использования
+                                     */
+                                    echo JHtml::_('jgrid.published', $item->published, $item_num, 'slides.', true); 
+                                ?>
                             </a>
                         </td>
                         <td>
@@ -62,6 +71,9 @@ JHtml::_('formbehavior.chosen', 'select');
                             <a href="<?php echo $link; ?>">
                                 <?php echo $item->icon; ?>
                             </a>
+                        </td>
+                        <td>
+                            <?php echo $item->date; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>
