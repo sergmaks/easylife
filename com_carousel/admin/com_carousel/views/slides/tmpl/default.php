@@ -12,9 +12,12 @@ JHtml::_('formbehavior.chosen', 'select');
 выборка идет по данному идентификатору формы-->
 <form action="index.php?option=com_carousel&view=slides" method="POST" id="adminForm" name="adminForm">
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="itemList">
         <thead>
         <tr>
+            <th width="1%" class="nowrap center hidden-phone">
+                <?php echo JHtml::_('searchtools.sort', '', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
+            </th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_NUM') ?></th>
             <!-- поле Выделить все -->
             <th width="2%" ><?php echo JHtml::_('grid.checkall'); ?></th>
@@ -34,6 +37,22 @@ JHtml::_('formbehavior.chosen', 'select');
                     <?php $link = 'index.php?option=com_carousel&task=item.edit&id=' . $item->id; ?>
 
                     <tr>
+                        <td class="order nowrap center hidden-phone">
+                            <?php
+                               $iconClass = '';
+                               if ( ! $saveOrder) {
+                                    $iconClass = ' inactive tip-top hasTooltip" title="' 
+                                                 . JHtml::tooltipText('JORDERINGDISABLED');
+                                }
+                            ?>
+                            <span class="sortable-handler <?php echo $iconClass ?>">
+                                <span class="icon-menu"></span>
+                            </span>
+                            <?php if ($saveOrder) : ?>
+                                <input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->ordering; ?>" class="width-20 text-area-order " />
+                            <?php endif; ?>
+                        </td>
+                        
                         <td>
                             <!-- Выводим порядковый номер элемента -->
                             <?php echo $this->pagination->getRowOffset($item_num) ?>
@@ -44,7 +63,6 @@ JHtml::_('formbehavior.chosen', 'select');
                         </td>
                         <td>
                             <!-- Выводим элемент состояния публикации -->
-                            <a href="<?php echo $link; ?>">
                                 <?php
                                     /*
                                      *  Вывод кнопки состояния публикации
@@ -54,7 +72,6 @@ JHtml::_('formbehavior.chosen', 'select');
                                      */
                                     echo JHtml::_('jgrid.published', $item->published, $item_num, 'slides.', true); 
                                 ?>
-                            </a>
                         </td>
                         <td>
                             <!-- Выводим заголовок слайда ссылкой на текущий элемент-->
@@ -93,5 +110,7 @@ JHtml::_('formbehavior.chosen', 'select');
     <input type="hidden" name="task" value=""/>
     <!-- Скрытый параметр для передачи выбранного в чекбокса элемента -->
     <input type="hidden" name="boxchecked" value="0"/>
+    <input type="hidden" name="filter_order" value="<?php echo $this->escape($this->state->get('list.ordering')); ?>" />
+    <input type="hidden" name="filter_order_Dir" value="<?php echo $this->escape($this->state->get('list.direction')); ?>" />   
     <?php echo JHtml::_('form.token'); ?>
 </form>

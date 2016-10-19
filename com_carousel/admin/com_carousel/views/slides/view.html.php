@@ -1,6 +1,6 @@
 <?php
 /*
- * Главный файл вида
+ * Класс общего вида списка слайдов 
 */
 
 defined('_JEXEC') or die;
@@ -16,12 +16,14 @@ class CarouselViewSlides extends JViewLegacy {
 
     protected $items; // список слайдов
     protected $pagination; // объект постраничной навигации
+    protected $state; // состояние модели
 
     // переопределяем метод display
     public function display($tpl = null) {
 
         $this->items = $this->get('Items'); // напрямую вызываем метод модели getItems()
         $this->pagination = $this->get('Pagination'); // getPagination()
+        $this->state = $this->get('State'); // Получаем объект состояния модели
 
         // добавляем панель управления
         $this->addToolbar();
@@ -48,9 +50,6 @@ class CarouselViewSlides extends JViewLegacy {
         // кнопка удаления из списка элементов-слайдов
         // (используется сабконтроллер slides)
         JToolbarHelper::deleteList('', 'slides.delete');
-
-        JToolbarHelper::custom('render', '', '', 'Поднять на позицию');
-        JToolbarHelper::custom('render', '', '', 'Опустить на позицию');
     }
 
     protected function setDocument(){
