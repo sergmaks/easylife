@@ -15,7 +15,7 @@ print_r($listOrder);
 
 if ($saveOrder)
 {
-    $saveOrderingUrl = 'index.php?option=com_carousel&task=slides.saveOrderAjax&tmpl=component';
+    $saveOrderingUrl = 'index.php?option=com_carousel&task=slides.saveOrderAjax';
     JHtml::_('sortablelist.sortable', 'itemList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 ?>
@@ -65,7 +65,7 @@ if ($saveOrder)
                                 <span class="icon-menu"></span>
                             </span>
                             <?php if ($saveOrder) : ?>
-                                 <input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->ordering; ?>" class="width-20 text-area-order " />
+                                 <input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->id; ?>" class="width-20 text-area-order " />
                              <?php endif; ?>
                         </td>
                         <td>

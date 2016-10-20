@@ -22,7 +22,7 @@ class CarouselModelSlides extends JModelList {
      *
      * @param   array  $config  Массив с конфигурационными параметрами.
      */
-    
+    /*
     public function __construct($config = array())
     {
         // Добавляем валидные поля для фильтров и сортировки.
@@ -30,7 +30,7 @@ class CarouselModelSlides extends JModelList {
         {
             $config['filter_fields'] = array(
                 'id', 'id',
-                'ordering', 'ordering',
+                'ordering', 'ordering'
             );
         }
  
@@ -57,8 +57,8 @@ class CarouselModelSlides extends JModelList {
         // Добавляем сортировку.
         // Мы обращаемся к состоянию модели, 
         // получаем параметры сортировки и применяем их в запросе.
-        $orderCol  = $this->state->get('list.ordering');
-        $orderDirn = $this->state->get('list.direction');
+        //$orderCol  = $this->state->get('list.ordering');
+        //$orderDirn = $this->state->get('list.direction');
         //$query->order($db->escape($orderCol . ' ' . $orderDirn));
 
         return $query;
@@ -69,7 +69,7 @@ class CarouselModelSlides extends JModelList {
      * В нем мы просто вызываем родительский метод с параметрами сортировки по умолчанию. 
      * Таким образом состояние модели будет заполнено двумя значениями:
             list.ordering - поле, по которому будет выполнена сортировка. В нашем случае это поле id;
-            list.direction - направление сортировки. У нас это направление desc.
+            list.direction - направление сортировки. У нас это направление asc.
      *
      * @param   string  $ordering   Поле сортировки.
      * @param   string  $direction  Направление сортировки (asc|desc).
