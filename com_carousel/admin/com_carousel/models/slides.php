@@ -22,6 +22,7 @@ class CarouselModelSlides extends JModelList {
      *
      * @param   array  $config  Массив с конфигурационными параметрами.
      */
+    
     public function __construct($config = array())
     {
         // Добавляем валидные поля для фильтров и сортировки.
@@ -56,19 +57,9 @@ class CarouselModelSlides extends JModelList {
         // Добавляем сортировку.
         // Мы обращаемся к состоянию модели, 
         // получаем параметры сортировки и применяем их в запросе.
-        $listOrder  = $this->state->get('list.ordering');
-        $listDirn = $this->state->get('list.direction');
+        $orderCol  = $this->state->get('list.ordering');
+        $orderDirn = $this->state->get('list.direction');
         //$query->order($db->escape($orderCol . ' ' . $orderDirn));
-        
-        // Check if the table is ordered by column ordering
-        $saveOrder = $listOrder == 'a.ordering';
-        
-        // Make your table rows sortable by drag and drop if $saveOrder is true. 
-        if ($saveOrder)
-        {
-            $saveOrderingUrl = 'index.php?option=com_carousel&task=slides.saveOrderAjax&tmpl=component';
-            JHtml::_('sortablelist.sortable', 'itemList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
-        }
 
         return $query;
     }
@@ -85,9 +76,9 @@ class CarouselModelSlides extends JModelList {
      *
      * @return  void
      */
+
     protected function populateState($ordering = null, $direction = null)
     {
-        parent::populateState('id', 'desc');
+        parent::populateState('id', 'asc');
     }
-    
 }
