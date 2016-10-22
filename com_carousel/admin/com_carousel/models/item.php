@@ -72,7 +72,6 @@ class CarouselModelItem extends JModelAdmin {
          // Проверка сессии на наличие ранее введеных в форму данных.
         $data = JFactory::getApplication()->getUserState($this->option . '.edit.item.data', array());
         
-        var_dump($data);
         if (empty($data)) 
         { 
             $data = $this->getItem();

@@ -8,14 +8,15 @@ defined('_JEXEC') or die;
 JHtml::_('formbehavior.chosen', 'select');
 
 // Данные по сортировке.
-$listDirn    = $this->escape($this->state->get('list.direction'));
-$listOrder    = $this->escape($this->state->get('list.ordering'));
-$saveOrder    = $listOrder == 'id';
-print_r($listOrder);
+$listDirn    = $this->escape($this->state->get('list.direction')); // направление сортировки
+$listOrder    = $this->escape($this->state->get('list.ordering')); // поле сортировки
+$saveOrder    = $listOrder == 'ordering';
 
+// Если установлено поле сортировки, то добавляем возможность Drag & Drop
 if ($saveOrder)
 {
-    $saveOrderingUrl = 'index.php?option=com_carousel&task=slides.saveOrderAjax';
+    $saveOrderingUrl = 'index.php?option=com_carousel&task=slides.saveOrderAjax&tmpl=component';
+    // Drag & Drop
     JHtml::_('sortablelist.sortable', 'itemList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 ?>
@@ -27,9 +28,10 @@ if ($saveOrder)
     <table class="table table-striped table-hover" id="itemList">
         <thead>
         <tr>
-            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_NUM') ?></th>
+            <!--<th width="1%" ><?php echo JText::_('COM_CAROUSEL_NUM') ?></th> -->
+            <!-- Заголовок поля сортировки -->
              <th width="1%" class="nowrap center hidden-phone">
-                <?php echo JHtml::_('searchtools.sort', '', 'id', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
+                <?php echo JHtml::_('searchtools.sort', '', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
              </th>
             <!-- поле Выделить все -->
             <th width="2%" ><?php echo JHtml::_('grid.checkall'); ?></th>
@@ -48,11 +50,11 @@ if ($saveOrder)
                     <!-- Формируем ссылку на текущий элемент списка -->
                     <?php $link = 'index.php?option=com_carousel&task=item.edit&id=' . $item->id; ?>
 
-                    <tr>                        
+                    <tr>
+                        <!-- Выводим порядковый номер элемента 
                         <td>
-                            <!-- Выводим порядковый номер элемента -->
                             <?php echo $this->pagination->getRowOffset($item_num) ?>
-                        </td>
+                        </td>-->
                         <!-- Поле сортировки -->
                         <td class="order nowrap center hidden-phone">
                             <?php
@@ -65,7 +67,7 @@ if ($saveOrder)
                                 <span class="icon-menu"></span>
                             </span>
                             <?php if ($saveOrder) : ?>
-                                 <input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->id; ?>" class="width-20 text-area-order " />
+                                 <input type="text" style="display:none" name="order[]" size="5" value="<?php echo $item->ordering; ?>" class="width-20 text-area-order " />
                              <?php endif; ?>
                         </td>
                         <td>

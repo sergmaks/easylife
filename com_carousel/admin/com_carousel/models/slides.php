@@ -22,7 +22,6 @@ class CarouselModelSlides extends JModelList {
      *
      * @param   array  $config  Массив с конфигурационными параметрами.
      */
-    /*
     public function __construct($config = array())
     {
         // Добавляем валидные поля для фильтров и сортировки.
@@ -30,7 +29,7 @@ class CarouselModelSlides extends JModelList {
         {
             $config['filter_fields'] = array(
                 'id', 'id',
-                'ordering', 'ordering'
+                'ordering', 'ordering',
             );
         }
  
@@ -57,9 +56,9 @@ class CarouselModelSlides extends JModelList {
         // Добавляем сортировку.
         // Мы обращаемся к состоянию модели, 
         // получаем параметры сортировки и применяем их в запросе.
-        //$orderCol  = $this->state->get('list.ordering');
-        //$orderDirn = $this->state->get('list.direction');
-        //$query->order($db->escape($orderCol . ' ' . $orderDirn));
+        $orderCol  = $this->state->get('list.ordering', 'id');
+        $orderDirn = $this->state->get('list.direction', 'ordering');
+        $query->order($db->escape($orderCol . ' ' . $orderDirn));
 
         return $query;
     }
@@ -77,8 +76,8 @@ class CarouselModelSlides extends JModelList {
      * @return  void
      */
 
-    protected function populateState($ordering = null, $direction = null)
+    protected function populateState($ordering = 'ordering', $direction = 'asc')
     {
-        parent::populateState('id', 'asc');
+        parent::populateState($ordering, $direction);
     }
 }
