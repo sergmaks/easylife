@@ -94,7 +94,16 @@ if ($saveOrder)
                         </td>
                         <td>
                             <a href="<?php echo $link; ?>">
-                                <?php echo $item->image; ?>
+                                <?php
+                                    JHtml::_('image', JPATH_COMPONENT_ADMINISTRATOR 
+                                                    . DIRECTORY_SEPARATOR 
+                                                    . 'images'                                 
+                                                    . DIRECTORY_SEPARATOR
+                                                    . 'thumbnails'
+                                                    . DIRECTORY_SEPARATOR
+                                                    . '3.jpeg'
+                                            , 'thumbnail');
+                                ?>
                             </a>
                         </td>
                         <td>

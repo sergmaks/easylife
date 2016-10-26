@@ -77,7 +77,7 @@ class CarouselModelSlides extends JModelList {
      */
 
     protected function populateState($ordering = 'ordering', $direction = 'asc')
-    {
+    { 
         parent::populateState($ordering, $direction);
     }
 }
