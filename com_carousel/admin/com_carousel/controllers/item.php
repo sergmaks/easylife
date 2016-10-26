@@ -81,8 +81,8 @@ class CarouselControllerItem extends JControllerForm {
                 $imageWidth = $jimage->getWidth();
                 
                 // Создание миниатюры
-                if ( $imageWidth > 200 ) {
-                    $thumbnail = $jimage->resize( 200, 150, true, JImage::SCALE_INSIDE);
+                if ( $imageWidth > 150 ) {
+                    $thumbnail = $jimage->resize( 150, 100, true, JImage::SCALE_INSIDE);
                     $destFile  = $thumbnailsDir . JFile::getName($nativeImage); // Полное имя сохраняемого файла
                     
                     if ( ! JFile::exists($destFile) ) {

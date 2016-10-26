@@ -94,15 +94,13 @@ if ($saveOrder)
                         </td>
                         <td>
                             <a href="<?php echo $link; ?>">
-                                <?php
-                                    JHtml::_('image', JPATH_COMPONENT_ADMINISTRATOR 
-                                                    . DIRECTORY_SEPARATOR 
-                                                    . 'images'                                 
-                                                    . DIRECTORY_SEPARATOR
-                                                    . 'thumbnails'
-                                                    . DIRECTORY_SEPARATOR
-                                                    . '3.jpeg'
-                                            , 'thumbnail');
+                                <?php //echo $item->image;                              
+                                   echo JHtml::_('image', 'administrator' . DIRECTORY_SEPARATOR
+                                                 . 'components' . DIRECTORY_SEPARATOR
+                                                 . 'com_carousel' . DIRECTORY_SEPARATOR
+                                                 . 'images' . DIRECTORY_SEPARATOR 
+                                                 . 'thumbnails' . DIRECTORY_SEPARATOR 
+                                                 . JFile::getName($item->image) ,'thumbnail');
                                 ?>
                             </a>
                         </td>
