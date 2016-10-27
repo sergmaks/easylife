@@ -8,20 +8,7 @@
 
 defined('_JEXEC') or die;
 
-//------ Блок констант компонента ------
-
-// Определение общей дирректории хранения изображений компонента
-// administrator/components/com_carousel/images/
-define('IMAGES_DIR', JPath::clean( JPATH_COMPONENT_ADMINISTRATOR 
-                                   . DIRECTORY_SEPARATOR 
-                                   . 'images'                                 
-                                   . DIRECTORY_SEPARATOR ));
-define('THUMBNAILS_DIR', IMAGES_DIR . 'thumbnails' . DIRECTORY_SEPARATOR);// дирректория миниатюр
-
-define('THUMBNAIL_WIDTH', '150'); // ширина миниатюры
-define('THUMBNAIL_HEIGHT', '100'); // высота миниатюры
-
-//--------------------------------------
+require_once 'defines.php'; // Блок констант компонента
 
 // Проверить права доступа
 if ( ! JFactory::getUser()->authorise('core.manage', 'com_carousel') ) {

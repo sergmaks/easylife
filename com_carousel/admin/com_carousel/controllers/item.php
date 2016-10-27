@@ -38,10 +38,20 @@ class CarouselControllerItem extends JControllerForm {
         self::saveImages();
     }
     
+    /*
+     * создание дирректорий и сохранение копий исходнного изображения слайда
+     */
     protected function saveImages() {
         
         // проверяем, созданы ли подпапки для изображений
-        self::checkDirs( IMAGES_DIR , THUMBNAILS_DIR ); 
+        self::checkDirs( IMAGES_DIR 
+                        , THUMBNAILS_DIR 
+                        , XX_LARGE_DIR 
+                        , X_LARGE_DIR
+                        , LARGE_DIR
+                        , MIDDLE_DIR
+                        , SMALL_DIR
+                        , X_SMALL_DIR ); 
           
         // получаем форму из $_POST, а из нее имя файла выбранного изображения
         $input     = JFactory::getApplication()->input;
@@ -55,30 +65,80 @@ class CarouselControllerItem extends JControllerForm {
         // Формируем полный путь к файлу выбранного изображения
         $nativeImage =  JPATH_SITE . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $imageData);
         
-        if ( JFile::exists($nativeImage) ) {
+        if ( ! JFile::exists($nativeImage) ) {
+            return false;
+        }
+        
+        // массив с параметрами копий
+        $imageCopies = array (
+                                    array (
+                                        "width"  => THUMBNAIL_WIDTH,
+                                        "height" => THUMBNAIL_WIDTH,
+                                        "dir"    => THUMBNAILS_DIR
+                                    ),
+                                    array (
+                                        "width"  => X_SMALL_WIDTH,
+                                        "height" => X_SMALL_WIDTH,
+                                        "dir"    => X_SMALL_DIR
+                                    ),
+                                    array (
+                                        "width"  => SMALL_WIDTH,
+                                        "height" => SMALL_WIDTH,
+                                        "dir"    => SMALL_DIR
+                                    ),
+                                    array (
+                                        "width"  => MIDDLE_WIDTH,
+                                        "height" => MIDDLE_WIDTH,
+                                        "dir"    => MIDDLE_DIR
+                                    ),
+                                    array (
+                                        "width"  => LARGE_WIDTH,
+                                        "height" => LARGE_WIDTH,
+                                        "dir"    => LARGE_DIR
+                                    ),
+                                    array (
+                                        "width"  => X_LARGE_WIDTH,
+                                        "height" => X_LARGE_WIDTH,
+                                        "dir"    => X_LARGE_DIR
+                                    )
+        );
                 
-            $jimage = new JImage();
-            $jimage->loadFile( $nativeImage );
+        $jimage = new JImage();
+        $jimage->loadFile( $nativeImage );
                 
-            $imageProps = JImage::getImageFileProperties( $nativeImage );
-            $imageWidth = $jimage->getWidth();
-                
-            // Создание миниатюры
-            if ( $imageWidth > THUMBNAIL_WIDTH ) {
-                $thumbnail = $jimage->resize( THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, true, JImage::SCALE_INSIDE);
+        $imageProps = JImage::getImageFileProperties( $nativeImage );
+        $imageWidth = $jimage->getWidth();
+        
+        // нарезаем и сохраняем копии исходного изображения
+        foreach ( $imageCopies as $imageCopy ){
+            if ( $imageWidth > $imageCopy["width"] ) {
+                $jimageCopy = $jimage->resize( $imageCopy["width"], $imageCopy["height"], true, JImage::SCALE_INSIDE);
             }
-            $destFile  = THUMBNAILS_DIR . JFile::getName($nativeImage); // Полное имя сохраняемого файла
+            $destFile  = $imageCopy["dir"] . JFile::getName($nativeImage); // Полное имя сохраняемого файла
                    
             if ( ! JFile::exists($destFile) ) {
-                $thumbnail->toFile ( $destFile , $imageProps->type );
+                $jimageCopy->toFile ( $destFile , $imageProps->type );
             }
-                
+        }
+        
+        // если исходное изображение в довольно большом разрешении,
+        //  то копируем его c оригинальными параметрами в папку xx_large
+        if ( $imageWidth > 2500 ) {
+            if ( ! JFile::exists(  XX_LARGE_DIR . JFile::getName($nativeImage) ) ) {
+                JFile::copy ( $nativeImage , 
+                              XX_LARGE_DIR . JFile::getName($nativeImage) );
+            }
         }
     }
     
+    /*
+     * функция проверки сущестования и создания дирректорий
+     * 
+     * @param   array   $dirs список дирректорий для проверки 
+     */
     private function checkDirs(...$dirs) {
         
-        foreach ($dirs as $dir) {
+        foreach ( $dirs as $dir ) {
             // Создание дирректории, если она не существует
             if ( ! JFolder::exists( $dir ) ) {
                 
