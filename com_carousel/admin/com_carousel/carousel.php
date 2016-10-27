@@ -8,6 +8,12 @@
 
 defined('_JEXEC') or die;
 
+//------ Блок констант компонента ------
+
+define('THUMBNAIL_WIDTH', '150'); // ширина миниатюры
+define('THUMBNAIL_HEIGHT', '100'); // высота миниатюры
+
+//--------------------------------------
 // Проверить права доступа
 if ( ! JFactory::getUser()->authorise('core.manage', 'com_carousel') ) {
     return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
