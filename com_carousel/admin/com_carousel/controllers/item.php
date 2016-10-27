@@ -39,7 +39,10 @@ class CarouselControllerItem extends JControllerForm {
     }
     
     protected function saveImages() {
-    
+        
+        // проверяем, созданы ли подпапки для изображений
+        self::checkDirs( IMAGES_DIR , THUMBNAILS_DIR ); 
+          
         // получаем форму из $_POST, а из нее имя файла выбранного изображения
         $input     = JFactory::getApplication()->input;
         $post      = $input->get('jform', array(), 'array');
@@ -64,7 +67,7 @@ class CarouselControllerItem extends JControllerForm {
             if ( $imageWidth > THUMBNAIL_WIDTH ) {
                 $thumbnail = $jimage->resize( THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, true, JImage::SCALE_INSIDE);
             }
-            $destFile  = self::getDir('thumbnails') . JFile::getName($nativeImage); // Полное имя сохраняемого файла
+            $destFile  = THUMBNAILS_DIR . JFile::getName($nativeImage); // Полное имя сохраняемого файла
                    
             if ( ! JFile::exists($destFile) ) {
                 $thumbnail->toFile ( $destFile , $imageProps->type );
@@ -73,37 +76,17 @@ class CarouselControllerItem extends JControllerForm {
         }
     }
     
-    private function getDir ( $dir ) {
+    private function checkDirs(...$dirs) {
         
-        if( ! is_string($dir) ) {
-            return false;
-        }
-        
-        // Определение общей дирректории хранения изображений компонента
-        // administrator/components/com_carousel/images/
-        $imagesDir = JPath::clean( JPATH_COMPONENT_ADMINISTRATOR 
-                                   . DIRECTORY_SEPARATOR 
-                                   . 'images'                                 
-                                   . DIRECTORY_SEPARATOR );  
-        // Создание общей дирректории  хранения изображений компонента
-        if ( ! JFolder::exists($imagesDir) ) {
-            JFolder::create($imagesDir);
-            // копируем index.html в созданную дирректорию
-            JFile::copy( JPATH_SITE . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'index.html'
-                                                                                                        , $imagesDir . 'index.html');
-        } 
-
-        // Дирректория миниатюр
-        $thumbnailsDir = $imagesDir . 'thumbnails' . DIRECTORY_SEPARATOR;
-        // Создание дирректории миниатюр
-        if ( ! JFolder::exists( $thumbnailsDir) ) {
-            JFolder::create($thumbnailsDir);
-            JFile::copy( $imagesDir . 'index.html', $thumbnailsDir. 'index.html' );
-        }
-        
-        switch (strtolower($dir) ) {
-            case 'thumbnails': return $thumbnailsDir; 
-            default: return false; 
+        foreach ($dirs as $dir) {
+            // Создание дирректории, если она не существует
+            if ( ! JFolder::exists( $dir ) ) {
+                
+                JFolder::create( $dir );
+                // копируем index.html в созданную дирректорию
+                JFile::copy( JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'index.html'
+                                                                                              , $dir . 'index.html');
+            } 
         }
     }
 }
