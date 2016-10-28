@@ -73,32 +73,32 @@ class CarouselControllerItem extends JControllerForm {
         $imageCopies = array (
                                     array (
                                         "width"  => THUMBNAIL_WIDTH,
-                                        "height" => THUMBNAIL_WIDTH,
+                                        "height" => THUMBNAIL_HEIGHT,
                                         "dir"    => THUMBNAILS_DIR
                                     ),
                                     array (
                                         "width"  => X_SMALL_WIDTH,
-                                        "height" => X_SMALL_WIDTH,
+                                        "height" => X_SMALL_HEIGHT,
                                         "dir"    => X_SMALL_DIR
                                     ),
                                     array (
                                         "width"  => SMALL_WIDTH,
-                                        "height" => SMALL_WIDTH,
+                                        "height" => SMALL_HEIGHT,
                                         "dir"    => SMALL_DIR
                                     ),
                                     array (
                                         "width"  => MIDDLE_WIDTH,
-                                        "height" => MIDDLE_WIDTH,
+                                        "height" => MIDDLE_HEIGHT,
                                         "dir"    => MIDDLE_DIR
                                     ),
                                     array (
                                         "width"  => LARGE_WIDTH,
-                                        "height" => LARGE_WIDTH,
+                                        "height" => LARGE_HEIGHT,
                                         "dir"    => LARGE_DIR
                                     ),
                                     array (
                                         "width"  => X_LARGE_WIDTH,
-                                        "height" => X_LARGE_WIDTH,
+                                        "height" => X_LARGE_HEIGHT,
                                         "dir"    => X_LARGE_DIR
                                     )
         );
@@ -110,13 +110,17 @@ class CarouselControllerItem extends JControllerForm {
         $imageWidth = $jimage->getWidth();
         
         // нарезаем и сохраняем копии исходного изображения
-        foreach ( $imageCopies as $imageCopy ){
+        foreach ( $imageCopies as $imageCopy ) {
+            
             if ( $imageWidth > $imageCopy["width"] ) {
+                
                 $jimageCopy = $jimage->resize( $imageCopy["width"], $imageCopy["height"], true, JImage::SCALE_INSIDE);
             }
+            
             $destFile  = $imageCopy["dir"] . JFile::getName($nativeImage); // Полное имя сохраняемого файла
                    
             if ( ! JFile::exists($destFile) ) {
+               
                 $jimageCopy->toFile ( $destFile , $imageProps->type );
             }
         }
@@ -124,7 +128,9 @@ class CarouselControllerItem extends JControllerForm {
         // если исходное изображение в довольно большом разрешении,
         //  то копируем его c оригинальными параметрами в папку xx_large
         if ( $imageWidth > 2500 ) {
+            
             if ( ! JFile::exists(  XX_LARGE_DIR . JFile::getName($nativeImage) ) ) {
+                
                 JFile::copy ( $nativeImage , 
                               XX_LARGE_DIR . JFile::getName($nativeImage) );
             }
