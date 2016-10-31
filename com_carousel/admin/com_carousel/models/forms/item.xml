@@ -2,7 +2,7 @@
  <form>
     <!-- Группа полей -->
     <!-- Имена полей совпадают с полями таблицы #__carousel -->
-    <fieldset name="details" label="COM_CAROUSEL_DETAILS">
+    <fieldset name="details" label="COM_CAROUSEL_DETAILS" addfieldpath="/administrator/components/com_carousel/models/fields/modal">
         <field name="id" type="hidden" />
         <field name="published"
 		type="radio"
@@ -28,12 +28,9 @@
                description="COM_CAROUSEL_IMAGE_DESC"
                default="" />
         <field name="icon"
-               type="text"
+               type="icon"
                label="COM_CAROUSEL_ICON_LABEL"
-               description="COM_CAROUSEL_ICON_DESC"
-               size="25"
-               class="inputbox"
-               default="" />
+               description="COM_CAROUSEL_ICON_DESC" />
         <field name="date"
                type="calendar"
                label="COM_CAROUSEL_DATE_LABEL"
