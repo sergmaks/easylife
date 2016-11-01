@@ -13,28 +13,41 @@ class JFormFieldIcon extends JFormField {
     protected $type ='Icon';
     
     /**
-     * Создание поля
+     * Вывод поля в HTML
+     * 
      * @return string
      */
-    protected function getInput() {
+    public function getInput() {
         
         JHtml::_('bootstrap.tooltip');
-        JHtml::_('behavior.modal' , 'a.modal');
+        JHtml::_('behavior.modal' , 'a.modal'); // подключаем библиотеку для вызова модального окна
         
-        $script   = array();
-        $script[] = 'function jSelectIcon( iconName ) {';
-        $script[] = 'document.getElementById(\'icon_name\').value = iconName;';
-        $script[] = 'SqueezeBox.close();';
-        $script[] = '}';
+        // скрипт получения имени икноки и записи его в текстовое поле
+        $scriptModal = 'function jSelectIcon( iconName ) {
+                            document.getElementById(\'' . $this->id . '\').value = iconName;
+                            SqueezeBox.close();
+                        }';
+            
+        JFactory::getDocument()->addScriptDeclaration($scriptModal);
         
-        JFactory::getDocument()->addScriptDeclaration(implode("\n", $script));
-       
+
         $html = '<div class="input-append">
-                    <input type="text" id="icon_name"  disabled="disabled"/>
-                    <a class="modal" href="index.php?option=com_carousel&view=item&layout=modal&tmpl=component&function=jSelectIcon&' . JSession::getFormToken().'=1" 
-                        rel="{size:{x:600,y:500}, handler:\'iframe\'}">
-                        <input type="button" value=". . ." class="btn modal" title="Выбрать иконку" />
-                    </a>
+                    <input type="text" class="input-small" name="' . $this->name . '" id="' . $this->id . '" value="' . $this->value . '" readonly="readonly"/>
+                    
+                    <a class="modal btn hasTooltip" 
+                        href="index.php?option=com_carousel&view=item&layout=modal&tmpl=component&function=jSelectIcon&'
+                        . JSession::getFormToken().'=1" 
+                        rel="{size:{x:300,y:300}, handler:\'iframe\'}" title="'. JText::_('JSELECT') .'">'
+                                
+                            . JText::_('JSELECT') .
+                    '</a>
+                    
+                    <a class="btn hasTooltip" href="#" 
+                       title="'. JText::_('JCLEAR') 
+                        .'" onclick="document.getElementById(\''. $this->id . '\').value=\'\'">
+                        
+                            <i class="icon-remove"></i>
+                    </a>    
                 </div>'; 
        
         return $html;
