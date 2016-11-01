@@ -33,7 +33,7 @@ if ($saveOrder)
              <th width="1%" class="nowrap center hidden-phone">
                 <?php echo JHtml::_('searchtools.sort', '', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
              </th>
-            <!-- поле Выделить все -->
+            <!-- Заголовок поля Выделить все -->
             <th width="2%" ><?php echo JHtml::_('grid.checkall'); ?></th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_STATE'); ?></th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_CAPTION'); ?></th>
@@ -42,6 +42,7 @@ if ($saveOrder)
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_DATE'); ?></th>
         </tr>
         </thead>
+        
         <tbody>
             <!-- Если полученный из модели список не пуст -->
             <?php if ( ! empty ($this->items) ) :?>
@@ -92,22 +93,30 @@ if ($saveOrder)
                                 <?php echo $item->caption; ?>
                             </a>
                         </td>
-                        <td>
+                        <!-- Картика слайда -->
+                        <td> 
                             <a href="<?php echo $link; ?>">
-                                <?php //echo $item->image;                              
-                                   echo JHtml::_('image', 'administrator' . DIRECTORY_SEPARATOR
+                                <?php
+                                  if ( ! empty($item->image) )
+                                  {  
+                                    echo JHtml::_('image', 'administrator' . DIRECTORY_SEPARATOR
                                                  . 'components' . DIRECTORY_SEPARATOR
                                                  . 'com_carousel' . DIRECTORY_SEPARATOR
                                                  . 'images' . DIRECTORY_SEPARATOR 
                                                  . 'thumbnails' . DIRECTORY_SEPARATOR 
                                                  . JFile::getName($item->image) ,'thumbnail');
-                                ?>
+                                  }
+                                  ?>
                             </a>
                         </td>
-                        <td>
-                            <a href="<?php echo $link; ?>">
-                                <?php echo $item->icon; ?>
-                            </a>
+                        <!-- Иконка -->
+                        <td> 
+                            <?php if ( ! empty($item->icon) ) : ?>
+                                <span class="fa-stack icon" style="font-size: 200%">
+                                    <i class="fa fa-circle-o fa-stack-2x"></i>
+                                    <i class="fa <?php echo $item->icon; ?> fa-stack-1x"></i>
+                                </span>
+                            <?php endif; ?>
                         </td>
                         <td>
                             <?php echo $item->date; ?>
@@ -116,6 +125,7 @@ if ($saveOrder)
                 <?php endforeach; ?>
             <?php endif; ?>
         </tbody>
+        
         <tfoot>
             <tr>
                 <td colspan="8">

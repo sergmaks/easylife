@@ -5,9 +5,6 @@
 
 defined('_JEXEC') or die;
 
-// Подключаем Fontawesome
-JFactory::getDocument()->addScript("https://use.fontawesome.com/7f0000df30.js");
-
 // Получаем имя функции родительского окна, которую вызываем при клике на иконку
 $function = JRequest::getCmd('function',  'jSelectIcon');
 
@@ -26,11 +23,38 @@ $iconStyle = 'a.icon,
               }';
 JFactory::getDocument()->addStyleDeclaration($iconStyle);
 
-// Массив иконок
+// Массив иконок FontAwesome
 $icons = array (
             'fa-question',
+            'fa-exclamation',
             'fa-phone',
-            'fa-thumbs-o-up'
+            'fa-thumbs-o-up',
+            'fa-hand-o-right',
+            'fa-cutlery',
+            'fa-coffee',
+            'fa-bell',
+            'fa-male',
+            'fa-female',
+            'fa-user',
+            'fa-rub',
+            'fa-eur',
+            'fa-dollar',
+            'fa-check',
+            'fa-gift',
+            'fa-heart',
+            'fa-tree',
+            'fa-lock',
+            'fa-lightbulb-o',
+            'fa-mobile-phone',
+            'fa-search',
+            'fa-wifi',
+            'fa-android',
+            'fa-apple',
+            'fa-facebook',
+            'fa-instagram',
+            'fa-odnoklassniki',
+            'fa-twitter',
+            'fa-vk'
         );
 ?>
 

@@ -31,13 +31,14 @@ class JFormFieldIcon extends JFormField {
         JFactory::getDocument()->addScriptDeclaration($scriptModal);
         
 
-        $html = '<div class="input-append">
+        $html = '<div class="input-prepend input-append">
+ 
                     <input type="text" class="input-small" name="' . $this->name . '" id="' . $this->id . '" value="' . $this->value . '" readonly="readonly"/>
                     
                     <a class="modal btn hasTooltip" 
                         href="index.php?option=com_carousel&view=item&layout=modal&tmpl=component&function=jSelectIcon&'
                         . JSession::getFormToken().'=1" 
-                        rel="{size:{x:300,y:300}, handler:\'iframe\'}" title="'. JText::_('JSELECT') .'">'
+                        rel="{size:{x:500,y:500}, handler:\'iframe\'}" title="'. JText::_('JSELECT') .'">'
                                 
                             . JText::_('JSELECT') .
                     '</a>
