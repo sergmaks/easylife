@@ -22,9 +22,11 @@ class JFormFieldIcon extends JFormField {
         JHtml::_('bootstrap.tooltip');
         JHtml::_('behavior.modal' , 'a.modal'); // подключаем библиотеку для вызова модального окна
         
-        // скрипт получения имени икноки и записи его в текстовое поле
+        // скрипт получения имени икноки из модального окна и записи его в текстовое поле
         $scriptModal = 'function jSelectIcon( iconName ) {
                             document.getElementById(\'' . $this->id . '\').value = iconName;
+                            document.getElementById(\'mini-icon\').innerHTML=\'\';
+                            document.getElementById(\'mini-icon\').innerHTML=\' <i class="fa \'+ iconName + \' fa-1x"></i>\';
                             SqueezeBox.close();
                         }';
             
@@ -32,7 +34,8 @@ class JFormFieldIcon extends JFormField {
         
 
         $html = '<div class="input-prepend input-append">
- 
+                    <div class="add-on" id="mini-icon"><i class="fa '. $this->value . ' fa-1x"></i></div>
+                        
                     <input type="text" class="input-small" name="' . $this->name . '" id="' . $this->id . '" value="' . $this->value . '" readonly="readonly"/>
                     
                     <a class="modal btn hasTooltip" 
