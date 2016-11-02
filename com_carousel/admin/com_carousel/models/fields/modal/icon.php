@@ -29,10 +29,17 @@ class JFormFieldIcon extends JFormField {
                             document.getElementById(\'mini-icon\').innerHTML=\' <i class="fa \'+ iconName + \' fa-1x"></i>\';
                             SqueezeBox.close();
                         }';
-            
+        
         JFactory::getDocument()->addScriptDeclaration($scriptModal);
         
-
+        // Скрипт очистки поля иконки 
+        $scriptClear = 'function jClearIcon() {
+                            document.getElementById(\'' . $this->id . '\').value = \'\';
+                            document.getElementById(\'mini-icon\').innerHTML=\'\';
+                        }';
+        
+        JFactory::getDocument()->addScriptDeclaration($scriptClear);
+        
         $html = '<div class="input-prepend input-append">
                     <div class="add-on" id="mini-icon"><i class="fa '. $this->value . ' fa-1x"></i></div>
                         
@@ -48,7 +55,7 @@ class JFormFieldIcon extends JFormField {
                     
                     <a class="btn hasTooltip" href="#" 
                        title="'. JText::_('JCLEAR') 
-                        .'" onclick="document.getElementById(\''. $this->id . '\').value=\'\'">
+                        .'" onclick="jClearIcon()">
                         
                             <i class="icon-remove"></i>
                     </a>    
