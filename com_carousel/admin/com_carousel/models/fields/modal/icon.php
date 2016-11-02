@@ -40,6 +40,8 @@ class JFormFieldIcon extends JFormField {
         
         JFactory::getDocument()->addScriptDeclaration($scriptClear);
         
+        
+        
         $html = '<div class="input-prepend input-append">
                     <div class="add-on" id="mini-icon"><i class="fa '. $this->value . ' fa-1x"></i></div>
                         
