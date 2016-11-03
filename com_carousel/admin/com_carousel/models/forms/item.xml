@@ -2,21 +2,23 @@
  <form>
     <!-- Группа полей -->
     <!-- Имена полей совпадают с полями таблицы #__carousel -->
-    <fieldset name="details" label="COM_CAROUSEL_DETAILS">
+    <fieldset name="details" label="COM_CAROUSEL_DETAILS" addfieldpath="/administrator/components/com_carousel/models/fields/modal">
         <field name="id" type="hidden" />
-        <field name="intro"
-               type="text"
-               label="COM_CAROUSEL_INTRO_LABEL"
-               description="COM_CAROUSEL_INTRO_DESC"
-               size="256"
-               class="inputbox"
-               required="true"
-               default="" />
+        <field name="published"
+		type="radio"
+		class="btn-group btn-group-yesno"
+		default="1"
+		label="JPUBLISHED"
+		description="JFIELD_PUBLISHED_DESC"
+        >
+		<option value="1">JYES</option>
+		<option value="0">JNO</option>
+	</field>
         <field name="caption"
                type="text"
                label="COM_CAROUSEL_CAPTION_LABEL"
                description="COM_CAROUSEL_CAPTION_DESC"
-               size="256"
+               size="50"
                class="inputbox"
                required="true"
                default="" />
@@ -26,12 +28,15 @@
                description="COM_CAROUSEL_IMAGE_DESC"
                default="" />
         <field name="icon"
-               type="text"
+               type="icon"
                label="COM_CAROUSEL_ICON_LABEL"
-               description="COM_CAROUSEL_ICON_DESC"
-               size="25"
-               class="inputbox"
-               required="true"
-               default="" />
+               description="COM_CAROUSEL_ICON_DESC" />
+        <field name="date"
+               type="calendar"
+               label="COM_CAROUSEL_DATE_LABEL"
+               description="COM_CAROUSEL_DATE_DESC"
+               format="%Y-%m-%d %H:%M:%S"
+               size="22" 
+               default="now" />
     </fieldset>
  </form>

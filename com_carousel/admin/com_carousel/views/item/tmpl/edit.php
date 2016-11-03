@@ -5,8 +5,7 @@
 
 defined('_JEXEC') or die;
 
-JHtml::_('formbehavior.chosen', 'select');
-JHtml::_('behavior.formvalidation');
+JHtml::_('behavior.formvalidator');
 ?>
 <!-- Создаем форму редактирования элемента Карусели -->
 <!-- Атрибут id="adminForm" нужен для работы кнопок панели управления компонентом
@@ -41,7 +40,9 @@ JHtml::_('behavior.formvalidation');
     </div>
 
     <!-- Скрытое поле для передачи задачи -->
-    <input type="hidden" name="task" value=""/>
+    <input type="hidden" name="task" value="item.edit"/>
+    <!-- Скрытое поле для передачи текущего id -->
+    <input type="hidden" name="id" value="<?php echo $this->item->id; ?>"/>
     <!-- Safety -->
     <?php echo JHtml::_('form.token'); ?>
 </form>

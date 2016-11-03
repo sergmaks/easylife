@@ -38,11 +38,11 @@ class CarouselViewItem extends JViewLegacy {
 
     protected function addToolbar(){
         // устанавливаем заголовок панели управления
-        JToolbarHelper::title( JText::_('COM_CAROUSEL_ITEM'), 'Component Carousel Item' );
+        JToolbarHelper::title( JText::_('COM_CAROUSEL_ITEM'), '' );
 
         // добавляем кнопку "Сохранить"
         // где item - имя сабконтроллера
-        // save - имя задачи (метод save определен в родительском контроллере JControllerForm)
+        // save - имя задачи (метод save определен в родительском контроллере)
         JToolbarHelper::save('item.save');
 
         // кнопка отмены
