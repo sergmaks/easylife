@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Глобальные настройки слайдера -->
+
+<config>
+    
+    <!-- Глобальные настройки -->
+    <fieldset name="global" label="COM_CAROUSEL_GLOBAL_OPTIONS">
+        
+        <!-- Цвет кнопок слайдера -->
+        <field name="buttonColor" 
+               type="color"
+               label="COM_CAROUSEL_BUTTON_COLOR_LABEL"
+               description="COM_CAROUSEL_BUTTON_COLOR_DESC"
+               default="#61b73c"
+        />
+        <!-- Автопрокрутка слайдов -->
+        <field name="autoScroll"
+               type="radio"
+               label="COM_CAROUSEL_SCROLL_LABEL"
+               description="COM_CAROUSEL_SCROLL_DESC"
+               default="1"
+        >
+            <option value="0">JNO</option>    
+            <option value="1">JYES</option>    
+        </field>        
+        <!-- Скорость смены слайдов -->
+        <field name="sliderSpeed"
+               type="number"
+               label="COM_CAROUSEL_SPEED_LABEL"
+               description="COM_CAROUSEL_SPEED_DESC"
+               default="6"
+               min="1"
+               max="60"
+               step="1"
+               hint="COM_CAROUSEL_SPEED_DESC"
+        />
+        <!-- Использовать фильтр -->
+        <field name="useFilter"
+               type="radio"
+               label="COM_CAROUSEL_FILTER_LABEL"
+               description="COM_CAROUSEL_FILTER_DESC"
+               default="1"
+        >
+            <option value="0">JNO</option>    
+            <option value="1">JYES</option>    
+        </field>
+        <!-- Высота слайдера -->
+        <field name="sliderHeight"
+               type="radio"
+               label="COM_CAROUSEL_HEIGHT_LABEL"
+               description="COM_CAROUSEL_HEIGHT_DESC"
+               default="1"
+        >
+            <option value="0">COM_CAROUSEL_ORIGIN_HEIGHT</option>    
+            <option value="1">COM_CAROUSEL_SCREEN_HEIGHT</option>    
+        </field>
+        
+    </fieldset>
+    
+    <!-- Настройки шрифта -->
+    <fieldset name="font" label="COM_CAROUSEL_FONT_OPTIONS">
+        <!-- Цвет шрифта -->
+        <field name="fontColor" 
+               type="color"
+               label="COM_CAROUSEL_FONT_COLOR_LABEL"
+               description="COM_CAROUSEL_FONT_COLOR_DESC"
+               default="#3e2423"
+        />
+        <!-- Имя шрифта Google Font -->
+        <field name="googleFontName" 
+               class="" type="text" 
+               default="Open+Sans"
+               label="COM_CAROUSEL_FONT_NAME_LABEL"
+	       description="COM_CAROUSEL_FONT_NAME_DESC" 
+        />
+    </fieldset>
+    
+    <!-- Настройки фильтра -->
+    <fieldset name="filter" label="COM_CAROUSEL_FILTER_OPTIONS">
+        <!-- Цвет фильтра -->
+        <field name="filterColor" 
+               type="color"
+               label="COM_CAROUSEL_FILTER_COLOR_LABEL"
+               description="COM_CAROUSEL_FILTER_COLOR_DESC"
+               default="#00c800"
+        />
+        <!-- Прозрачность -->
+        <field name="filterOpacity"
+               type="number"
+               label="COM_CAROUSEL_FILTER_OPACITY_LABEL"
+               description ="COM_CAROUSEL_FILTER_OPACITY_DESC"
+               max="100"
+               min="0"
+               step="1"
+               default="25"
+               />
+    </fieldset>
+</config>
