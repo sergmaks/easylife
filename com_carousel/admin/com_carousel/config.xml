@@ -26,13 +26,13 @@
         <!-- Скорость смены слайдов -->
         <field name="sliderSpeed"
                type="number"
-               label="COM_CAROUSEL_SPEED_LABEL"
-               description="COM_CAROUSEL_SPEED_DESC"
+               label="COM_CAROUSEL_TIMER_LABEL"
+               description="COM_CAROUSEL_TIMER_DESC"
                default="6"
                min="1"
                max="60"
                step="1"
-               hint="COM_CAROUSEL_SPEED_DESC"
+               hint="COM_CAROUSEL_TIMER_DESC"
         />
         <!-- Использовать фильтр -->
         <field name="useFilter"
@@ -48,7 +48,7 @@
         <field name="sliderHeight"
                type="radio"
                label="COM_CAROUSEL_HEIGHT_LABEL"
-               description="COM_CAROUSEL_HEIGHT_DESC"
+               description="COM_CAROUSEL_HEIGHT_LABEL"
                default="1"
         >
             <option value="0">COM_CAROUSEL_ORIGIN_HEIGHT</option>    
