@@ -88,9 +88,9 @@ if ($saveOrder)
                                 ?>
                         </td>
                         <td>
-                            <!-- Выводим заголовок слайда ссылкой на текущий элемент-->
+                            <!-- Выводим текст слайда ссылкой на соотв. слайд и обрезанием текста-->
                             <a href="<?php echo $link; ?>">
-                                <?php echo $item->caption; ?>
+                                <?php echo JHtml::_('string.truncate', strip_tags($item->caption), 50); ?>
                             </a>
                         </td>
                         <!-- Картика слайда -->

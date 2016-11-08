@@ -15,13 +15,14 @@
 		<option value="0">JNO</option>
 	</field>
         <field name="caption"
-               type="text"
+               type="textarea"
                label="COM_CAROUSEL_CAPTION_LABEL"
                description="COM_CAROUSEL_CAPTION_DESC"
-               size="50"
+               rows="7"
                class="inputbox"
                required="true"
-               default="" />
+               default="" 
+               filter="raw"/>
         <field name="image"
                type="media"
                label="COM_CAROUSEL_IMAGE_LABEL"

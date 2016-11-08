@@ -2,13 +2,15 @@
 // Set the carousel height when the document is loaded
 jQuery(document).ready(
         function(){
+                /*
                 var prevHeight = 0;
-                var elements = document.getElementsByTagName('body')[0].getElementsByTagName('div');
+                var elements = document.body.getElementsByTagName('div');
                 for (var i=0; i < elements.length; i++) {
                     if (elements[i].id == 'carousel') break;
                     prevHeight += elements[i].height;
                 }
-                alert (prevHeight);
+                alert (elements[6].id);
+                */
                 jQuery('.back').css({
                 height: (jQuery(document).height() - 
                 jQuery('#top-bar').outerHeight() - 
