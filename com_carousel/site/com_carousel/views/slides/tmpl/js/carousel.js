@@ -1,33 +1,26 @@
 
-// Set the carousel height when the document is loaded
+// Set the slider height to the user screen height without header
 jQuery(document).ready(
         function(){
-                /*
-                var prevHeight = 0;
-                var elements = document.body.getElementsByTagName('div');
-                for (var i=0; i < elements.length; i++) {
-                    if (elements[i].id == 'carousel') break;
-                    prevHeight += elements[i].height;
-                }
-                alert (elements[6].id);
-                */
+                
+                var headerHeight = document.body.getElementsByTagName('header')[0].offsetHeight;
+                
                 jQuery('.back').css({
-                height: (jQuery(document).height() - 
-                jQuery('#top-bar').outerHeight() - 
-                jQuery('#nav-bar').outerHeight()) + "px"
-            });
-      });
+                    height: ( jQuery(document).height() - headerHeight ) + "px"
+                });
+        });
 
 // Set the carousel height when the window is resized
 
   jQuery(window).resize(
           function(){
+              
+              var headerHeight = document.body.getElementsByTagName('header')[0].offsetHeight;
+              
               if ( jQuery(window).height() > 600 ) {
                   jQuery('.back').css({
-                     height: ( jQuery(window).height() - 
-                     jQuery('#top-bar').outerHeight() - 
-                     jQuery('#nav-bar').outerHeight()) + "px"
+                     height: ( jQuery(window).height() - headerHeight ) + "px" 
                   });
              }
-        }); 
+            }); 
   

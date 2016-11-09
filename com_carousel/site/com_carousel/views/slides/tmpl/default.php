@@ -16,6 +16,52 @@ JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery.min.js');
 JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery-noconflict.js');
 JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/slides/tmpl/js/carousel.js');
 
+/*
+$scriptSize = 
+        ' // Select right size of background images in slider
+        function chooseSize(){
+            var folder; // folder for choosing images
+            var slidesCount = jQuery(\'.back\').size(); // number of slides slides
+         
+            if ( jQuery(window).width() < ' . X_SMALL_WIDTH . ' )
+                folder =' . X_SMALL_DIR . ';
+            else if ( jQuery(window).width() < ' . SMALL_WIDTH . ' )
+                folder =' . SMALL_DIR . ';
+            else if ( jQuery(window).width() < ' . MIDDLE_WIDTH . ' )
+                folder =' . MIDDLE_DIR . ';
+            else if ( jQuery(window).width() < ' . LARGE_WIDTH . ' )
+                folder =' . LARGE_DIR . ';
+            else if ( jQuery(window).width() < ' . X_LARGE_WIDTH . ' )
+                folder =' . X_LARGE_DIR . ';
+            else folder =' . XX_LARGE_DIR . ';
+            
+            alert (folder);
+        } 
+        document.onload = chooseSize();
+        ' ;
+JFactory::getDocument()->addScriptDeclaration($scriptSize);
+*/
+
+$screenWidth = intval('<script>var ScreenWidth = screen.width; document.write(ScreenWidth);</script>'); //ширина экрана
+$folder = XX_LARGE_DIR;
+
+if ( $screenWidth < X_SMALL_WIDTH )
+{
+    $folder = X_SMALL_DIR;
+}
+else if ( $screenWidth < SMALL_WIDTH )
+{
+    $folder = SMALL_DIR;
+}
+else if ( $screenWidth < MIDDLE_WIDTH )
+    $folder = MIDDLE_DIR;
+else if ( $screenWidth < LARGE_WIDTH )
+    $folder = LARGE_DIR;
+else if ( $screenWidth < X_LARGE_WIDTH )
+    $folder = X_LARGE_DIR;
+else $folder = XX_LARGE_DIR;
+
+echo $screenWidth;
 ?>
 <!-- Выводим html-код компонента -->
 <!-- Carousel -->

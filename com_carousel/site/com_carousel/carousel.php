@@ -8,7 +8,7 @@
 
 defined('_JEXEC') or die;
 
-//require_once 'defines.php'; // Блок констант компонента
+require_once JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'defines.php'; // Блок констант компонента
 
 // Подключаем Fontawesome
 JFactory::getDocument()->addScript("https://use.fontawesome.com/7f0000df30.js");
