@@ -1,25 +1,27 @@
 
 // Select right size of background images in slider
 function chooseSize() {
-    var folder; // folder for choosing images
-    var slidesCount = jQuery('.back').size(); // number of slides slides
+    var newFolder; // folder for choosing images
          
     if ( jQuery(window).width() < 767 )
-        folder ='x_small';
+        newFolder ='x_small';
     else if ( jQuery(window).width() < 990 )
-        folder ='small';
+        newFolder ='small';
     else if ( jQuery(window).width() < 1200 )
-        folder ='middle';
+        newFolder ='middle';
     else if ( jQuery(window).width() < 1600 )
-        folder ='large';
-    else if ( jQuery(window).width() < '2000' )
-        folder ='x_large';
-    else folder ='xx_large';
+        newFolder ='large';
+    else if ( jQuery(window).width() < 2000 )
+        newFolder ='x_large';
+    else newFolder ='xx_large';
     
     // override css background-image
     jQuery('.back').css(
                     'background-image', function(i, value) {
-                        return value.replace(/xx-large/i, folder);
+                        oldDir = value.substring( 0, value.lastIndexOf('/'));
+                        oldFolder = oldDir.substring( oldDir.lastIndexOf('/') + 1, oldDir.length); //xx_large
+
+                        return value.replace(oldFolder, newFolder); // replace folder in file path
                     });
 }
 
