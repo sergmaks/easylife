@@ -10,6 +10,24 @@ defined('_JEXEC') or die;
 
 jimport('joomla.filesystem.file'); // Use JFile
 
+// Получаем глобальные парметры 
+$globalParams = JFactory::getApplication()->getParams('com_carousel');
+
+$buttonColor     =  $globalParams->get('buttonColor');
+$autoScroll      =  $globalParams->get('autoScroll');
+$sliderTimer     =  $globalParams->get('sliderTimer');
+$useFilter       =  $globalParams->get('useFilter');
+$sliderPause     =  $globalParams->get('sliderPause');
+$fontColor       =  $globalParams->get('fontColor');
+$googleFontName  =  $globalParams->get('googleFontName', 'Open+Sans');
+$filterColor     =  $globalParams->get('filterColor');
+$filterOpacity   =  $globalParams->get('filterOpacity');
+
+// Определяем атрибуты слайдера в зависимости от значений параметров
+$dataRide  = ($autoScroll == 1)  ? 'data-ride="carousel"' : '';
+$dataPause = ($sliderPause == 1) ? 'hover' : 'none';
+$filter    = ($useFilter == 1)   ? 'class="filter"' : '';
+
 // СSS клиентской части
 JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css');
 
@@ -21,7 +39,7 @@ JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/
 ?>
 <!-- Выводим html-код компонента -->
 <!-- Carousel -->
-<div id="carousel" class="carousel slide" data-interval="6000" data-ride="carousel" data-pause="none">
+<div id="carousel" class="carousel slide" data-interval="<?php echo $sliderTimer * 1000; ?>" <?php echo $dataRide ?> data-pause="<?php echo $dataPause ?>">
         <!-- Indicators  -->
         <ol class="carousel-indicators">
             <?php
@@ -48,7 +66,7 @@ JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/
                                                                             .'administrator/components/com_carousel/images/xx_large/'
                                                                             . JFile::getName($item->image);  ?>')">
                     
-                    <div class="overlay">
+                    <div <?php echo $filter ?>>
                         <div class="slide-caption">                        
                             <?php if ( ! empty($item->icon) ) : ?>
                                 <span class="fa-stack icon" >

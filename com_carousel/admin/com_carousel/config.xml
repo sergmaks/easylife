@@ -24,7 +24,7 @@
             <option value="1">JYES</option>    
         </field>        
         <!-- Скорость смены слайдов -->
-        <field name="sliderSpeed"
+        <field name="sliderTimer"
                type="number"
                label="COM_CAROUSEL_TIMER_LABEL"
                description="COM_CAROUSEL_TIMER_DESC"
@@ -44,15 +44,15 @@
             <option value="0">JNO</option>    
             <option value="1">JYES</option>    
         </field>
-        <!-- Высота слайдера -->
-        <field name="sliderHeight"
+        <!-- Пауза при наведении -->
+        <field name="sliderPause"
                type="radio"
-               label="COM_CAROUSEL_HEIGHT_LABEL"
-               description="COM_CAROUSEL_HEIGHT_LABEL"
-               default="1"
+               label="COM_CAROUSEL_PAUSE_LABEL"
+               description="COM_CAROUSEL_PAUSE_DESC"
+               default="0"
         >
-            <option value="0">COM_CAROUSEL_ORIGIN_HEIGHT</option>    
-            <option value="1">COM_CAROUSEL_SCREEN_HEIGHT</option>    
+            <option value="0">JNO</option>    
+            <option value="1">JYES</option>    
         </field>
         
     </fieldset>
