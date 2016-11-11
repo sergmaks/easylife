@@ -31,6 +31,16 @@ $filter    = ($useFilter == 1)   ? 'class="filter"' : '';
 // СSS клиентской части
 JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css');
 
+$inlineStyle = 
+'.filter {
+    background-color: ' . $filterColor . ';
+    opacity: ' . ($filterOpacity / 100) . ';
+    filter: alpha(opacity=' . $filterOpacity . ');
+}
+';
+
+JFactory::getDocument()->addStyleDeclaration( $inlineStyle );
+
 // JS
 JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery.min.js');
 JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery-noconflict.js');
@@ -60,23 +70,24 @@ JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/
     <!-- Для каждого слайда из списка -->
         <?php foreach ($this->items as $item_num => $item) : ?>
         
-            <?php $class = ($item_num == 0) ? 'active item' : 'item'; // если слайд первый, то он активный ?>
-            <div class="<?php echo $class; ?>">
+            <?php $classItem = ($item_num == 0) ? 'active item' : 'item'; // если слайд первый, то он активный ?>
+            <div class="<?php echo $classItem; ?>">
                 <div class="back" style="background-image: url('<?php echo JURI::root() 
                                                                             .'administrator/components/com_carousel/images/xx_large/'
                                                                             . JFile::getName($item->image);  ?>')">
                     
-                    <div <?php echo $filter ?>>
-                        <div class="slide-caption">                        
-                            <?php if ( ! empty($item->icon) ) : ?>
-                                <span class="fa-stack icon" >
-                                    <i class="fa fa-circle-o fa-stack-2x"></i>
-                                    <i class="fa <?php echo $item->icon; ?> fa-stack-1x"></i>
-                                </span>
-                            <?php endif; ?>
-                            <?php echo $item->caption; ?>                        
-                        </div>
+                    <div <?php echo $filter ?>></div>
+                        
+                    <div class="slide-caption">                        
+                        <?php if ( ! empty($item->icon) ) : ?>
+                            <span class="fa-stack icon" >
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa <?php echo $item->icon; ?> fa-stack-1x"></i>
+                            </span>
+                        <?php endif; ?>
+                        <?php echo $item->caption; ?>                        
                     </div>
+                   
                 </div>
             </div>   
         <?php endforeach; ?>
