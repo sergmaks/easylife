@@ -30,12 +30,21 @@ $filter    = ($useFilter == 1)   ? 'class="filter"' : '';
 
 // СSS клиентской части
 JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css');
+// Google Font
+JFactory::getDocument()->addStyleSheet('//fonts.googleapis.com/css?family=' . $googleFontName);
 
+// Заносим парметры в CSS
 $inlineStyle = 
 '.filter {
     background-color: ' . $filterColor . ';
     opacity: ' . ($filterOpacity / 100) . ';
     filter: alpha(opacity=' . $filterOpacity . ');
+}
+.slide-caption {
+    color:' . $fontColor . ';
+}
+.carousel-indicators .active {
+    background-color: ' . $buttonColor . ';
 }
 ';
 
