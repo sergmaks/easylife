@@ -14,8 +14,10 @@ define('IMAGES_DIR', JPath::clean( JPATH_COMPONENT_ADMINISTRATOR
                                    . DIRECTORY_SEPARATOR 
                                    . 'images'                                 
                                    . DIRECTORY_SEPARATOR ));
-        // name             // path              
-define( 'THUMBNAILS_DIR', IMAGES_DIR . 'thumbnails' . DIRECTORY_SEPARATOR ); // дирректория миниатюр
+
+// Дирректория миниатюр
+        // name           // path              
+define( 'THUMBNAILS_DIR', IMAGES_DIR . 'thumbnails' . DIRECTORY_SEPARATOR );
 define( 'XX_LARGE_DIR',   IMAGES_DIR . 'xx_large'   . DIRECTORY_SEPARATOR );
 define( 'X_LARGE_DIR',    IMAGES_DIR . 'x_large'    . DIRECTORY_SEPARATOR );
 define( 'LARGE_DIR',      IMAGES_DIR . 'large'      . DIRECTORY_SEPARATOR );

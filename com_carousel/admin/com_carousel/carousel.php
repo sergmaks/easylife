@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  com_carousel
  *
- * Точка входа в компонент Карусель
+ * Точка входа в админку компонента Слайдер Easy Life
  */
 
 defined('_JEXEC') or die;
@@ -13,7 +13,7 @@ require_once 'defines.php'; // Блок констант компонента
 // Подключаем Fontawesome
 JFactory::getDocument()->addScript("https://use.fontawesome.com/7f0000df30.js");
 
-// Проверить права доступа
+// Проверить права доступа к административной части
 if ( ! JFactory::getUser()->authorise('core.manage', 'com_carousel') ) {
     return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR'));
 }

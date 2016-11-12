@@ -26,7 +26,7 @@ class CarouselModelSlides extends JModelList {
      */
     protected function getListQuery() {
 
-        $db    = JFactory::getDBO(); // получаем объект базы данных
+        $db    = JFactory::getDBO(); // получаем драйвер базы данных
         $query = $db->getQuery(true); // создаем новый пустой запрос
 
         // SELECT all

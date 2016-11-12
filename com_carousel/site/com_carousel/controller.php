@@ -1,9 +1,9 @@
 <?php
 /**
- * @package     Joomla.Administrator
+ * @package     Joomla.Site
  * @subpackage  com_carousel
  *
- * Главный класс контроллера компонента Карусель
+ * Главный класс контроллера клиентской части компонента
  */
 
 defined('_JEXEC') or die;

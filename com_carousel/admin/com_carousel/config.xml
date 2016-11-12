@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Глобальные настройки слайдера -->
 
-<config>
-    
-    <!-- Глобальные настройки -->
+<config>   
+    <!-- Глобальные настройки компонента -->
     <fieldset name="global" label="COM_CAROUSEL_GLOBAL_OPTIONS">
         
-        <!-- Цвет кнопок слайдера -->
+        <!-- Цвет активной кнопки слайдера -->
         <field name="buttonColor" 
                type="color"
                label="COM_CAROUSEL_BUTTON_COLOR_LABEL"
@@ -80,7 +78,7 @@
                min="0"
                step="1"
                default="25"
-               />      
+        />      
         
     </fieldset>   
 </config>

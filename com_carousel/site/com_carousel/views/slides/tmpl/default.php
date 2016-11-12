@@ -20,10 +20,10 @@ $filter    = ( $globalParams->get('useFilter') )   ? 'class="filter"' : '';
 
 // СSS клиентской части
 JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/bootstrap.min.css'); // bootstrap css
-JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css'); // main css
+JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css'); // component css
 JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/media.css'); // media-querues
 
-// Заносим парметры в CSS
+// Заносим параметры в CSS
 $inlineStyle = 
 '.filter {
     background-color: ' . $globalParams->get('filterColor') . ';
@@ -54,7 +54,7 @@ JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/
             <?php
                 // Выводим кнопки переключения слайдов
                 for ($i = 0 ; $i < count($this->items); $i++) { // по кол-ву слайдов
-                    $classActive = ( $i==0 ) ? 'class="active"' : '';
+                    $classActive = ( $i==0 ) ? 'class="active"' : ''; // первая кнопка - активная
                     
                     echo '<li data-target="#carousel" data-slide-to="' . $i . '" ' . $classActive . '></li>';
                 }

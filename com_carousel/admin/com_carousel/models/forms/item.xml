@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Форма для редактирования слайда -->
  <form>
     <!-- Группа полей -->
     <!-- Имена полей совпадают с полями таблицы #__carousel -->
+    <!-- В атрибуте "addfieldpath" указываем файл хранения кастомного поля формы -->
     <fieldset name="details" label="COM_CAROUSEL_DETAILS" addfieldpath="/administrator/components/com_carousel/models/fields/modal">
         <field name="id" type="hidden" />
         <field name="published"

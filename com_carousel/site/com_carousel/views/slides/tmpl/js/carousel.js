@@ -1,3 +1,6 @@
+/**
+ * JS for Slider EASY LIFE component
+ */
 
 // Select right size of background images in slider
 function chooseSize() {
@@ -48,5 +51,5 @@ jQuery(window).resize(
                     height: ( jQuery(window).height() - headerHeight ) + "px" 
                 });
             }
-            }); 
+        }); 
   

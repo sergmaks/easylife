@@ -1,5 +1,8 @@
 <?php
 /**
+ * @package     Joomla.Administrator
+ * @subpackage  com_carousel
+ * 
  * Макет содержимого модального окна выбора иконки для слайда
 */
 
@@ -23,8 +26,8 @@ $iconStyle = 'a.icon,
               }';
 JFactory::getDocument()->addStyleDeclaration($iconStyle);
 
-// Массив иконок FontAwesome
-$icons = array (
+// Массив иконок FontAwesome, которые будут отображаться в модальном окне
+$iconSet = array (
             'fa-question',
             'fa-exclamation',
             'fa-phone',
@@ -62,7 +65,7 @@ $icons = array (
     <?php echo $function . '&' . JSession::getFormToken() . '=1' ; ?>" 
     method="POST" id="adminForm" name="adminForm" >
     
-        <?php foreach ($icons as $icon) : ?>
+        <?php foreach ($iconSet as $icon) : ?>
         
             <a class="icon" onclick="if (window.parent)
                 window.parent.<?php echo $this->escape($function) . '(\'' . $icon .'\')' ; ?>;">

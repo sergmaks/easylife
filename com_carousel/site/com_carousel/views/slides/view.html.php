@@ -19,7 +19,7 @@ class CarouselViewSlides extends JViewLegacy {
     public function display($tpl = null) {
 
         $this->items = $this->get('Items'); // напрямую вызываем метод модели getItems()
-        //$this->pagination = $this->get('Pagination'); // getPagination()
+
         $this->state = $this->get('State'); // Получаем объект состояния модели
 
         // родительский метод display подгрузит файл "tmpl/default.php" и отобразит шаблон вида

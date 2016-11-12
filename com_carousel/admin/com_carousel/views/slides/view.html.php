@@ -1,12 +1,15 @@
 <?php
-/*
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_carousel
+ * 
  * Класс общего вида списка слайдов 
 */
 
 defined('_JEXEC') or die;
 
 /*
- * Главный класс вида
+ * Класс вида списка слайдов
  * в имени класса:
  * - Carousel - имя компонента
  * - View - класс вида
@@ -23,21 +26,24 @@ class CarouselViewSlides extends JViewLegacy {
 
         $this->items = $this->get('Items'); // напрямую вызываем метод модели getItems()
         $this->pagination = $this->get('Pagination'); // getPagination()
-        $this->state = $this->get('State'); // Получаем объект состояния модели
+        $this->state = $this->get('State'); // Получаем объект состояния модели (mixed)
 
         // добавляем панель управления
         $this->addToolbar();
 
-        // родительский метод display подгрузит файл "tmpl/default.php" и отобразит шаблон вида
+        // родительский метод display подгрузит файл "tmpl/default.php" и отобразит шаблон вида по умолчанию
         parent::display($tpl);
 
         // дополнительные параметры для текущего документа
         $this->setDocument();
     }
 
+    /**
+     *  Добавление панели управления с кнопками "Сохранить", "Отмена" и т.д.
+     */
     protected function addToolbar(){
         // устанавливаем заголовок панели управления
-        JToolbarHelper::title( JText::_('COM_CAROUSEL'), 'Component Carousel' );
+        JToolbarHelper::title( JText::_('COM_CAROUSEL') );
 
         // добавляем кнопку "Создать новый элемент"
         // где item - имя сабконтроллера
