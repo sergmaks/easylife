@@ -34,3 +34,26 @@
     margin-right: 30px;
     font-size: 250%;
 }
+
+/****** Bootstrap Overrides ******/
+
+/*----- Carousel indicators -----*/
+.carousel-indicators {
+    bottom: 15px;
+}
+.carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    background-color: #fff;
+    border: 1px solid #3e2423;
+    border-radius: 20px;
+}
+.carousel-indicators .active {
+    width: 24px;
+    height: 24px;
+    background-color: #61b73c;
+    -webkit-box-shadow: 0 0 18px #fff;
+    -moz-box-shadow: 0 0 18px #fff;
+    box-shadow: 0 0 18px #fff;  
+}

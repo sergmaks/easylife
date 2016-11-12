@@ -34,12 +34,12 @@ if ($saveOrder)
                 <?php echo JHtml::_('searchtools.sort', '', 'ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING', 'icon-menu-2'); ?>
              </th>
             <!-- Заголовок поля Выделить все -->
-            <th width="2%" ><?php echo JHtml::_('grid.checkall'); ?></th>
+            <th width="1%" ><?php echo JHtml::_('grid.checkall'); ?></th>
             <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ITEM_STATE'); ?></th>
-            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_CAPTION_LABEL'); ?></th>
-            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_IMAGE_LABEL'); ?></th>
-            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_ICON_LABEL'); ?></th>
-            <th width="1%" ><?php echo JText::_('COM_CAROUSEL_DATE_LABEL'); ?></th>
+            <th width="25%" ><?php echo JText::_('COM_CAROUSEL_CAPTION_LABEL'); ?></th>
+            <th width="25%" ><?php echo JText::_('COM_CAROUSEL_IMAGE_LABEL'); ?></th>
+            <th width="10%" ><?php echo JText::_('COM_CAROUSEL_ICON_LABEL'); ?></th>
+            <th width="10%" ><?php echo JText::_('COM_CAROUSEL_DATE_LABEL'); ?></th>
         </tr>
         </thead>
         

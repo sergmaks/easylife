@@ -10,43 +10,33 @@ defined('_JEXEC') or die;
 
 jimport('joomla.filesystem.file'); // Use JFile
 
-// Получаем глобальные парметры 
+// Получаем глобальные парметры компонента
 $globalParams = JFactory::getApplication()->getParams('com_carousel');
 
-$buttonColor     =  $globalParams->get('buttonColor');
-$autoScroll      =  $globalParams->get('autoScroll');
-$sliderTimer     =  $globalParams->get('sliderTimer');
-$useFilter       =  $globalParams->get('useFilter');
-$sliderPause     =  $globalParams->get('sliderPause');
-$fontColor       =  $globalParams->get('fontColor');
-$googleFontName  =  $globalParams->get('googleFontName', 'Open+Sans');
-$filterColor     =  $globalParams->get('filterColor');
-$filterOpacity   =  $globalParams->get('filterOpacity');
-
 // Определяем атрибуты слайдера в зависимости от значений параметров
-$dataRide  = ($autoScroll == 1)  ? 'data-ride="carousel"' : '';
-$dataPause = ($sliderPause == 1) ? 'hover' : 'none';
-$filter    = ($useFilter == 1)   ? 'class="filter"' : '';
+$dataRide  = ( $globalParams->get('autoScroll') )  ? 'data-ride="carousel"' : '';
+$dataPause = ( $globalParams->get('sliderPause') ) ? 'hover' : 'none';
+$filter    = ( $globalParams->get('useFilter') )   ? 'class="filter"' : '';
 
 // СSS клиентской части
-JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css');
-// Google Font
-JFactory::getDocument()->addStyleSheet('//fonts.googleapis.com/css?family=' . $googleFontName);
+JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/bootstrap.min.css'); // bootstrap css
+JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css'); // main css
+JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/media.css'); // media-querues
 
 // Заносим парметры в CSS
 $inlineStyle = 
 '.filter {
-    background-color: ' . $filterColor . ';
-    opacity: ' . ($filterOpacity / 100) . ';
-    filter: alpha(opacity=' . $filterOpacity . ');
+    background-color: ' . $globalParams->get('filterColor') . ';
+    opacity: ' . ( $globalParams->get('filterOpacity') / 100 ) . ';
+    filter: alpha(opacity=' . $globalParams->get('filterOpacity') . ');
 }
 .slide-caption {
-    color:' . $fontColor . ';
+    color:' . $globalParams->get('fontColor') . ';
+    
 }
 .carousel-indicators .active {
-    background-color: ' . $buttonColor . ';
-}
-';
+    background-color: ' . $globalParams->get('buttonColor') . ';
+}';
 
 JFactory::getDocument()->addStyleDeclaration( $inlineStyle );
 
@@ -55,18 +45,18 @@ JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery.min.js');
 JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery-noconflict.js');
 JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/slides/tmpl/js/carousel.js');
 
+// Далее выводим html-код компонента
 ?>
-<!-- Выводим html-код компонента -->
 <!-- Carousel -->
-<div id="carousel" class="carousel slide" data-interval="<?php echo $sliderTimer * 1000; ?>" <?php echo $dataRide ?> data-pause="<?php echo $dataPause ?>">
+<div id="carousel" class="carousel slide" data-interval="<?php echo $globalParams->get('sliderTimer') * 1000; ?>" <?php echo $dataRide ?> data-pause="<?php echo $dataPause ?>">
         <!-- Indicators  -->
         <ol class="carousel-indicators">
             <?php
                 // Выводим кнопки переключения слайдов
                 for ($i = 0 ; $i < count($this->items); $i++) { // по кол-ву слайдов
-                    $class = ( $i==0 ) ? 'class="active"' : '';
+                    $classActive = ( $i==0 ) ? 'class="active"' : '';
                     
-                    echo '<li data-target="#carousel" data-slide-to="' . $i . '" ' . $class . '></li>';
+                    echo '<li data-target="#carousel" data-slide-to="' . $i . '" ' . $classActive . '></li>';
                 }
             ?>
         </ol>
