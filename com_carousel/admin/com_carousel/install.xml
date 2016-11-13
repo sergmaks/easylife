@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <extension type="component" version="3.6" method="upgrade">
-    <name>Carousel</name>
+    <name>COM_CAROUSEL</name>
     <!-- Следующие элементы необязательны -->
     <creationDate>October 2016</creationDate>
     <author>Sergey Maksimov, Dmitry Kogura</author>
@@ -40,8 +40,14 @@
         <filename>controller.php</filename>
         <folder>views</folder>
 	<folder>models</folder>
+        <folder>language</folder>
     </files>
- 
+    <languages folder="site/language">
+        <language tag="ru-RU">ru-RU/ru-RU.com_carousel.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.com_carousel.sys.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_carousel.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_carousel.sys.ini</language>
+    </languages> 
     <!-- Администрирование -->
     <administration>
     <!-- Раздел Меню -->
@@ -53,6 +59,8 @@
             <filename>index.html</filename>
             <filename>carousel.php</filename>
             <filename>controller.php</filename>
+            <filename>defines.php</filename>
+            <filename>config.xml</filename>
             <folder>views</folder>
             <folder>models</folder>
             <folder>controllers</folder>
@@ -64,8 +72,9 @@
 	<languages folder="admin/language">
             <language tag="ru-RU">ru-RU/ru-RU.com_carousel.ini</language>
             <language tag="ru-RU">ru-RU/ru-RU.com_carousel.sys.ini</language>
-	</languages>
-        
+            <language tag="en-GB">en-GB/en-GB.com_carousel.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_carousel.sys.ini</language>
+	</languages>        
     </administration>
 
 </extension>
