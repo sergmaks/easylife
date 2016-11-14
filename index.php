@@ -51,7 +51,7 @@ $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/m
 $doc->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
 
 // Добавляем Bootstrap 3 js
-$doc->addScript( $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
+//$doc->addScript( $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
 
 // Устанавливаем цвет шрифта из параметра
 if ($this->params->get('fontColor')) {

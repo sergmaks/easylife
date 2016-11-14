@@ -14,9 +14,9 @@ jimport('joomla.filesystem.file'); // Use JFile
 $globalParams = JFactory::getApplication()->getParams('com_carousel');
 
 // Определяем атрибуты слайдера в зависимости от значений параметров
-$dataRide  = ( $globalParams->get('autoScroll') )  ? 'data-ride="carousel"' : '';
-$dataPause = ( $globalParams->get('sliderPause') ) ? 'hover' : 'none';
-$filter    = ( $globalParams->get('useFilter') )   ? 'class="filter"' : '';
+$dataRide  = ( $globalParams->get('autoScroll','1') )  ? 'data-ride="carousel"' : '';
+$dataPause = ( $globalParams->get('sliderPause','0') ) ? 'hover' : 'none';
+$filter    = ( $globalParams->get('useFilter','1') )   ? 'class="filter"' : '';
 
 // СSS клиентской части
 JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/bootstrap.min.css'); // bootstrap css
@@ -26,16 +26,16 @@ JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/vi
 // Заносим параметры в CSS
 $inlineStyle = 
 '.filter {
-    background-color: ' . $globalParams->get('filterColor') . ';
-    opacity: ' . ( $globalParams->get('filterOpacity') / 100 ) . ';
-    filter: alpha(opacity=' . $globalParams->get('filterOpacity') . ');
+    background-color: ' . $globalParams->get('filterColor','#00c800') . ';
+    opacity: ' . ( $globalParams->get('filterOpacity','25') / 100 ) . ';
+    filter: alpha(opacity=' . $globalParams->get('filterOpacity','25') . ');
 }
 .slide-caption {
-    color:' . $globalParams->get('fontColor') . ';
+    color:' . $globalParams->get('fontColor','#3e2423') . ';
     
 }
 .carousel-indicators .active {
-    background-color: ' . $globalParams->get('buttonColor') . ';
+    background-color: ' . $globalParams->get('buttonColor','#61b73c') . ';
 }';
 
 JFactory::getDocument()->addStyleDeclaration( $inlineStyle );
@@ -43,12 +43,13 @@ JFactory::getDocument()->addStyleDeclaration( $inlineStyle );
 // JS
 JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery.min.js');
 JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery-noconflict.js');
+JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/slides/tmpl/js/bootstrap.min.js');
 JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/slides/tmpl/js/carousel.js');
 
 // Далее выводим html-код компонента
 ?>
 <!-- Carousel -->
-<div id="carousel" class="carousel slide" data-interval="<?php echo $globalParams->get('sliderTimer') * 1000; ?>" <?php echo $dataRide ?> data-pause="<?php echo $dataPause ?>">
+<div id="carousel" class="carousel slide" data-interval="<?php echo $globalParams->get('sliderTimer','6') * 1000; ?>" <?php echo $dataRide ?> data-pause="<?php echo $dataPause ?>">
         <!-- Indicators  -->
         <ol class="carousel-indicators">
             <?php
