@@ -1,6 +1,13 @@
 <?php
 /**
- * Класс поля формы для вызова модального окна выбора иконки слайда
+ * @package     Joomla.Administrator
+ * @subpackage  com_carousel
+ * 
+ * Класс кастомного типа поля формы для вызова модального окна выбора иконки слайда
+ * 
+ * В имени класса :
+ * - JFormField - указание на класс поля формы
+ * - Icon - имя кастомного типа поля формы 
  */
 
 defined('_JEXEC') or die;
@@ -13,7 +20,7 @@ class JFormFieldIcon extends JFormField {
     protected $type ='Icon';
     
     /**
-     * Вывод поля в HTML
+     * Отображение поля в HTML
      * 
      * @return string
      */
@@ -41,7 +48,7 @@ class JFormFieldIcon extends JFormField {
         JFactory::getDocument()->addScriptDeclaration($scriptClear);
         
         
-        
+        // Формируем HTML-код отображения поля
         $html = '<div class="input-prepend input-append">
                     <div class="add-on" id="mini-icon"><i class="fa '. $this->value . ' fa-1x"></i></div>
                         

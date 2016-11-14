@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="component" version="3.6" method="upgrade">
+    <name>COM_CAROUSEL</name>
+    <!-- Следующие элементы необязательны -->
+    <creationDate>October 2016</creationDate>
+    <author>Sergey Maksimov, Dmitry Kogura</author>
+    <copyright>2016 Easy Life. All rights reserved</copyright>
+    <license>License Info</license>
+    <!--  Версия записывается в таблицу компонентов -->
+    <version>0.0.1</version>
+    <!-- Описание необязательно -->
+    <description>COM_CAROUSEL_DESCRIPTION</description>
+    
+    <!-- создание таблиц mysql из sql-файла при установке -->
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <!-- Удаление таблицы при удалении компонента -->
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <!-- Запускается при обновлении -->
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+ 
+    <!-- Раздел основных файлов сайта -->
+    <!-- Обратите внимание на значение аттрибута folder: Этот аттрибут описывает папку нашего пакета-установщика из которой должны копироваться файлы.
+    Поэтому указанные в этом разделе файлы будут скопированы из папки /site/ нашего пакета-установщика в соответствующую папку установки. -->
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>carousel.php</filename>
+        <filename>controller.php</filename>
+        <folder>views</folder>
+	<folder>models</folder>
+        <folder>language</folder>
+    </files>
+    <languages folder="site/language">
+        <language tag="ru-RU">ru-RU/ru-RU.com_carousel.ini</language>
+        <language tag="ru-RU">ru-RU/ru-RU.com_carousel.sys.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_carousel.ini</language>
+        <language tag="en-GB">en-GB/en-GB.com_carousel.sys.ini</language>
+    </languages> 
+    <!-- Администрирование -->
+    <administration>
+    <!-- Раздел Меню -->
+        <menu link="index.php?option=com_carousel">COM_CAROUSEL</menu>
+        <!-- Раздел основных файлов администрирования  -->
+        <!-- Обратите внимание на значение аттрибута folder: Этот аттрибут описывает папку нашего пакета-установщика из которой должны копироваться файлы.
+        Поэтому указанные в этом разделе файлы будут скопированы из папки /admin/ нашего пакета-установщика в соответствующую папку установки. -->
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>carousel.php</filename>
+            <filename>controller.php</filename>
+            <filename>defines.php</filename>
+            <filename>config.xml</filename>
+            <folder>views</folder>
+            <folder>models</folder>
+            <folder>controllers</folder>
+            <folder>language</folder>
+            <folder>tables</folder>
+            <folder>sql</folder>
+        </files>
+		
+	<languages folder="admin/language">
+            <language tag="ru-RU">ru-RU/ru-RU.com_carousel.ini</language>
+            <language tag="ru-RU">ru-RU/ru-RU.com_carousel.sys.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_carousel.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_carousel.sys.ini</language>
+	</languages>        
+    </administration>
+
+</extension>

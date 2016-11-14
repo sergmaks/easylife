@@ -1,6 +1,9 @@
 <?php
-/*
- * Шаблон вида редактирования элемента Карусели
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_carousel
+ * 
+ * Шаблон вида редактирования слайда
 */
 
 defined('_JEXEC') or die;
@@ -21,7 +24,7 @@ JHtml::_('behavior.formvalidator');
                     <div class="span6">
                         <!--
                          Для каждой группы полей формы получаем конкретное поле $field
-                         и выводим его заголовок "label" и соответсвующее поле ввода "input"
+                         и выводим его заголовок "label" и соответсвующее поле ввода значения "input"
                          -->
                         <?php foreach( $this->form->getFieldset($name) as $field ): ?>
                             <div class="control-group">
@@ -43,6 +46,6 @@ JHtml::_('behavior.formvalidator');
     <input type="hidden" name="task" value="item.edit"/>
     <!-- Скрытое поле для передачи текущего id -->
     <input type="hidden" name="id" value="<?php echo $this->item->id; ?>"/>
-    <!-- Safety -->
-    <?php echo JHtml::_('form.token'); ?>
+    
+    <?php echo JHtml::_('form.token'); // безопасность ?>
 </form>

@@ -16,12 +16,12 @@ class CarouselModelItem extends JModelAdmin {
      // Определяем методы, к которым обращаемся из вида Item
 
     /*
-     * @param $data - данные формы
-     * @param $loadData - указание на то, что в форму нужно будет загружать некоторые данные
+     * @param array $data - данные формы
+     * @param boolean $loadData - указание на то, что в форму нужно будет загружать некоторые данные
      * @return объект JForm
      */
     public function getForm( $data = array(), $loadData = true ) {
-        // получаем объект формы JForm из файла "item.xml"
+        // получаем объект формы JForm из файла "models/forms/item.xml"
         /*
          * метод loadForm() определен в родительском классе JModelAdmin
          * 'com_carousel.item' - имя формы
@@ -44,9 +44,9 @@ class CarouselModelItem extends JModelAdmin {
 
     /*
      * указание модели, с какой таблицей она работает
-     * @param $type - имя таблицы без префикса
-     * @param $prefix - префикс талицы
-     * @param $config - массив параметров (по умолчанию пуст)
+     * @param string $type - имя таблицы без префикса
+     * @param string $prefix - префикс талицы
+     * @param array $config - массив параметров (по умолчанию пуст)
      * @return - объект-одиночка CarouselTableItem
     */
     public function getTable($type = 'Item', $prefix = 'CarouselTable', $config = array()) {
@@ -56,7 +56,7 @@ class CarouselModelItem extends JModelAdmin {
 
     /*
      * получение данных из БД
-     * @param $pk - первичный ключ. по умолчанию NULL
+     * @param string $pk - первичный ключ. по умолчанию NULL
      * @return - объект записи JObject
     */
     public function getItem($pk = NULL) {
@@ -67,13 +67,16 @@ class CarouselModelItem extends JModelAdmin {
         return false;
     }
 
-    //
+    /**
+     * Проверка формы на ранее введенные данные
+     * 
+     * @return JObject|boolean
+     */
     protected function loadFormData () {
-         // Проверка сессии на наличие ранее введеных в форму данных.
+      
         $data = JFactory::getApplication()->getUserState($this->option . '.edit.item.data', array());
         
-        if (empty($data)) 
-        { 
+        if (empty($data)) { 
             $data = $this->getItem();
         }
         

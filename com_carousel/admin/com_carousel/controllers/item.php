@@ -3,13 +3,10 @@
  * @package     Joomla.Administrator
  * @subpackage  com_carousel
  *
- * Сабконтроллер для работы с отдельным элементом компонента Карусель
+ * Сабконтроллер для работы с отдельным элементом (слайдом) компонента Слайдер Easy Life
  *
  * Данный класс наследуется от класса JControllerForm (используется работа с формами),
  * который в свою очередь наследуется от JControllerLegacy
- * But no form was presented to user in this request, 
- * it just stores item (the ID of the article) in user's session variable 
- * and redirects to master controller
  *
  * в имени класса:
  * - Carousel - имя компонента
@@ -19,18 +16,17 @@
 
 defined('_JEXEC') or die;
 
-jimport('joomla.filesystem.file');
-jimport( 'joomla.image.image' );
-			
-if ( ! class_exists('JFolder') ) {
-    jimport('joomla.filesystem.folder');
-}
+jimport('joomla.filesystem.file'); // Use JFile
+jimport( 'joomla.image.image' ); // Use JImage
+jimport('joomla.filesystem.folder'); // Use JFolder
 
 class CarouselControllerItem extends JControllerForm {
 
     // вид, куда будет осуществленно перенаправление после сохранения элемента в базу данных
     protected $view_list = 'slides';
     
+
+    // переопределяем родительский метод сохранения элемента 
     public function save($key = null, $urlVar = null) {
 
         parent::save($key, $urlVar); 
@@ -38,9 +34,7 @@ class CarouselControllerItem extends JControllerForm {
         self::saveImages();
     }
     
-    /*
-     * создание дирректорий и сохранение копий исходнного изображения слайда
-     */
+    // создание дирректорий и сохранение копий исходнного изображения слайда
     protected function saveImages() {
         
         // проверяем, созданы ли подпапки для изображений
@@ -54,8 +48,8 @@ class CarouselControllerItem extends JControllerForm {
                         , X_SMALL_DIR ); 
           
         // получаем форму из $_POST, а из нее имя файла выбранного изображения
-        $input     = JFactory::getApplication()->input;
-        $post      = $input->get('jform', array(), 'array');
+        $input     = JFactory::getApplication()->input; // объект JInput
+        $post      = $input->get('jform', array(), 'array'); // 'jform' - имя запрашиваемого параметра, array() - его тип, 'array' - фильтр для проверки типа 
         $imageData = $post['image'];
         
         if ( empty($imageData) ) {
@@ -102,10 +96,12 @@ class CarouselControllerItem extends JControllerForm {
                                         "dir"    => X_LARGE_DIR
                                     )
         );
-                
+        
+        // создаем объект JImage и загружаем в него треубемое изображение
         $jimage = new JImage();
         $jimage->loadFile( $nativeImage );
-                
+        
+        // Св-ва изображения
         $imageProps = JImage::getImageFileProperties( $nativeImage );
         $imageWidth = $jimage->getWidth();
         
@@ -149,6 +145,7 @@ class CarouselControllerItem extends JControllerForm {
             if ( ! JFolder::exists( $dir ) ) {
                 
                 JFolder::create( $dir );
+                
                 // копируем index.html в созданную дирректорию
                 JFile::copy( JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . 'index.html'
                                                                                               , $dir . 'index.html');

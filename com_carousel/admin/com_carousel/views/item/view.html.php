@@ -13,8 +13,11 @@
 defined('_JEXEC') or die;
 
 class CarouselViewItem extends JViewLegacy {
-
-    protected $form;
+    /**
+     * @var JForm $form - форма для редактирования слайда, получаемая из модели 'item' 
+     * @var JObject $item - объект слайда 
+     */
+    protected $form; 
     protected $item;
 
     // переопределяем метод display
@@ -35,7 +38,7 @@ class CarouselViewItem extends JViewLegacy {
         // дополнительные параметры для текущего документа
         $this->setDocument();
     }
-
+    
     protected function addToolbar(){
         // устанавливаем заголовок панели управления
         JToolbarHelper::title( JText::_('COM_CAROUSEL_ITEM'), '' );

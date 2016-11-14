@@ -56,9 +56,9 @@ class CarouselModelSlides extends JModelList {
         // Добавляем сортировку.
         // Мы обращаемся к состоянию модели, 
         // получаем параметры сортировки и применяем их в запросе.
-        $orderCol  = $this->state->get('list.ordering', 'id');
-        $orderDirn = $this->state->get('list.direction', 'ordering');
-        $query->order($db->escape($orderCol . ' ' . $orderDirn));
+        //$orderCol  = $this->state->get('list.ordering', 'id'); // поле, по которому будет выполнена сортировка. В нашем случае это поле id;
+        //$orderDirn = $this->state->get('list.direction', 'ordering'); // направление сортировки. У нас это направление asc.
+        //$query->order( $db->escape($orderCol . ' ' . $orderDirn) );
 
         return $query;
     }
