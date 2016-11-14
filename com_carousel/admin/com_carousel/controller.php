@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  com_carousel
  *
- * Главный класс контроллера компонента Карусель
+ * Главный класс контроллера компонента Слайдер Easy Life
  */
 
 defined('_JEXEC') or die;
