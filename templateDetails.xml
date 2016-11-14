@@ -9,102 +9,89 @@
 	<copyright>Copyright (C) 2016 Sergey Maksimov</copyright>
 	<description>TPL_EASYLIFE_XML_DESCRIPTION</description>
 	<files>
-		<filename>component.php</filename>
-		<filename>error.php</filename>
-		<filename>offline.php</filename>
-		<filename>favicon.ico</filename>
-		<filename>index.php</filename>
-		<filename>templateDetails.xml</filename>
-		<filename>template_preview.png</filename>
-		<filename>template_thumbnail.png</filename>
-		<folder>css</folder>
+            <filename>component.php</filename>
+            <filename>error.php</filename>
+            <filename>offline.php</filename>
+            <filename>favicon.ico</filename>
+            <filename>index.php</filename>
+            <filename>templateDetails.xml</filename>
+            <filename>template_preview.png</filename>
+            <filename>template_thumbnail.png</filename>
+            <folder>css</folder>
         <folder>fonts</folder>
-		<folder>html</folder>
-		<folder>images</folder>
-		<folder>img</folder>
-		<folder>js</folder>
-		<folder>language</folder>
-		<folder>less</folder>
+            <folder>html</folder>
+            <folder>images</folder>
+            <folder>img</folder>
+            <folder>js</folder>
+            <folder>language</folder>
+            <folder>less</folder>
 	</files>
 	<positions>
-		<position>callme</position>
-		<position>profile</position>
-		<position>navigation</position>
-		<position>socials</position>
-		<position>footer1</position>
-		<position>footer2</position>
-		<position>footer3</position>
-		<position>debug</position>
+            <position>callme</position>
+            <position>profile</position>
+            <position>navigation</position>
+            <position>socials</position>
+            <position>footer1</position>
+            <position>footer2</position>
+            <position>footer3</position>
+            <position>debug</position>
 	</positions>
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.tpl_easylife.ini</language>
-		<language tag="en-GB">en-GB/en-GB.tpl_easylife.sys.ini</language>
+            <language tag="en-GB">en-GB/en-GB.tpl_easylife.ini</language>
+            <language tag="en-GB">en-GB/en-GB.tpl_easylife.sys.ini</language>
         <language tag="ru-RU">ru-RU/ru-RU.tpl_easylife.ini</language>
         <language tag="ru-RU">ru-RU/ru-RU.tpl_easylife.sys.ini</language>
 	</languages>
 	<config>
-		<fields name="params">
-			<fieldset name="advanced">
-				<!--<field name="templateColor" class="" type="color" default="#08C"
-					label="TPL_PROTOSTAR_COLOR_LABEL"
-					description="TPL_PROTOSTAR_COLOR_DESC" />
-                 -->
+            <fields name="params">
+                <fieldset name="advanced">
+                    <!--<field name="templateColor" class="" type="color" default="#08C"
+                        label="TPL_PROTOSTAR_COLOR_LABEL"
+                        description="TPL_PROTOSTAR_COLOR_DESC" />
+                    -->
+                    <field name="logoFile" class="" type="media" default=""
+                        label="TPL_EASYLIFE_LOGO_LABEL"
+                        description="TPL_EASYLIFE_LOGO_DESC" />
 
-				<field name="logoFile" class="" type="media" default=""
-					label="TPL_EASYLIFE_LOGO_LABEL"
-					description="TPL_EASYLIFE_LOGO_DESC" />
+                    <field name="sitetitle"  type="text" default=""
+			label="JGLOBAL_TITLE"
+                        description="JFIELD_ALT_PAGE_TITLE_LABEL"
+                        filter="string" />
 
-				<field name="sitetitle"  type="text" default=""
-					label="JGLOBAL_TITLE"
-					description="JFIELD_ALT_PAGE_TITLE_LABEL"
-					filter="string" />
+                    <field name="sitedescription"  type="text" default=""
+			label="JGLOBAL_DESCRIPTION"
+                        description="JGLOBAL_SUBHEADING_DESC"
+			filter="string" />
 
-				<field name="sitedescription"  type="text" default=""
-					label="JGLOBAL_DESCRIPTION"
-					description="JGLOBAL_SUBHEADING_DESC"
-					filter="string" />
+                    <field name="fontColor"
+                        type="color"
+                        default="#3e2423"
+                        label="TPL_EASYLIFE_FONT_COLOR"
+                        description="TPL_EASYLIFE_FONT_COLOR_DESCRIPTION" />
 
-                <field name="fontColor"
-                    type="color"
-                    default="#3e2423"
-                    label="TPL_EASYLIFE_FONT_COLOR"
-                    description="TPL_EASYLIFE_FONT_COLOR_DESCRIPTION" />
+                    <field name="phoneNumber"
+                        type="text"
+                        default=""
+                        label="TPL_EASYLIFE_PHONE_NUMBER"
+                        description="TPL_EASYLIFE_PHONE_DESCRIPTION"
+                        filter="string" />
 
-                <field name="phoneNumber"
-                    type="text"
-                    default=""
-                    label="TPL_EASYLIFE_PHONE_NUMBER"
-                    description="TPL_EASYLIFE_PHONE_DESCRIPTION"
-                    filter="string" />
+                    <field name="googleFont"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+                        label="TPL_EASYLIFE_FONT_LABEL"
+                        description="TPL_EASYLIFE_FONT_DESC"
+                    >
+                        <option value="1">JYES</option>
+                        <option value="0">JNO</option>
+                    </field>
 
-				<field name="googleFont"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="TPL_EASYLIFE_FONT_LABEL"
-					description="TPL_EASYLIFE_FONT_DESC"
-				>
-					<option value="1">JYES</option>
-					<option value="0">JNO</option>
-				</field>
+                    <field name="googleFontName" class="" type="text" default="Open+Sans"
+                        label="TPL_EASYLIFE_FONT_NAME_LABEL"
+                        description="TPL_EASYLIFE_FONT_NAME_DESC" />
 
-				<field name="googleFontName" class="" type="text" default="Open+Sans"
-					label="TPL_EASYLIFE_FONT_NAME_LABEL"
-					description="TPL_EASYLIFE_FONT_NAME_DESC" />
-
-                <!--
-				<field name="fluidContainer"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="TPL_PROTOSTAR_FLUID_LABEL"
-					description="TPL_PROTOSTAR_FLUID_DESC"
-				>
-					<option value="1">TPL_PROTOSTAR_FLUID</option>
-					<option value="0">TPL_PROTOSTAR_STATIC</option>
-				</field>
-                -->
-			</fieldset>
-		</fields>
+		</fieldset>
+            </fields>
 	</config>
 </extension>
