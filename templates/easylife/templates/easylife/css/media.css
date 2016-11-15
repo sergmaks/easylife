@@ -1,0 +1,14 @@
+/***** MEDIA QUERIES *****/
+
+/* Menu adjustment */
+@media screen and (max-width: 1205px) {
+    a.main-nav {
+        margin-right: 18px;
+    }
+}
+@media screen and (max-width: 1167px) {
+    a.socials {
+        margin-right: 1px;
+    }
+}
+

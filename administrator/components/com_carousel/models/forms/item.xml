@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Форма для редактирования слайда -->
+ <form>
+    <!-- Группа полей -->
+    <!-- Имена полей совпадают с полями таблицы #__carousel -->
+    <!-- В атрибуте "addfieldpath" указываем файл хранения кастомного поля формы -->
+    <fieldset name="details" label="COM_CAROUSEL_DETAILS" addfieldpath="/administrator/components/com_carousel/models/fields/modal">
+        <field name="id" type="hidden" />
+        <field name="published"
+		type="radio"
+		class="btn-group btn-group-yesno"
+		default="1"
+		label="JPUBLISHED"
+		description="JFIELD_PUBLISHED_DESC"
+        >
+		<option value="1">JYES</option>
+		<option value="0">JNO</option>
+	</field>
+        <field name="caption"
+               type="textarea"
+               label="COM_CAROUSEL_CAPTION_LABEL"
+               description="COM_CAROUSEL_CAPTION_DESC"
+               rows="7"
+               class="inputbox"
+               required="true"
+               default="" 
+               filter="raw"/>
+        <field name="image"
+               type="media"
+               label="COM_CAROUSEL_IMAGE_LABEL"
+               description="COM_CAROUSEL_IMAGE_DESC"
+               default="" />
+        <field name="icon"
+               type="icon"
+               label="COM_CAROUSEL_ICON_LABEL"
+               description="COM_CAROUSEL_ICON_DESC" />
+        <field name="date"
+               type="calendar"
+               label="COM_CAROUSEL_DATE_LABEL"
+               description="COM_CAROUSEL_DATE_DESC"
+               format="%Y-%m-%d %H:%M:%S"
+               size="22" 
+               default="now" />
+    </fieldset>
+ </form>

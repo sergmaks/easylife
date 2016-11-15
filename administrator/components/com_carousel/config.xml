@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>   
+    <!-- Глобальные настройки компонента -->
+    <fieldset name="global" label="COM_CAROUSEL_GLOBAL_OPTIONS">
+        
+        <!-- Цвет активной кнопки слайдера -->
+        <field name="buttonColor" 
+               type="color"
+               label="COM_CAROUSEL_BUTTON_COLOR_LABEL"
+               description="COM_CAROUSEL_BUTTON_COLOR_DESC"
+               default="#61b73c"
+        />
+        <!-- Цвет шрифта -->
+        <field name="fontColor" 
+               type="color"
+               label="COM_CAROUSEL_FONT_COLOR_LABEL"
+               description="COM_CAROUSEL_FONT_COLOR_DESC"
+               default="#3e2423"
+        />
+        <!-- Автопрокрутка слайдов -->
+        <field name="autoScroll"
+               type="radio"
+               label="COM_CAROUSEL_SCROLL_LABEL"
+               description="COM_CAROUSEL_SCROLL_DESC"
+               class="btn-group btn-group-yesno"
+               default="1"
+        >
+            <option value="0">JNO</option>    
+            <option value="1">JYES</option>    
+        </field>        
+        <!-- Скорость смены слайдов -->
+        <field name="sliderTimer"
+               type="number"
+               label="COM_CAROUSEL_TIMER_LABEL"
+               description="COM_CAROUSEL_TIMER_DESC"
+               default="6"
+               min="1"
+               max="60"
+               step="1"
+               hint="COM_CAROUSEL_TIMER_DESC"
+        />
+        <!-- Пауза при наведении -->
+        <field name="sliderPause"
+               type="radio"
+               label="COM_CAROUSEL_PAUSE_LABEL"
+               description="COM_CAROUSEL_PAUSE_DESC"
+               class="btn-group btn-group-yesno"
+               default="0"
+        >
+            <option value="0">JNO</option>    
+            <option value="1">JYES</option>    
+        </field>
+        <!-- Использовать слой-фильтр -->
+        <field name="useFilter"
+               type="radio"
+               label="COM_CAROUSEL_FILTER_LABEL"
+               description="COM_CAROUSEL_FILTER_DESC"
+               class="btn-group btn-group-yesno"
+               default="1"
+        >
+            <option value="0">JNO</option>    
+            <option value="1">JYES</option>    
+        </field>
+         <!-- Цвет слоя-фильтра -->
+        <field name="filterColor" 
+               type="color"
+               label="COM_CAROUSEL_FILTER_COLOR_LABEL"
+               description="COM_CAROUSEL_FILTER_COLOR_DESC"
+               default="#00c800"
+        />
+        <!-- Прозрачность слоя-фильтра -->
+        <field name="filterOpacity"
+               type="number"
+               label="COM_CAROUSEL_FILTER_OPACITY_LABEL"
+               description ="COM_CAROUSEL_FILTER_OPACITY_DESC"
+               max="100"
+               min="0"
+               step="1"
+               default="25"
+        />      
+        
+    </fieldset>   
+</config>

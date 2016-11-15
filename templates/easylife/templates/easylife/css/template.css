@@ -1,0 +1,227 @@
+html,
+body {
+    min-width: 992px;
+    min-height: 600px;
+    color: #3e2423;
+    font-family: 'Open Sans', sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 8.33333333%;
+    margin: 0;
+    padding: 0;
+    z-index: 99;
+    width: 16.66666667%;
+    min-width: 200px;
+}
+
+#logo img {
+    width: 100%;
+}
+
+#top-bar {
+    padding-top: 9px;
+    height: 40px;
+    color: #fff;
+    font-size: 14px;
+    background-color: #61b73c;
+}
+#top-bar a {
+    text-decoration: none;
+    color: white;
+}
+
+#nav-bar {
+    padding-top: 11px;
+    height: 50px;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+#nav-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+#nav-bar li {
+    float: left;
+}
+
+#nav-bar li a {
+    display: block;
+    text-decoration: none;
+}
+
+a.main-nav {
+    margin-right: 35px;
+    color: #3e2423;
+    text-transform: uppercase;
+    line-height: 1.7;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+a.main-nav:hover {
+    color: #61b73c;
+}
+
+a.socials {
+    margin-right: 5px;
+    color: #3e2423;
+    font-size: 16px;
+}
+
+a.socials:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#call {
+    border-bottom: 1px dashed #fff;
+}
+
+#call:hover {
+    border: none;
+}
+
+/*---- DROPDOWN MENU ----*/
+
+#nav-bar li > ul {
+    position: absolute;
+    z-index: 99;
+    margin-left: -30px;
+    padding: 9px 15px 9px 15px;
+    display: block;
+    line-height: 30px;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: hidden;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+#nav-bar li > ul li {
+    float: none;
+}
+
+#nav-bar li:hover > ul {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    visibility: visible;
+}
+#nav-bar li > ul a {
+    margin: 11px 15px;
+    display: block;
+    color: #3e2423;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s;
+}
+
+#nav-bar li > ul a:hover {
+    border-bottom-color: #3e2423;
+}
+
+
+/*----- Button Call To Action -----*/
+#buttons-group {
+    position: absolute;
+    right: 6%;
+    bottom: 90px;  
+}
+
+.button-action, 
+#button-down, 
+#button-up {
+    padding: 15px;
+    z-index: 97;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    color: #3e2423;
+    line-height: 18px;
+    background-color: #fff;
+    opacity: .75;
+    filter: alpha(opacity=75);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s; 
+}
+
+.button-action {
+   float: left;
+   margin-right: 15px;
+   width: 260px;
+   border-radius: 50px;
+   text-transform: uppercase;
+   text-decoration: none;
+}
+
+/*----- Buttons Down & Up -----*/
+#button-down,
+#button-up{
+    position: absolute;
+    bottom: 25px;
+    border-radius: 10px;
+}
+
+#button-down {
+    left: 30px;
+}
+
+#button-up {
+    right: 30px;
+    background-color: #3e2423;
+    color: #fff;
+}
+
+.button-action:hover, 
+#button-down:hover, 
+#button-up:hover {
+    color: #3e2423;
+    text-decoration: none;
+    background-color: #ff9900;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+/*----- Footer -----*/
+#footer {
+    position: relative;
+    padding: 45px;
+    display: none;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+#footer h1, 
+#footer h2, 
+#footer h3, 
+#footer p {
+    margin: 0 0 30px 0;
+}
+
+#footer a {
+    color: #3e2423;
+    text-decoration: none;
+}
