@@ -24,6 +24,9 @@ $this->language  = $doc->language;
 // Output as HTML5
 $doc->setHtml5(true);
 
+// Переопределяем генератор
+$doc->setGenerator('Easy Life - оставь время для себя!');
+
 // Получаем параметры настройки шаблона
 $params = $app->getTemplate(true)->params;
 
@@ -222,7 +225,7 @@ else
         <div class="row">
             <jdoc:include type="component" />
                  
-            <!-- Buttons Call to Action -->
+            <!-- Buttons Call to Action
             <div id="buttons-group">
                 <a class="button-action">
                     <span class="fa fa-bars" style="margin-right: 10px"></span>просмотреть меню
@@ -232,10 +235,10 @@ else
                 </a>
             </div>
                  
-            <!-- Button Show Footer -->
+            <!-- Button Show Footer
             <div id="button-down" data-toggle="tooltip" data-placement="top" title="Инфо">
                 <span class="fa fa-chevron-down fa-lg"></span>
-            </div>
+            </div> -->
          </div>
     </main>
     <footer>
