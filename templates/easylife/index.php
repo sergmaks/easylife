@@ -33,8 +33,12 @@ $sitename = $app->get('sitename');
 /*
  * Добавляем CSS
  */
-// Bootstrap 3 CSS
-//$doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/bootstrap.min.css' );
+// Bootstrap 3 CSS CDN
+$doc->addStyleSheet ("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                                        ,$type="text/css"
+                                        ,$media=null
+                                        ,$attribs=array("integrity"=>"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                                            ,"crossorigin"=>"anonymous"));
 // Использование Google Font
 if ($this->params->get('googleFont'))
 {
@@ -50,8 +54,8 @@ $doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/m
 // Иcпользуем Fontawesome CDN
 $doc->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
 
-// Добавляем Bootstrap 3 js
-//$doc->addScript( $this->baseurl . '/templates/' . $this->template . '/js/bootstrap.min.js');
+// Используем Bootstrap 3 js CDN
+$doc->addScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
 
 // Устанавливаем цвет шрифта из параметра
 if ($this->params->get('fontColor')) {
