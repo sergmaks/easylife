@@ -89,7 +89,7 @@ foreach ($list as $i => &$item)
 	// The next item is deeper.
 	if ($item->deeper)
 	{
-		echo '<ul class="nav-child unstyled small">';
+		echo '<ul>';
 	}
 	// The next item is shallower.
 	elseif ($item->shallower)
