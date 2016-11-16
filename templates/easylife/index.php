@@ -235,10 +235,10 @@ else
                 </a>
             </div>
                  
-            <!-- Button Show Footer
+            <!-- Button Show Footer -->
             <div id="button-down" data-toggle="tooltip" data-placement="top" title="Инфо">
                 <span class="fa fa-chevron-down fa-lg"></span>
-            </div> -->
+            </div>
          </div>
     </main>
     <footer>
