@@ -9,9 +9,9 @@ div.joomly-callback-main, div.special-alert{
     z-index:1000000;
 	padding:0px 0px;
 	top:-400px;
-	-webkit-border-radius: 30px;
-	-moz-border-radius: 30px;
-	border-radius: 30px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
@@ -120,7 +120,16 @@ div.joomly-callback-caption{
 	cursor: pointer;
 }
 /* CSS Buttons */
-button.button-joomly-callback-form, button.button-joomly-callback-lightbox {
+button.button-joomly-callback-form{
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+}
+button.button-joomly-callback-form:hover{
+    text-decoration: none;
+    font-weight: bold;
+}
+button.button-joomly-callback-lightbox {
    padding: 14px 18px;
    border: 0 none;
    font-weight: 700;
@@ -146,7 +155,7 @@ button.button-joomly-callback-form, button.button-joomly-callback-lightbox {
 button.button-joomly-callback-lightbox{
 	width: 100%;
 }
-button.button-joomly-callback-form:hover,button.button-joomly-callback-lightbox:hover{
+button.button-joomly-callback-lightbox:hover{
 	opacity: 0.8;
 	outline: 0 none;
 }
