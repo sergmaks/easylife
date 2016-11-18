@@ -66,7 +66,9 @@
 </div>
 <?php if ((isset($fields->button_form) ? $fields->button_form : 1)  > 0){?>
 	<div>
-		<button class="button-joomly-callback-form joomly-callback" type="submit"   value="save"><?php if (!empty($fields->button_form_caption)){ echo $fields->button_form_caption;} else {echo  JText::_('MOD_JOOMLY_CALLBACK_CALL_TO_US');};?></button>
+            <span class="fa fa-phone fa-lg"></span>
+            <span class="fa fa-reply" style="margin: 0 5px 0 -5px"></span>
+            <button class="button-joomly-callback-form joomly-callback" type="submit"   value="save"><?php if (!empty($fields->button_form_caption)){ echo $fields->button_form_caption;} else {echo  JText::_('MOD_JOOMLY_CALLBACK_CALL_TO_US');};?></button>
 	</div>
 <?php }?>
 <div class="special-alert" id="special-alert<?php if ($module->id!==null){echo $module->id;};?>">

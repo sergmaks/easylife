@@ -9,9 +9,9 @@ div.joomly-callback-main, div.special-alert{
     z-index:1000000;
 	padding:0px 0px;
 	top:-400px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
 	-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
@@ -49,9 +49,9 @@ div.joomly-callback-main input{
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
     -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-	-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+	border-radius: 0px;
     vertical-align: middle;
 	color: #555;
 	background-color: #fff;
@@ -96,12 +96,14 @@ div.tel{
 div.joomly-callback-body{
 	padding:20px 15px 20px 15px;
 	background-color: #fff;
+        border-radius: 0 0 10px 10px;
 }
 div.joomly-alert-body{
 	padding: 20px;
 }
 div.joomly-callback-caption{
 	border-bottom: 1px solid #E0D8D8;
+        border-radius: 10px 10px 0 0;
 }
 div.joomly-callback-caption > div{
 	display:inline-block;
