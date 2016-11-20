@@ -6,14 +6,12 @@
 		<author>Artem Yegorov</author>
 		<creationDate>October 2015</creationDate>
 		<copyright>Copyright (C) 2015 Artem Yegorov All rights reserved.</copyright>
-		<authorEmail>rubacking@gmail.com</authorEmail>
-		<authorUrl>http://joomly.ru</authorUrl>
 		<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
 		<version>2.15</version>
 
         <description>
-		Simple component for Callback creation.
-		</description>
+            Компонент обратного звонка для магазина Easy Life
+        </description>
 
 
 	
