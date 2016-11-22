@@ -11,4 +11,9 @@
         margin-right: 1px;
     }
 }
+@media screen and (max-width: 992px) {
+    #logo {
+        left: 4%;
+    }
+}
 

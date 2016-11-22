@@ -140,13 +140,13 @@ else
            <div id="logo">
                <?php echo $logo ?>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
                 <?php if ($this->params->get("phoneNumber")) : ?>        
                     <span class="fa fa-phone fa-lg" style="margin-right: 10px"></span>
                         <?php echo $this->params->get('phoneNumber');
                 endif; ?>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
                 <jdoc:include type="modules" name="callme" style="none"/>
                <!--
                <span class="fa fa-phone fa-lg"></span>
@@ -169,7 +169,7 @@ else
        <!-- Main navigation -->
         <nav>
             <div class="row" id="nav-bar">
-		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6">
+		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-4 col-lg-offset-6 col-md-offset-6 col-sm-offset-4 col-xs-offset-6">
                     <jdoc:include type="modules" name="navigation" style="none"/>
                 <!--
                 <ul>
@@ -185,7 +185,7 @@ else
 		        </ul>
 		        -->
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-2">
                     <jdoc:include type="modules" name="socials" style="none"/>
                 <!--
 		        <ul>
