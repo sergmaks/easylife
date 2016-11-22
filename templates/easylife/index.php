@@ -135,18 +135,28 @@ else
 <body>
     <div class="container-fluid">
     <header>
-    <!-- Top bar -->
+    <!-- Top Header bar -->
 	<div class="row" id="top-bar">
+            <!--Mobile elements-->
+            <div class="col-xs-11 visible-xs" style="font-size: 130%">
+                <?php echo '<p align="center">' . $sitename . '</p>' ?>        
+            </div>
+            <div class="col-xs-1 visible-xs" style="font-size: 130%">
+                <a href="#" class="btn">
+                    <span class="fa fa-bars"></span>    
+                </a>        
+            </div>
+           <!--Desctop elements -->
            <div id="logo">
                <?php echo $logo ?>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" style="padding: 0">
+            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-2 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 hidden-xs" style="padding: 0">
                 <?php if ($this->params->get("phoneNumber")) : ?>        
                     <span class="fa fa-phone fa-lg" style="margin-right: 10px"></span>
                         <?php echo $this->params->get('phoneNumber');
                 endif; ?>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-3">
+            <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs">
                 <jdoc:include type="modules" name="callme" style="none"/>
                <!--
                <span class="fa fa-phone fa-lg"></span>
@@ -168,7 +178,7 @@ else
 	</div>
        <!-- Main navigation -->
         <nav>
-            <div class="row" id="nav-bar">
+            <div class="row hidden-xs" id="nav-bar">
 		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-4 col-lg-offset-6 col-md-offset-6 col-sm-offset-4 col-xs-offset-6">
                     <jdoc:include type="modules" name="navigation" style="none"/>
                 <!--
