@@ -142,7 +142,7 @@ else
                 <?php echo '<p align="center">' . $sitename . '</p>' ?>        
             </div>
             <div class="col-xs-1 visible-xs" style="font-size: 130%">
-                <a href="#" class="btn">
+                <a href="#" class="btn" id="menu-trigger">
                     <span class="fa fa-bars"></span>    
                 </a>        
             </div>
@@ -178,8 +178,8 @@ else
 	</div>
        <!-- Main navigation -->
         <nav>
-            <div class="row hidden-xs" id="nav-bar">
-		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-4 col-lg-offset-6 col-md-offset-6 col-sm-offset-4 col-xs-offset-6">
+            <div class="row" id="nav-bar">
+		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-4">
                     <jdoc:include type="modules" name="navigation" style="none"/>
                 <!--
                 <ul>
@@ -195,7 +195,7 @@ else
 		        </ul>
 		        -->
 		</div>
-		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-2">
+		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <jdoc:include type="modules" name="socials" style="none"/>
                 <!--
 		        <ul>

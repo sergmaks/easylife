@@ -10,10 +10,28 @@
     a.socials {
         margin-right: 1px;
     }
+    a.main-nav {
+        margin-right: 13px;
+    }
 }
 @media screen and (max-width: 992px) {
     #logo {
         left: 4%;
+    }
+}
+@media screen and (max-width: 768px) {
+    #nav-bar {
+        position: absolute;
+        margin: 0;
+        z-index: 100;
+        display: none;
+        right:0;
+        top: 40px;
+        width: 300px;
+        height: 300px;
+    }
+    #main-nav{
+        display: block;
     }
 }
 

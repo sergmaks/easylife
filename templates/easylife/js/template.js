@@ -20,6 +20,9 @@ var footerShowed = false;
       function(){
         jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});
         jQuery('[data-toggle="tooltip"]').tooltip();
+        jQuery('#menu-trigger').click(function(){
+            jQuery('#nav-bar').slideToggle(500);
+        });
       });
     
   // Hide footer when the window is scrolled to the top
