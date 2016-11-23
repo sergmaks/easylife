@@ -20,11 +20,21 @@ var footerShowed = false;
       function(){
         jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});
         jQuery('[data-toggle="tooltip"]').tooltip();
+        
         jQuery('#menu-trigger').click(function(){
             jQuery('#nav-bar').slideToggle(500);
         });
       });
-    
+   
+   // Mobile navigation bar display
+   jQuery(window).resize(
+        function(){
+            if ( jQuery(window).width() > 768 ) {
+                jQuery('#nav-bar').css({display: 'block'});
+            }
+            else 
+                jQuery('#nav-bar').css({display: 'none'});
+        }); 
   // Hide footer when the window is scrolled to the top
   jQuery(window).scroll(function(){
       if ( (jQuery(window).scrollTop() == 0) 
