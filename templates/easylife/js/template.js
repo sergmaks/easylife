@@ -1,5 +1,9 @@
 /****   Custom jQuery  *****/
-var footerShowed = false;  
+var footerShowed = false;
+
+var showMobileDropdown = function(){
+            jQuery(this).children('ul').slideToggle('normal');
+        };
     
   // Show info footer by scrolling down to the end of the page
   function showFooter(){
@@ -16,36 +20,39 @@ var footerShowed = false;
   }
   
   function checkMobile(){
-       if ( jQuery(document).width() > 767 ) {
-                jQuery('#nav-bar').css({display: 'block'});
-                jQuery('[data-toggle="tooltip"]').tooltip('enable');
-            }
-       else {
-                jQuery('#nav-bar').css({display: 'none'});
-                jQuery('[data-toggle="tooltip"]').tooltip('disable');
-            }
+       if ( jQuery(document).width() > 767 ) { // if desktop or tablet
+            jQuery('#nav-bar').show();
+            jQuery('#nav-bar li > ul').show();
+            jQuery('[data-toggle="tooltip"]').tooltip('enable');
+            jQuery('#nav-bar li').unbind('click', showMobileDropdown);
+        }
+        
+       else { // if mobile
+            jQuery('#nav-bar').hide();// hide menu block
+            jQuery('#nav-bar li > ul').hide();// hide dropdown menu
+            jQuery('[data-toggle="tooltip"]').tooltip('disable'); // disable bootstrap tooltips
+            jQuery('#nav-bar li').bind('click', showMobileDropdown);
+        }
   }
   
   // Enable Bootstrap tooltips and Set initial slides height
   jQuery(document).ready(
       function(){
         jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});
-        checkMobile();
         
         jQuery('#menu-trigger').click(function(){
-            jQuery('#nav-bar').slideToggle(500);
+            jQuery('#nav-bar').slideToggle('normal');
         });
         
-        jQuery('#nav-bar li > ul').hide();
-        jQuery('#nav-bar li').click(function(){
-            jQuery(this).children('ul').slideToggle('normal');
-        });
+        checkMobile();
+        
       });
    
-   // Mobile navigation bar display
+   // Checking mobile display when window is resized
    jQuery(window).resize(function(){
        checkMobile();
    }); 
+   
   // Hide footer when the window is scrolled to the top
   jQuery(window).scroll(function(){
       if ( (jQuery(window).scrollTop() == 0) 

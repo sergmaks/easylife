@@ -141,7 +141,7 @@ else
             <div class="col-xs-9 col-xs-offset-2 visible-xs" style="font-size: 170%">
                 <?php echo '<p align="center">' . $sitename . '</p>' ?>        
             </div>
-            <div class="col-xs-1 visible-xs">
+            <div class="col-xs-1 visible-xs" style="padding:0">
                 <a href="#" class="btn" id="menu-trigger" style="font-size: 130%">
                     <span class="fa fa-bars"></span>    
                 </a>        

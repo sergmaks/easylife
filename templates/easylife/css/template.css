@@ -45,6 +45,7 @@ h1 {
     height: 50px;
     font-size: 18px;
     background-color: #fff;
+    box-shadow: 0 15px 15px -15px gray;
 }
 
 #nav-bar ul {
