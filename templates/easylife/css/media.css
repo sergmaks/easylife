@@ -13,6 +13,9 @@
     a.main-nav {
         margin-right: 15px;
     }
+    #menu-container {
+        padding-left: 0;
+    }
 }
 @media screen and (max-width: 992px) {
     #logo {
@@ -22,39 +25,73 @@
 
 /***** Mobile ******/
 @media screen and (max-width: 767px) {
-    #top-bar{
-        padding-top: 4px;
+    #top-bar {
+        padding-top: 5px;
+        height: 50px;
+        box-shadow: 0 15px 15px -15px gray;
     }
     #nav-bar {
         position: absolute;
         margin: 0;
-        z-index: 100;
-        display: none;
+        z-index: 100;      
         right:0;
-        top: 40px;
-        width: 200px;
+        top: 50px;
+        width: 250px;
         height: 300px;
         border: 1px solid #ccc;
+        -moz-box-shadow: -5px 5px 30px 0px rgba(0, 0, 0, 0.6);
+        -webkit-box-shadow: -5px 5px 30px 0px rgba(0, 0, 0, 0.6);
+        box-shadow: -10px 5px 30px -10px rgba(0, 0, 0, 0.6);
     }
     #nav-bar li {
         float: none;
     }
     #menu-container {
-        padding-left: 0;
+        padding: 0;
     }
     a.main-nav {
         margin: 0;
-        padding: 5px 0 5px 0;
+        padding: 10px 15px;
         border-bottom: 1px solid #ccc;
+        transition: none;
     }
     
-    a.main-nav:hover {
-        color: #aaa; 
+    a.main-nav:hover, a.main-nav:active {
+        color: #888; 
     }
+    
+    #nav-bar li > ul {
+        position: relative;
+        z-index: inherit;
+        margin: 0;
+        padding: 10px 15px 10px 30px;
+        display: none;
+        line-height: 30px;
+        background-color: #f5f5f5;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        opacity: 1;
+        filter: alpha(opacity=1);
+        visibility: visible;
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+        transition: none;
+    }
+    
+    #nav-bar li > ul a {
+        margin: 0;
+        display: block;
+        color: #3e2423;
+        text-decoration: none;
+        border-bottom: none;
+        transition: none;
+    }
+    
     a.socials {
         float: left;
     }
-    a.socials:hover{
+    a.socials:hover {
         -webkit-transform: none;
         -o-transform: none;
         transform: none;

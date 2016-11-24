@@ -138,11 +138,11 @@ else
     <!-- Top Header bar -->
 	<div class="row" id="top-bar">
             <!--Mobile elements-->
-            <div class="col-xs-11 visible-xs" style="font-size: 130%">
+            <div class="col-xs-9 col-xs-offset-2 visible-xs" style="font-size: 170%">
                 <?php echo '<p align="center">' . $sitename . '</p>' ?>        
             </div>
             <div class="col-xs-1 visible-xs">
-                <a href="#" class="btn" id="menu-trigger">
+                <a href="#" class="btn" id="menu-trigger" style="font-size: 130%">
                     <span class="fa fa-bars"></span>    
                 </a>        
             </div>
@@ -179,7 +179,7 @@ else
        <!-- Main navigation -->
         <nav>
             <div class="row" id="nav-bar">
-		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-4" id="#menu-container">
+		<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-4" id="menu-container">
                     <jdoc:include type="modules" name="navigation" style="none"/>
                 <!--
                 <ul>
