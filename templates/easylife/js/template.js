@@ -2,8 +2,10 @@
 var footerShowed = false;
 
 var showMobileDropdown = function(){
-            jQuery(this).children('ul').slideToggle('normal');
-        };
+    jQuery(this).children('ul').slideToggle('normal',function(){
+        setMobileMenuHeight();
+    });            
+};
     
   // Show info footer by scrolling down to the end of the page
   function showFooter(){
@@ -19,8 +21,18 @@ var showMobileDropdown = function(){
       footerShowed = false;
   }
   
-  function checkMobile(){
+  function setMobileMenuHeight(){
+      jQuery('#nav-bar').outerHeight(
+                    jQuery('#menu-container').outerHeight()
+                 +  jQuery('#socials-container').outerHeight()
+                 +  15 );
+  }
+  
+  function checkMobile(){      
+        
        if ( jQuery(document).width() > 767 ) { // if desktop or tablet
+            
+            jQuery('#nav-bar').outerHeight(50);
             jQuery('#nav-bar').show();
             jQuery('#nav-bar li > ul').show();
             jQuery('[data-toggle="tooltip"]').tooltip('enable');
@@ -28,9 +40,11 @@ var showMobileDropdown = function(){
         }
         
        else { // if mobile
+            
             jQuery('#nav-bar').hide();// hide menu block
             jQuery('#nav-bar li > ul').hide();// hide dropdown menu
             jQuery('[data-toggle="tooltip"]').tooltip('disable'); // disable bootstrap tooltips
+            jQuery('#nav-bar li').unbind('click', showMobileDropdown);
             jQuery('#nav-bar li').bind('click', showMobileDropdown);
         }
   }
@@ -39,6 +53,8 @@ var showMobileDropdown = function(){
   jQuery(document).ready(
       function(){
         jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});
+        
+        setMobileMenuHeight();
         
         jQuery('#menu-trigger').click(function(){
             jQuery('#nav-bar').slideToggle('normal');

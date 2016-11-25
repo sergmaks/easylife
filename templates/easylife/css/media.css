@@ -65,7 +65,7 @@
         position: relative;
         z-index: inherit;
         margin: 0;
-        padding: 10px 15px 10px 45px;
+        padding: 0;
         display: none;
         line-height: 30px;
         background-color: #f5f5f5;
@@ -82,11 +82,17 @@
     
     #nav-bar li > ul a {
         margin: 0;
+        padding: 10px 15px 10px 45px;
         display: block;
         color: #3e2423;
         text-decoration: none;
-        border-bottom: none;
+        border-bottom: 1px solid #ccc;
         transition: none;
+    }
+    
+    #nav-bar li > ul a:hover {
+        background-color: #c5c5c5;
+        border-bottom-color: #c5c5c5
     }
     
     a.socials {
@@ -97,5 +103,10 @@
         -webkit-transform: none;
         -o-transform: none;
         transform: none;
+    }
+    
+    #socials-container {
+        margin: 0;
+        padding: 10px 15px 10px 30px;
     }
 }
