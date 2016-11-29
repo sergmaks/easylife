@@ -38,7 +38,7 @@
         left: auto;
         top: 50px;
         width: 250px;
-        height: 450px;
+        height: auto;
         border: 1px solid #ccc;
         -moz-box-shadow: -5px 5px 30px 0px rgba(0, 0, 0, 0.6);
         -webkit-box-shadow: -5px 5px 30px 0px rgba(0, 0, 0, 0.6);
@@ -91,8 +91,8 @@
     }
     
     #nav-bar li > ul a:hover {
-        background-color: #c5c5c5;
-        border-bottom-color: #c5c5c5
+        background-color: #ddd;
+        border-bottom-color: #ddd;
     }
     
     a.socials {
