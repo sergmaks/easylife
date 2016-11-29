@@ -2,20 +2,30 @@
 var footerShowed = false;
 
 var showMobileDropdown = function(){
-    //if ( jQuery(this).children('ul').is(':visible') ) {
-        jQuery(this).children('ul').slideToggle('normal', function() {
-            setMobileMenuHeight();
-        });  
-    //}
+    if ( jQuery(this).children('ul').is(':visible') ) {
+        jQuery(this).children('ul').slideUp('normal');
+        
+        jQuery('#nav-bar').animate(
+            {height: jQuery('#nav-bar').outerHeight() - jQuery(this).children('ul').outerHeight() + "px"},
+            'normal');         
+    }
+    else {
+        jQuery(this).children('ul').slideDown('normal');
+        
+        jQuery('#nav-bar').animate(
+             {height: jQuery('#nav-bar').outerHeight() + jQuery(this).children('ul').outerHeight() + "px"},
+            'normal');
+    }
 
 }
   
 function setMobileMenuHeight(){
     if ( jQuery('#nav-bar').is(':visible') ) {
-        jQuery('#nav-bar').animate(
-            {height: jQuery('#menu-container').outerHeight() + jQuery('#socials-container').outerHeight()+  26 +"px"},
-            'normal');
-        } 
+         jQuery('#nav-bar').outerHeight(
+                    jQuery('#menu-container').outerHeight()
+                 +  jQuery('#socials-container').outerHeight()
+                 +  26 );
+     }
 }
   
 function checkMobile(){      
@@ -60,8 +70,9 @@ jQuery(document).ready(
        
         jQuery('#menu-trigger').click(function(){
             jQuery('#nav-bar li > ul').hide();// hide dropdown menu
-            jQuery('#nav-bar').slideToggle('normal');
             setMobileMenuHeight();
+            jQuery('#nav-bar').slideToggle('normal');
+            
         });
         
     checkMobile();        
