@@ -137,16 +137,10 @@ else
     <header>
     <!-- Top Header bar -->
 	<div class="row" id="top-bar">
-            <!--Mobile elements-->
-            <div class="col-xs-9 col-xs-offset-2 visible-xs" style="font-size: 170%">
+            <!--Mobile head caption-->
+            <div class="col-xs-8 col-xs-offset-2 visible-xs" style="font-size: 170%">
                 <?php echo '<p align="center">' . $sitename . '</p>' ?>        
-            </div>
-            <div class="col-xs-1 visible-xs" style="padding:0">
-                <a href="#" class="btn" id="menu-trigger" style="font-size: 130%">
-                    <span class="fa fa-bars"></span>    
-                </a>        
-            </div>
-           <!--Desctop elements -->
+            </div>           
            <div id="logo">
                <?php echo $logo ?>
             </div>
@@ -156,7 +150,7 @@ else
                         <?php echo $this->params->get('phoneNumber');
                 endif; ?>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-1">
                 <jdoc:include type="modules" name="callme" style="none"/>
                <!--
                <span class="fa fa-phone fa-lg"></span>
@@ -164,7 +158,7 @@ else
                <a href="#" id="call"> перезвоните мне</a>
                -->
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-lg-offset-1  col-md-offset-1 col-sm-offset-1 col-xs-offset-1">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 hidden-xs">
                 <jdoc:include type="modules" name="profile" style="none"/>
                <!--
                <a href="#"  style="margin-right: 50px" data-toggle="tooltip" data-placement="left" title="Авторизоваться в системе">
@@ -174,6 +168,11 @@ else
 		            <span class="fa fa-shopping-cart fa-lg"></span>
                 </a>
                 -->
+            </div>
+            <div class="col-xs-1 visible-xs" style="padding:0">
+                <a href="#" class="btn" id="menu-trigger" style="font-size: 130%">
+                    <span class="fa fa-bars"></span>    
+                </a>        
             </div>
 	</div>
        <!-- Main navigation -->
