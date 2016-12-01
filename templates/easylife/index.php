@@ -10,22 +10,20 @@
 // Проверка выполнен ли вход в систему
 defined('_JEXEC') or die;
 
-//Отключаем ненужные скрипты
+// Отключаем ненужные скрипты
+// $this - ссылка на текущий документ JDocumentHTML
 unset(
     $this->_scripts[$this->baseurl . '/media/jui/js/jquery-migrate.min.js'],
     $this->_scripts[$this->baseurl . '/media/system/js/caption.js']
         ); 
 
-$app             = JFactory::getApplication();
-$doc             = JFactory::getDocument();
-$user            = JFactory::getUser();
-$this->language  = $doc->language;
+$app = JFactory::getApplication();
 
 // Output as HTML5
-$doc->setHtml5(true);
+$this->setHtml5(true);
 
 // Переопределяем генератор
-$doc->setGenerator('Easy Life - оставь время для себя!');
+$this->setGenerator('Sergey Maksimov, Dmitry Kogura');
 
 // Получаем параметры настройки шаблона
 $params = $app->getTemplate(true)->params;
@@ -33,11 +31,10 @@ $params = $app->getTemplate(true)->params;
 // Получаем имя сайта
 $sitename = $app->get('sitename');
 
-/*
- * Добавляем CSS
- */
+// Добавляем CSS
+// 
 // Bootstrap 3 CSS CDN
-$doc->addStyleSheet ("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+$this->addStyleSheet ("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
                                         ,$type="text/css"
                                         ,$media=null
                                         ,$attribs=array("integrity"=>"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -45,25 +42,27 @@ $doc->addStyleSheet ("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootst
 // Использование Google Font
 if ($this->params->get('googleFont'))
 {
-    $doc->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
+    $this->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
 }
 // Пользовательский стиль шаблона
-$doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
+$this->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
 // пользовательские переорпеделения Bootstrap 3 CSS
-$doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/overrides.css' );
+$this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/overrides.css' );
 // Медиа запросы
-$doc->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
+$this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
 
+
+// Добавляем JS
+// 
 // Иcпользуем Fontawesome CDN
-$doc->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
-
+$this->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
 // Используем Bootstrap 3 js CDN
-$doc->addScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
+$this->addScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
 
 // Устанавливаем цвет шрифта из параметра
 if ($this->params->get('fontColor')) {
     // встроенный инлайн-стиль
-    $doc->addStyleDeclaration("
+    $this->addStyleDeclaration("
 	    html,body,
 	    .button-action,
 	    #button-down,
@@ -123,7 +122,7 @@ else
     = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
 }
 
-// HTML is following
+// Далее HTML-разметка...
 ?>
 
 <!DOCTYPE html>
