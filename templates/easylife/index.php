@@ -63,13 +63,9 @@ $this->addScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.m
 if ($this->params->get('fontColor')) {
     // встроенный инлайн-стиль
     $this->addStyleDeclaration("
-	    html,body,
-	    .button-action,
-	    #button-down,
-	    #button-up:hover {
-                font-family: '" . str_replace('+', ' ', $this->params->get('googleFontName')) . "', sans-serif;
-		color: " . $this->params->get('fontColor') . ";
-	    }");
+html,body {
+    color: " . $this->params->get('fontColor') . ";
+ }");
 }
 
 // Логотип

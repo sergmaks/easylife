@@ -16,11 +16,6 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-1">
             <jdoc:include type="modules" name="callme" style="none"/>
-               <!--
-               <span class="fa fa-phone fa-lg"></span>
-               <span class="fa fa-reply" style="margin: 0 5px 0 -5px"></span>
-               <a href="#" id="call"> перезвоните мне</a>
-               -->
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 hidden-xs">
             <jdoc:include type="modules" name="profile" style="none"/>

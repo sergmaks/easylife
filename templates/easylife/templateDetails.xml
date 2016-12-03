@@ -87,7 +87,7 @@
                         <option value="0">JNO</option>
                     </field>
 
-                    <field name="googleFontName" class="" type="text" default="Open+Sans"
+                    <field name="googleFontName" class="" type="text" default="Open+Sans:600"
                         label="TPL_EASYLIFE_FONT_NAME_LABEL"
                         description="TPL_EASYLIFE_FONT_NAME_DESC" />
 
