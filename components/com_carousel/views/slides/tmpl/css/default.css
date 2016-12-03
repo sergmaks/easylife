@@ -47,6 +47,7 @@
 .carousel-indicators li {
     width: 20px;
     height: 20px;
+    margin:0 5px 0 5px;
     background-color: #fff;
     background-color: #fff;
     border: 1px solid #3e2423;
@@ -55,8 +56,9 @@
 .carousel-indicators .active {
     width: 24px;
     height: 24px;
+    margin: 0 5px 0 5px;
     background-color: #61b73c;
-    -webkit-box-shadow: 0 0 18px #fff;
-    -moz-box-shadow: 0 0 18px #fff;
-    box-shadow: 0 0 18px #fff;  
+    -webkit-box-shadow: 0 0 24px #fff;
+    -moz-box-shadow: 0 0 24px #fff;
+    box-shadow: 0 0 24px #fff;  
 }
