@@ -4,7 +4,7 @@
 	version="1.2"
 	client="site"
 	method="upgrade">
-	<name>Joomly Callback</name>
+	<name>Callback Module</name>
 	<creationDate>October 2015</creationDate>
 	<copyright>Copyright (C) 2015 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
