@@ -51,7 +51,6 @@ $this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/
 // Медиа запросы
 $this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
 
-
 // Добавляем JS
 // 
 // Иcпользуем Fontawesome CDN
@@ -71,53 +70,6 @@ html,body {
 // Логотип
 $logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
 
-// Ширина разделов футера в классах Bootstrap 3
-// Только footer1
-if ( $this->countModules('footer1')
-    && ! $this->countModules('footer2')
-    && ! $this->countModules('footer3') )
-{
-    $classFooter_1 = "col-lg-11 col-md-11 col-sm-11 col-xs-11 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-}
-// Только footer1 и  footer2
-elseif ( $this->countModules('footer1')
-        && $this->countModules('footer2')
-        && ! $this->countModules('footer3') )
-{
-    $classFooter_1 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-    $classFooter_2 = "col-lg-7 col-md-7 col-sm-7 col-xs-7 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-}
-// Только footer1 и  footer3
-elseif ( $this->countModules('footer1')
-        && ! $this->countModules('footer2')
-        && $this->countModules('footer3') )
-{
-    $classFooter_1 = "col-lg-7 col-md-7 col-sm-7 col-xs-7 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-    $classFooter_3 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-}
-// Только footer2 и  footer3
-elseif ( ! $this->countModules('footer1')
-        && $this->countModules('footer2')
-        && $this->countModules('footer3') )
-{
-    $classFooter_2 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-5";
-    $classFooter_3 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-}
-// Только footer3
-elseif ( ! $this->countModules('footer1')
-        && ! $this->countModules('footer2')
-        && $this->countModules('footer3') )
-{
-    $classFooter_3 = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-9 col-md-offset-9 col-sm-offset-9 col-xs-offset-9";
-}
-else
-{
-    $classFooter_1
-    = $classFooter_2
-    = $classFooter_3
-    = "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1";
-}
-
 // Далее HTML-разметка...
 ?>
 
@@ -132,12 +84,13 @@ else
     <div class="container-fluid">
         <?php  
             // Header
-            require_once JPATH_BASE . '/templates/' . $this->template . '/header.php';
+            require JPATH_BASE . '/templates/' . $this->template . '/header.php';
             // Main content
-            require_once JPATH_BASE . '/templates/' . $this->template . '/main.php';
+            require JPATH_BASE . '/templates/' . $this->template . '/main.php';
+            // Footer
+            require JPATH_BASE . '/templates/' . $this->template . '/footer.php';
         ?>
     </div>
-    <jdoc:include type="modules" name="debug" style="none" />
     <!-- Custom js-script -->
     <script <?php echo 'src="' . $this->baseurl . '/templates/' . $this->template . '/js/template.js' . '"' ?>></script>
 </body>

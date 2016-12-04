@@ -1,3 +1,6 @@
+<?php
+    defined('_JEXEC') or die;
+?>
 <header>
 <!-- Top Header bar -->
     <div class="row" id="top-bar">
