@@ -107,11 +107,14 @@
         width: 230px;
         font-size: 14px;
     }
+    #footer {
+        font-size: 14px;
+    }
+    
 }
 
 @media screen and (max-width: 600px){
     .button-action {
         width: 210px;
-        font-size: 14px;
     }
 }
