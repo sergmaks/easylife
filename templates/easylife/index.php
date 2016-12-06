@@ -34,7 +34,7 @@ $sitename = $app->get('sitename');
 // Добавляем CSS
 // 
 // Bootstrap 3 CSS CDN
-$this->addStyleSheet ("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+$this->addStyleSheet ("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
                                         ,$type="text/css"
                                         ,$media=null
                                         ,$attribs=array("integrity"=>"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -54,9 +54,9 @@ $this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/
 // Добавляем JS
 // 
 // Иcпользуем Fontawesome CDN
-$this->addScript ( "https://use.fontawesome.com/7f0000df30.js" );
+$this->addScript ( "//use.fontawesome.com/7f0000df30.js" );
 // Используем Bootstrap 3 js CDN
-$this->addScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
+$this->addScript("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js");
 
 // Устанавливаем цвет шрифта из параметра
 if ($this->params->get('fontColor')) {
@@ -68,7 +68,7 @@ html,body {
 }
 
 // Логотип
-$logo = '<img src="' . JUri::root() . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
+$logo = '<img src="' . $this->baseurl . '/' . $this->params->get('logoFile') . '" alt="' . $sitename . '" />';
 
 // Далее HTML-разметка...
 ?>

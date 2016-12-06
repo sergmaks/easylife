@@ -9,7 +9,7 @@
 defined('_JEXEC') or die;
 
 // Подключаем Fontawesome
-JFactory::getDocument()->addScript("https://use.fontawesome.com/7f0000df30.js");
+JFactory::getDocument()->addScript("//use.fontawesome.com/7f0000df30.js");
 
 // Подключаем библиотеку контроллера joomla
 jimport('joomla.application.component.controller');

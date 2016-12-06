@@ -19,13 +19,13 @@ $dataPause = ( $globalParams->get('sliderPause','0') ) ? 'hover' : 'none';
 $filter    = ( $globalParams->get('useFilter','1') )   ? 'class="filter"' : '';
 
 // СSS клиентской части
-JFactory::getDocument()->addStyleSheet("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+JFactory::getDocument()->addStyleSheet("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
                                         ,$type="text/css"
                                         ,$media=null
                                         ,$attribs=array("integrity"=>"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                                             ,"crossorigin"=>"anonymous") ); // bootstrap css CDN
-JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/default.css'); // component css
-JFactory::getDocument()->addStyleSheet(JURI::root() .'components/com_carousel/views/slides/tmpl/css/media.css'); // media-querues
+JFactory::getDocument()->addStyleSheet($this->baseurl .'/components/com_carousel/views/slides/tmpl/css/default.css'); // component css
+JFactory::getDocument()->addStyleSheet($this->baseurl .'/components/com_carousel/views/slides/tmpl/css/media.css'); // media-querues
 
 // Заносим параметры в CSS
 $inlineStyle = 
@@ -45,10 +45,10 @@ $inlineStyle =
 JFactory::getDocument()->addStyleDeclaration( $inlineStyle );
 
 // JS
-JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery.min.js');
-JFactory::getDocument()->addScript(JURI::root() .'media/jui/js/jquery-noconflict.js');
-JFactory::getDocument()->addScript("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"); // bootstrap 3 js CDN
-JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/slides/tmpl/js/carousel.js');
+JFactory::getDocument()->addScript($this->baseurl .'/media/jui/js/jquery.min.js');
+JFactory::getDocument()->addScript($this->baseurl .'/media/jui/js/jquery-noconflict.js');
+JFactory::getDocument()->addScript("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"); // bootstrap 3 js CDN
+JFactory::getDocument()->addScript($this->baseurl .'/components/com_carousel/views/slides/tmpl/js/carousel.js');
 
 // Далее выводим html-код компонента
 ?>
@@ -76,8 +76,8 @@ JFactory::getDocument()->addScript(JURI::root() .'components/com_carousel/views/
         
             <?php $classItem = ($item_num == 0) ? 'active item' : 'item'; // если слайд первый, то он активный ?>
             <div class="<?php echo $classItem; ?>">
-                <div class="back" style="background-image: url('<?php echo JURI::root() 
-                                                                            .'administrator/components/com_carousel/images/xx_large/'
+                <div class="back" style="background-image: url('<?php echo  $this->baseurl 
+                                                                            . '/administrator/components/com_carousel/images/xx_large/'
                                                                             . JFile::getName($item->image);  ?>')">
                     
                     <div <?php echo $filter ?>></div>
