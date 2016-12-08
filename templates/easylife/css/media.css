@@ -17,11 +17,6 @@
         padding-left: 0;
     }
 }
-@media screen and (max-width: 992px) {
-    #logo {
-        left: 4%;
-    }
-}
 
 /* Mobile */
 @media screen and (max-width: 767px) {

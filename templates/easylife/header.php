@@ -17,10 +17,10 @@
                     <?php echo $this->params->get('phoneNumber');
             endif; ?>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-1">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-1" style="padding: 0">
             <jdoc:include type="modules" name="callme" style="none"/>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 hidden-xs">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-1 col-md-offset-1  hidden-xs">
             <jdoc:include type="modules" name="profile" style="none"/>
                <!--
                <a href="#"  style="margin-right: 50px" data-toggle="tooltip" data-placement="left" title="Авторизоваться в системе">

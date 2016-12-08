@@ -2,8 +2,7 @@
 
 <extension type="component" version="3.0" method="upgrade">
 
-		<name>Joomly Callback</name> 
-		<author>Artem Yegorov</author>
+		<name>Callback Easy Life</name> 
 		<creationDate>October 2015</creationDate>
 		<copyright>Copyright (C) 2015 Artem Yegorov All rights reserved.</copyright>
 		<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>

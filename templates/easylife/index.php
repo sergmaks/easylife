@@ -45,7 +45,7 @@ if ($this->params->get('googleFont'))
     $this->addStyleSheet('//fonts.googleapis.com/css?family=' . $this->params->get('googleFontName'));
 }
 // Пользовательский стиль шаблона
-$this->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
+$this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/template.css' );
 // пользовательские переорпеделения Bootstrap 3 CSS
 $this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/overrides.css' );
 // Медиа запросы
