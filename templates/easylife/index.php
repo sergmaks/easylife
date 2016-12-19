@@ -47,7 +47,7 @@ if ($this->params->get('googleFont'))
 // Пользовательский стиль шаблона
 $this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/template.css' );
 // пользовательские переорпеделения Bootstrap 3 CSS
-$this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/overrides.css' );
+$this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/bootstrap-overrides.css' );
 // Медиа запросы
 $this->addStyleSheet ( $this->baseurl . '/templates/' . $this->template . '/css/media.css' );
 
