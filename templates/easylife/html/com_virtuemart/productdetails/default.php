@@ -58,23 +58,10 @@ if(vRequest::getInt('print',false)){ ?>
     <?php } // Product Navigation END
     ?>
 
-	<?php // Back To Category Button
-	if ($this->product->virtuemart_category_id) {
-		$catURL =  JRoute::_('index.php?option=com_virtuemart&view=category&virtuemart_category_id='.$this->product->virtuemart_category_id, FALSE);
-		$categoryName = vmText::_($this->product->category_name) ;
-	} else {
-		$catURL =  JRoute::_('index.php?option=com_virtuemart');
-		$categoryName = vmText::_('COM_VIRTUEMART_SHOP_HOME') ;
-	}
-	?>
-	<div class="back-to-category">
-    	<a href="<?php echo $catURL ?>" class="product-details" title="<?php echo $categoryName ?>"><?php echo vmText::sprintf('COM_VIRTUEMART_CATEGORY_BACK_TO',$categoryName) ?></a>
-	</div>
-
     <?php // Product Title   ?>
-    <h1 itemprop="name"><?php echo $this->product->product_name ?></h1>
+    <h2 itemprop="name"><?php echo $this->product->product_name ?></h2>
     <?php // Product Title END   ?>
-
+    
     <?php // afterDisplayTitle Event
     echo $this->product->event->afterDisplayTitle ?>
 
@@ -103,7 +90,7 @@ if(vRequest::getInt('print',false)){ ?>
         </div>
     <?php } // PDF - Print - Email Icon END
     ?>
-
+        
     <?php
     // Product Short Description
     if (!empty($this->product->product_s_desc)) {
@@ -119,7 +106,12 @@ if(vRequest::getInt('print',false)){ ?>
 
 	echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'ontop'));
     ?>
-
+    
+    <?php
+        // Add to cart button at the bottom
+	echo shopFunctionsF::renderVmSubLayout('addtocart',array('product'=>$this->product));
+    ?>
+        
     <div class="vm-product-container">
 	<div class="vm-product-media-container">
 <?php
