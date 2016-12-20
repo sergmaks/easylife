@@ -109,7 +109,7 @@ if(vRequest::getInt('print',false)){ ?>
     
     <?php
         // Add to cart button at the bottom
-	echo shopFunctionsF::renderVmSubLayout('addtocart',array('product'=>$this->product));
+	//echo shopFunctionsF::renderVmSubLayout('addtocart',array('product'=>$this->product));
     ?>
         
     <div class="vm-product-container">
