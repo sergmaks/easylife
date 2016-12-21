@@ -113,10 +113,15 @@ if(vRequest::getInt('print',false)){ ?>
     ?>
         
     <div class="vm-product-container">
+        <div class="product-description" >
+	<?php /* Product Full Description */ ?>
+    	<span class="title"><?php echo vmText::_('COM_VIRTUEMART_PRODUCT_DESC_TITLE') ?></span>
+	<?php echo $this->product->product_desc; ?>
+        </div>
 	<div class="vm-product-media-container">
-<?php
-echo $this->loadTemplate('images');
-?>
+            <?php
+                echo $this->loadTemplate('images');
+            ?>
 	</div>
 
 	<div class="vm-product-details-container">
@@ -190,11 +195,6 @@ echo $this->loadTemplate('images');
 	// Product Description
 	if (!empty($this->product->product_desc)) {
 	    ?>
-        <div class="product-description" >
-	<?php /** @todo Test if content plugins modify the product description */ ?>
-    	<span class="title"><?php echo vmText::_('COM_VIRTUEMART_PRODUCT_DESC_TITLE') ?></span>
-	<?php echo $this->product->product_desc; ?>
-        </div>
 	<?php
     } // Product Description END
 
