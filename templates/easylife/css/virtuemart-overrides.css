@@ -1,6 +1,8 @@
 /**
  * Virtuemart Overrides for template "Eeasylife" 
 */
+
+/* Общий контейнер детального представления товара */
 .productdetails {
     padding: 0 30px;
     text-align: center;
@@ -17,6 +19,14 @@
     margin: 0 0 30px;
 }
 
+/* Контейнер с изображениями */
+.vm-product-details-container,
+.vm-product-container .vm-product-media-container,
+.product-price,
+.addtocart-area {
+    width: 100%;
+}
+
 /* Скрываем регулятор кол-ва товара возле кнопки "Добавить в корзину"*/
 .quantity-box,
 .quantity-controls,
@@ -24,7 +34,16 @@
     display: none;
 }
 
-/* Кнопка "Добавить в корзину"*/
+/* Контейнер с ценой и кнопкой добавления в корзину */
+.vm-product-details-container {
+    float: none;
+}
+
+/* Кнопка "Добавить в корзину" и контейнер для нее */
+.productdetails-view .addtocart-bar {
+    margin: 30px 0 30px;
+    text-align: center;
+}
 span.addtocart-button input.addtocart-button, 
 span.addtocart-button input.notify-button {
     padding: 15px;
