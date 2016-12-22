@@ -60,19 +60,15 @@ Virtuemart.updateImageEventListeners = function() {
 vmJsApi::addJScript('imagepopup',$imageJS);
 
 if (!empty($this->product->images)) {
-	$image = $this->product->images[0];
+	$imageMain = $this->product->images[0];
 	?>
 	<div class="main-image">
-		<?php 
-                    echo $image->displayMediaFull("",true,"rel='vm-additional-images'"); 
-                
-                    // Additional images
-                    $count_images = count ($this->product->images);
-                    if ($count_images > 1) {
-                        echo $this->loadTemplate('images_additional');
-                    }
-                ?>
-		
+            <?php 
+                foreach ( $this->product->images as $image ) {
+                    echo $image->displayMediaFull("",true,"rel='vm-additional-images'");
+                    //echo $image->file_description;
+                }
+            ?>	
 	</div>
 	<?php
 }
