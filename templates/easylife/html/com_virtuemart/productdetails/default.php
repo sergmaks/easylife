@@ -119,6 +119,7 @@ if(vRequest::getInt('print',false)){ ?>
         </div>
 	<div class="vm-product-media-container">
             <?php
+                // Image Container
                 echo $this->loadTemplate('images');
             ?>
 	</div>
@@ -181,10 +182,12 @@ if(vRequest::getInt('print',false)){ ?>
 
     </div>
 <?php
+    /**
 	$count_images = count ($this->product->images);
 	if ($count_images > 1) {
 		echo $this->loadTemplate('images_additional');
 	}
+    */
 
 	// event onContentBeforeDisplay
 	echo $this->product->event->beforeDisplayContent; ?>

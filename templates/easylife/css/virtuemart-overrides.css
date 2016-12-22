@@ -29,13 +29,19 @@
 
 /* Модальное окно с изображением */
 #facebox {
-    width: 60%;
+    width: 70%;
 }
 #facebox .content {
     width: inherit;
 }
 #facebox img {
     max-width: 100%;
+}
+
+/* Главное изображение товара на день */
+.main-image img {
+    max-width: 100%;
+    max-height: 350px;
 }
 
 /* Скрываем регулятор кол-ва товара возле кнопки "Добавить в корзину"*/
