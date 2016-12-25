@@ -181,7 +181,7 @@ a.socials:hover {
 /*----- Buttons Down & Up -----*/
 #button-down,
 #button-up{
-    position: absolute;
+    position: fixed;
     bottom: 25px;
     border-radius: 10px;
 }

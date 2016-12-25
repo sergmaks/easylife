@@ -4,15 +4,9 @@
 
 /* Общий контейнер детального представления товара */
 .productdetails {
-    padding: 0 30px;
+    padding: 100px 30px 30px 30px;
     text-align: center;
     font-size: 18px;
-}
-
-.productdetails h1,
-.productdetails h2,
-.productdetails h3 {
-    margin: 120px 0 30px;
 }
 
 .productdetails-view .product-short-description {
@@ -40,14 +34,19 @@
 
 /* Главное изображение товара на день */
 .main-image img {
-    max-width: 100%;
-    max-height: 350px;
-    margin: 15px;
+    max-height: 100%;
 }
-.main-image img:hover {
-    box-shadow: 0 30px 30px -15px gray,
-                30px 0 30px -15px gray,
-                -30px 0 30px -15px gray;
+
+/* Изображение шага */
+.step-image img {
+    max-height: 100px; 
+}
+
+.main-image img:hover,
+.step-image img:hover {
+    box-shadow: 0 15px 15px -15px gray,
+                15px 0 15px -15px gray,
+                -15px 0 15px -15px gray;
 }
 
 /* Скрываем регулятор кол-ва товара возле кнопки "Добавить в корзину"*/
@@ -82,4 +81,15 @@ span.addtocart-button input.notify-button {
 span.addtocart-button input.addtocart-button:hover, 
 span.addtocart-button input.notify-button:hover {
     color: #3e2423;
+}
+
+/* Таблица с блюдом на день */
+table.day {
+    max-width: 80%;
+    border-color: transparent;
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+table.day td {
+    vertical-align: top;
 }

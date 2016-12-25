@@ -27,7 +27,7 @@ if (empty($this->product)) {
 
 echo shopFunctionsF::renderVmSubLayout('askrecomjs',array('product'=>$this->product));
 
-// Add custom CSS from template
+// Добавляем CSS переопределения стилей virtuemart
 $doc = JFactory::getDocument();
 $doc->addStyleSheet( JUri::base(true) . '/templates/easylife/css/virtuemart-overrides.css' );
 
@@ -108,7 +108,7 @@ if(vRequest::getInt('print',false)){ ?>
     ?>
     
     <?php
-        // Add to cart button at the bottom
+        // Add to cart button at the top
 	echo shopFunctionsF::renderVmSubLayout('addtocart',array('product'=>$this->product));
     ?>
         
@@ -120,7 +120,22 @@ if(vRequest::getInt('print',false)){ ?>
 	<div class="vm-product-media-container">
             <?php
                 // Image Container
-                echo $this->loadTemplate('images');
+                //echo $this->loadTemplate('images');
+                
+                // Позиции дней недели
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'monday'));
+    
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'tuesday'));
+    
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'wednesday'));
+    
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'thursday'));
+
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'friday'));
+                
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'saturday'));
+                
+                echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'sunday'));
             ?>
 	</div>
 
@@ -153,6 +168,20 @@ if(vRequest::getInt('print',false)){ ?>
 		//in override /html/fields and use as first parameter the name of your file
 		echo shopFunctionsF::renderVmSubLayout('prices',array('product'=>$this->product,'currency'=>$this->currency));
 		?> <div class="clear"></div><?php
+                
+                // Product Short Description at the bottom
+                if (!empty($this->product->product_s_desc)) {
+                ?>
+                <div class="product-short-description">
+                <?php
+                /** @todo Test if content plugins modify the product description */
+                    echo nl2br($this->product->product_s_desc);
+                ?>
+                </div>
+                <?php
+                } // Product Short Description END
+
+                // Addtocart at the bottom
 		echo shopFunctionsF::renderVmSubLayout('addtocart',array('product'=>$this->product));
 
 		echo shopFunctionsF::renderVmSubLayout('stockhandle',array('product'=>$this->product));
@@ -201,7 +230,7 @@ if(vRequest::getInt('print',false)){ ?>
     } // Product Description END
 
 	echo shopFunctionsF::renderVmSubLayout('customfields',array('product'=>$this->product,'position'=>'normal'));
-
+        
     // Product Packaging
     $product_packaging = '';
     if ($this->product->product_box) {
