@@ -38,6 +38,9 @@
 }
 
 /* Изображение шага */
+.step-image {
+    display: inline-block;
+}
 .step-image img {
     max-height: 100px; 
 }
@@ -86,6 +89,7 @@ span.addtocart-button input.notify-button:hover {
 /* Таблица с блюдом на день */
 table.day {
     max-width: 80%;
+    text-align: left;
     border-color: transparent;
     border-collapse: separate;
     border-spacing: 15px;

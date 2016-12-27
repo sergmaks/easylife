@@ -56,23 +56,22 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="<?php echo $steps_count + 1 ?>">
+                    <td>
                         <div class="main-image"><?php echo $main_image ?></div>
                     </td>
-                    <td rowspan="<?php echo $steps_count + 1 ?>">
+                    <td>
                         <?php echo $ingredients ?>
-                    </td>                   
-                    <td></td>
-                    <td rowspan="<?php echo $steps_count + 1 ?>">
-                        <?php echo $recepie ?>
-                    </td>    
+                    </td>                      
                 </tr>
-                
-                <?php foreach ( $steps_images as $step_image ): ?>
-                    <tr>
-                        <td class="step-image"><?php echo $step_image ?></td>
-                    </tr>
-                <?php endforeach; ?>
+                <tr>
+                    <td colspan="2">
+                        <?php foreach ( $steps_images as $step_image ): ?>
+                    
+                            <div class="step-image"><?php echo $step_image ?></div>
+                    
+                        <?php endforeach; ?>
+                    </td>
+                </tr>
             </tbody>
         </table>
                 
