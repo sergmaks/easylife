@@ -45,35 +45,20 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                     $steps_images[] = $product->customfieldsSorted[$position][$i]->display;
                 }
                 ?>
-        <table class="day" align="center">
-            <thead>
-                <tr>
-                    <td colspan="4"><?php echo "<h2>" . $day_of_week . "</h2>"; ?></td>
-                </tr>
-                <tr>
-                    <td colspan="4"><?php echo $dish_name; ?></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <div class="main-image"><?php echo $main_image ?></div>
-                    </td>
-                    <td>
-                        <?php echo $ingredients ?>
-                    </td>                      
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <?php foreach ( $steps_images as $step_image ): ?>
-                    
+
+                <h2><?php echo $day_of_week; ?></h2>
+                <h3><?php echo $dish_name; ?></h3>
+                
+                <div class="dish-slider center-block">
+                    <div class="main-image"><?php echo $main_image ?></div>
+                    <div class="image-desc"><?php echo $ingredients ?></div>                     
+                
+                    <div class="step-images">
+                        <?php foreach ( $steps_images as $step_image ): ?>                    
                             <div class="step-image"><?php echo $step_image ?></div>
-                    
                         <?php endforeach; ?>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </div>
                 
         <div class="clear"></div>
 <?php

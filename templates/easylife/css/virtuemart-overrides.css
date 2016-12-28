@@ -33,16 +33,17 @@
 }
 
 /* Главное изображение товара на день */
+.main-image {
+    max-width: 70%;
+}
 .main-image img {
     max-height: 100%;
 }
 
 /* Изображение шага */
-.step-image {
-    display: inline-block;
-}
 .step-image img {
-    max-height: 100px; 
+    width: 25%;
+    max-height: 100%; 
 }
 
 .main-image img:hover,
@@ -52,16 +53,11 @@
                 -15px 0 15px -15px gray;
 }
 
-/* Скрываем регулятор кол-ва товара возле кнопки "Добавить в корзину"*/
-.quantity-box,
-.quantity-controls,
-.quantity-input {
-    display: none;
-}
-
-/* Контейнер с ценой и кнопкой добавления в корзину */
-.vm-product-details-container {
-    float: none;
+.main-image,
+.image-desc,
+.step-image {
+    display: inline-block;
+    vertical-align: top;
 }
 
 /* Кнопка "Добавить в корзину" и контейнер для нее */
@@ -86,14 +82,31 @@ span.addtocart-button input.notify-button:hover {
     color: #3e2423;
 }
 
-/* Таблица с блюдом на день */
-table.day {
-    max-width: 80%;
-    text-align: left;
-    border-color: transparent;
-    border-collapse: separate;
-    border-spacing: 15px;
+/* Скрываем регулятор кол-ва товара возле кнопки "Добавить в корзину"*/
+.quantity-box,
+.quantity-controls,
+.quantity-input {
+    display: none;
 }
-table.day td {
-    vertical-align: top;
+
+/* Контейнер с ценой и кнопкой добавления в корзину */
+.vm-product-details-container {
+    float: none;
+}
+
+/* Слайдер с блюдом на день */
+.dish-slider {
+    max-width: 60%;
+    text-align: left;
+}
+.dish-slider > div {
+    padding: 15px 0 0 15px;
+}
+
+.step-images {
+    height: 100%;
+    overflow-x: auto;
+    overflow-y:hidden;
+    white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
+    word-wrap: normal;
 }
