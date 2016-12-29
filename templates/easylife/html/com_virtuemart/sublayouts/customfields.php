@@ -52,19 +52,22 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 <div class="dish-slider center-block">
                     <div class="main-image"><?php echo $main_image ?></div>
                     <div class="image-desc"><?php echo $ingredients ?></div>                     
-                    
-                    <div class="slider-nav prev">
+      
+                    <div class="slides-container"> 
+                        <div class="slider-nav prev">
                             <span class="fa fa-chevron-circle-left" aria-hidden="true"></span>
-                    </div>
+                        </div>
                     
-                    <div class="step-images">
-                        <?php foreach ( $steps_images as $step_image ): ?>                    
-                            <div class="step-image"><?php echo $step_image ?></div>
-                        <?php endforeach; ?>         
-                    </div>
-                    
-                    <div class="slider-nav next">
-                            <span class="fa fa-chevron-circle-right" aria-hidden="true"></span>
+                        <div class="step-images">
+                            <?php foreach ( $steps_images as $step_image ): ?>                    
+                                <div class="step-image"><?php echo $step_image ?></div>
+                            <?php endforeach; ?>         
+                        </div>
+                        <div class="slider-nav next">
+                                <span class="fa fa-chevron-circle-right" aria-hidden="true"></span>
+                        </div>
+                                              
+                        
                     </div>
                     
                 </div>

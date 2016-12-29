@@ -105,9 +105,13 @@ span.addtocart-button input.notify-button:hover {
     padding: 15px 0 0 15px;
 }
 
-.step-images {
+.slides-container {
     position: relative;
+}
+
+.step-images {
     height: 100%;
+    display: inline-block;
     overflow-x: auto;
     overflow-y:hidden;
     white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
@@ -115,10 +119,10 @@ span.addtocart-button input.notify-button:hover {
 }
 
 /* Стрелки прокрутки слайдера */
-.slider-nav{
+.slider-nav {
     position: absolute;
+    top: 0;
     z-index: 3;
-    width: 5%;
     height: 100%;
     display: inline-block;
     cursor: pointer;
@@ -128,9 +132,16 @@ span.addtocart-button input.notify-button:hover {
     opacity: 0.8;
     filter: alpha(opacity=50);
 }
+.slider-nav * {
+    position: absolute;
+    top: 35%;
+}
 .prev {
     left: 0;
+    padding: 0 15px 0 30px;
+    visibility: hidden;
 }
 .next {
     right: 0;
+    padding: 0 15px;
 }
