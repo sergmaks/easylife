@@ -41,9 +41,11 @@
 }
 
 /* Изображение шага */
+.step-image {
+    width: 25%; 
+}
 .step-image img {
-    width: 25%;
-    max-height: 100%; 
+    width: 100%; 
 }
 
 .main-image img:hover,
@@ -104,9 +106,31 @@ span.addtocart-button input.notify-button:hover {
 }
 
 .step-images {
+    position: relative;
     height: 100%;
     overflow-x: auto;
     overflow-y:hidden;
     white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
     word-wrap: normal;
+}
+
+/* Стрелки прокрутки слайдера */
+.slider-nav{
+    position: absolute;
+    z-index: 3;
+    width: 5%;
+    height: 100%;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 36px;
+    vertical-align: middle;
+    background-color: #fff;
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
 }
