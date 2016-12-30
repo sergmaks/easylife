@@ -12,6 +12,9 @@
 
 defined('_JEXEC') or die('Restricted access');
 
+$doc = JFactory::getDocument();
+$doc->addScript( JUri::base(true) . '/templates/easylife/js/slider-menu.js' );
+
 $product = $viewData['product'];
 $position = $viewData['position'];
 $customTitle = isset($viewData['customTitle'])? $viewData['customTitle']: false;
