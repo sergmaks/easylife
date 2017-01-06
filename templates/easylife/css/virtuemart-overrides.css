@@ -42,7 +42,8 @@
 
 /* Изображение шага */
 .step-image {
-    width: 25%; 
+    width: 25%;
+    cursor: pointer;
 }
 .step-image img {
     width: 100%; 
@@ -107,12 +108,15 @@ span.addtocart-button input.notify-button:hover {
 
 .slides-container {
     position: relative;
+    max-width: 100%;
+    white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
+    word-wrap: normal;
 }
 
 .step-images {
-    height: 100%;
+    max-width: 80%;
     display: inline-block;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y:hidden;
     white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
     word-wrap: normal;
@@ -120,28 +124,12 @@ span.addtocart-button input.notify-button:hover {
 
 /* Стрелки прокрутки слайдера */
 .slider-nav {
-    position: absolute;
-    top: 0;
     z-index: 3;
-    height: 100%;
     display: inline-block;
     cursor: pointer;
     font-size: 36px;
-    vertical-align: middle;
+    vertical-align: top;
     background-color: #fff;
     opacity: 0.8;
     filter: alpha(opacity=50);
-}
-.slider-nav * {
-    position: absolute;
-    top: 37%;
-}
-.prev {
-    left: 0;
-    padding: 0 15px 0 30px;
-    visibility: hidden;
-}
-.next {
-    right: 0;
-    padding: 0 15px;
 }

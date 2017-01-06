@@ -118,6 +118,7 @@ if(vRequest::getInt('print',false)){ ?>
 	<?php echo $this->product->product_desc; ?>
         </div>
 	<div class="vm-product-media-container">
+            
             <?php
                 // Image Container
                 //echo $this->loadTemplate('images');

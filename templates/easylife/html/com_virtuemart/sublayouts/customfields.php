@@ -43,7 +43,7 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 $recepie      = str_replace("\n", "<br>", $product->customfieldsSorted[$position][3]->display);
                 $steps_images = array();
                 
-                // Наполнение массива изображений шагов
+                // Наполнение массива с изображениями шагов
                 for ( $i = 5; $i < $steps_count + 5; $i++ ) {
                     $steps_images[] = $product->customfieldsSorted[$position][$i]->display;
                 }
@@ -53,7 +53,12 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 <h3><?php echo $dish_name; ?></h3>
                 
                 <div class="dish-slider center-block">
-                    <div class="main-image"><?php echo $main_image ?></div>
+                    <div class="main-image">
+                        <a  rel='vm-additional-images' href="">
+                            <?php echo $main_image ?>
+                        </a>
+                        
+                    </div>
                     <div class="image-desc"><?php echo $ingredients ?></div>                     
       
                     <div class="slides-container"> 
@@ -62,6 +67,8 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                         </div>
                     
                         <div class="step-images">
+                            <div class="step-image"><?php echo $main_image ?></div>
+                            
                             <?php foreach ( $steps_images as $step_image ): ?>                    
                                 <div class="step-image"><?php echo $step_image ?></div>
                             <?php endforeach; ?>         
