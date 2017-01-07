@@ -67,11 +67,7 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                         </div>
                     
                         <div class="step-images">
-                            <div class="step-image"><?php echo $main_image ?></div>
-                            
-                            <?php foreach ( $steps_images as $step_image ): ?>                    
-                                <div class="step-image"><?php echo $step_image ?></div>
-                            <?php endforeach; ?>         
+                            <div class="step-image"><?php echo $main_image ?></div><?php foreach ( $steps_images as $step_image ): ?><div class="step-image"><?php echo $step_image ?></div><?php endforeach; ?>         
                         </div>
                         <div class="slider-nav next">
                                 <span class="fa fa-chevron-circle-right" aria-hidden="true"></span>

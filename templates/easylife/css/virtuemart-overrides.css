@@ -43,6 +43,7 @@
 /* Изображение шага */
 .step-image {
     width: 25%;
+    padding: 0 1%;
     cursor: pointer;
 }
 .step-image img {
