@@ -47,37 +47,34 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 for ( $i = 5; $i < $steps_count + 5; $i++ ) {
                     $steps_images[] = $product->customfieldsSorted[$position][$i]->display;
                 }
-                ?>
-
-                <h2><?php echo $day_of_week; ?></h2>
-                <h3><?php echo $dish_name; ?></h3>
+                ?>                
                 
-                <div class="dish-slider center-block">
-                    <div class="main-image">
-                        <a  rel='vm-additional-images' href="">
-                            <?php echo $main_image ?>
-                        </a>
-                        
-                    </div>
-                    <div class="image-desc"><?php echo $ingredients ?></div>                     
-      
-                    <div class="slides-container"> 
-                        <div class="slider-nav prev">
-                            <span class="fa fa-chevron-circle-left" aria-hidden="true"></span>
-                        </div>
-                    
-                        <div class="step-images">
-                            <div class="step-image"><?php echo $main_image ?></div><?php foreach ( $steps_images as $step_image ): ?><div class="step-image"><?php echo $step_image ?></div><?php endforeach; ?>         
-                        </div>
-                        <div class="slider-nav next">
-                                <span class="fa fa-chevron-circle-right" aria-hidden="true"></span>
-                        </div>
-                                              
-                        
-                    </div>
-                    
-                </div>
-                
+                <table class="dish-slider" align="center">
+                    <thead>
+                        <tr>
+                            <h2><?php echo $day_of_week; ?></h2>
+                            <h3><?php echo $dish_name; ?></h3>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td class="main-image"><?php echo $main_image ?></td>
+                            <td class="image-desc"><?php echo $ingredients ?><</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="slider-nav prev"><span class="fa fa-chevron-circle-left" aria-hidden="true"></span></td>
+                            <td colspan="2" class="slides-container">
+                                <div class="steps-images">
+                                    <div class="step-image"><?php echo $main_image ?></div><?php foreach ( $steps_images as $step_image ): ?><div class="step-image"><?php echo $step_image ?></div><?php endforeach; ?>                           
+                                </div>
+                            </td>
+                            <td class="slider-nav next"><span class="fa fa-chevron-circle-right" aria-hidden="true"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+               
         <div class="clear"></div>
 <?php
 } ?>

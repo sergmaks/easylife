@@ -22,7 +22,7 @@
 }
 
 /* Модальное окно с изображением */
-#facebox {
+/*#facebox {
     width: 70%;
 }
 #facebox .content {
@@ -30,39 +30,7 @@
 }
 #facebox img {
     max-width: 100%;
-}
-
-/* Главное изображение товара на день */
-.main-image {
-    max-width: 70%;
-}
-.main-image img {
-    max-height: 100%;
-}
-
-/* Изображение шага */
-.step-image {
-    width: 25%;
-    padding: 0 1%;
-    cursor: pointer;
-}
-.step-image img {
-    width: 100%; 
-}
-
-.main-image img:hover,
-.step-image img:hover {
-    box-shadow: 0 15px 15px -15px gray,
-                15px 0 15px -15px gray,
-                -15px 0 15px -15px gray;
-}
-
-.main-image,
-.image-desc,
-.step-image {
-    display: inline-block;
-    vertical-align: top;
-}
+}*/
 
 /* Кнопка "Добавить в корзину" и контейнер для нее */
 .productdetails-view .addtocart-bar {
@@ -98,39 +66,67 @@ span.addtocart-button input.notify-button:hover {
     float: none;
 }
 
-/* Слайдер с блюдом на день */
-.dish-slider {
-    max-width: 60%;
+/* ---------------- Слайдер с блюдом на день ------------------ */
+table.dish-slider {
+    max-width: 70%;
     text-align: left;
-}
-.dish-slider > div {
-    padding: 15px 0 0 15px;
-}
-
-.slides-container {
-    position: relative;
-    max-width: 100%;
-    white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
-    word-wrap: normal;
+    border-color: transparent;
+    border-collapse: separate;
+    border-spacing: 15px;
 }
 
-.step-images {
-    max-width: 80%;
-    display: inline-block;
+.steps-images {
     overflow-x: hidden;
-    overflow-y:hidden;
+    overflow-y: hidden;
     white-space: nowrap;  /* чтобы картинки стояли в одну линию, не переходя на другую строку */
     word-wrap: normal;
 }
 
 /* Стрелки прокрутки слайдера */
 .slider-nav {
-    z-index: 3;
-    display: inline-block;
     cursor: pointer;
     font-size: 36px;
-    vertical-align: top;
+    vertical-align: middle;
     background-color: #fff;
     opacity: 0.8;
-    filter: alpha(opacity=50);
+    filter: alpha(opacity=80);
+}
+.prev {
+    visibility: hidden;
+}
+
+/* Главное изображение товара на день */
+.main-image {
+    width: 70%;
+}
+.main-image img {
+    max-height: 100%;
+}
+
+/* Описание главного изображения */
+.image-desc {
+    width: 30%;
+}
+
+/* Изображение шага */
+.step-image {
+    width: 25%;
+    padding-right: 1%;
+    display: inline-block;
+    cursor: pointer;
+}
+.step-image img {
+    width: 100%; 
+}
+
+.step-image img:hover {
+    box-shadow: 0 15px 15px -15px gray,
+                15px 0 15px -15px gray,
+                -15px 0 15px -15px gray;
+}
+
+.main-image,
+.image-desc,
+.step-image {
+    vertical-align: top;
 }

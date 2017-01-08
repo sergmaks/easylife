@@ -2,40 +2,71 @@
   * Cлайдер с блюдом на день
   */
  
- jQuery(document).ready(function() {
+ jQuery(function() {
     var nextLink   = jQuery('.next'); // прокрутка вправо
     var prevLink   = jQuery('.prev'); // прокрутка вправо
     var stepImage  = jQuery('.step-image'); // слайд - шаг
     
+    var disabled_flag = false; // запрет клика во время прокрутки
     
-    nextLink.click(function() {
-        var stepWidth  = jQuery('.step-image').outerWidth();
-        var stepImages = jQuery(this).parent().children('.step-images');
-        var step       = stepImages.scrollLeft() + stepWidth;
+    // прокрутка слайдов при клике
+    function scroll() {
+       
+        var thisType    = jQuery(this).attr('class').replace('slider-nav ',''); // тип кнопки: назад или вперед
+        // cсылки на кнопки прокрутки
+        var nextButt    = jQuery(this).parent().children('.next');
+        var prevButt    = jQuery(this).parent().children('.prev');
         
-        stepImages.animate( {scrollLeft: step}, 500 );
-    });
-    
-    prevLink.click(function() {
-        var stepWidth  = jQuery('.step-image').outerWidth();
-        var stepImages = jQuery(this).parent().children('.step-images');
-        var step       = stepImages.scrollLeft() - stepWidth;
+        var stepWidth   = stepImage.outerWidth();
+        var stepsImages = jQuery(this).parent().children('.slides-container').children('.steps-images');
+        var sсrollVal;
         
-        stepImages.animate( {scrollLeft: step}, 500 );
-    });
+        if ( disabled_flag ) { return false; }
+        
+        disabled_flag = true;
+        
+        if (thisType === "next") {
+            scrollVal = stepsImages.scrollLeft() + stepWidth;           
+        } else {
+            scrollVal = stepsImages.scrollLeft() - stepWidth; 
+        }
+        
+        stepsImages.animate( {scrollLeft: scrollVal}, 500, function() {
+                        
+            if ( stepsImages.scrollLeft() === 0 ) {
+               prevButt.css("visibility" , "hidden");
+            }
+            
+            else {
+                prevButt.css("visibility" , "visible");
+                nextButt.css("visibility" , "visible");
+            }
+            
+            if ( stepsImages.scrollLeft() >= stepsImages.innerWidth()/2 - 3) {
+                nextButt.css("visibility" , "hidden");
+            }
+            
+            disabled_flag = false;           
+        });
+        
+    }
     
-    /* Клик на слайд */
+    // Next
+    nextLink.on("click", scroll);
+    
+    // Previous
+    prevLink.on("click", scroll);
+    
+    // Клик на слайд и смена главного изображения
     stepImage.click(function() {
         var thisImage = jQuery(this).children('img:first').attr('src'); // cсылка на картинку выбранного слайда
-        var mainImage = jQuery(this).parent().parent().parent().children('.main-image:first').children('a:first'); // cсылка на главное изображения
+        var mainImage = jQuery(this).parent().parent().parent().parent().children('tr:first').children('.main-image:first').children('img:first'); // cсылка на главное изображения
         
         mainImage.fadeTo(500, 0.05, function() {
-            mainImage.attr('href',thisImage);
-            mainImage.children('img:first').attr('src',thisImage);  
+            mainImage.attr('src',thisImage);
         });
         
         mainImage.fadeTo('500', 1);
-        
     });
     
  });
