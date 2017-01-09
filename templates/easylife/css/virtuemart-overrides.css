@@ -130,3 +130,20 @@ table.dish-slider {
 .step-image {
     vertical-align: top;
 }
+
+/* Боковая панель с днями недели */
+#days-bar {
+    position: fixed;
+    left: 0;
+    top: 37%;
+    list-style-type: none;
+    font-size: 24px;
+    color: #61B73C;
+}
+#days-bar a {
+   color: #61B73C; 
+}
+#days-bar a.active {
+   font-size: 30px;
+   color: #FF9900;
+}

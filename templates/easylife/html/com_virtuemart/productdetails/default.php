@@ -36,6 +36,24 @@ if(vRequest::getInt('print',false)){ ?>
 <?php } ?>
 
 <div class="product-container productdetails-view productdetails">
+    
+    <ul id="days-bar">
+        <li><a class="active" href="#" title="Понедельник" data-toggle="tooltip" data-placement="right">
+            <span class="fa fa-circle" aria-hidden="true"></span>
+            </a></li>
+        <li><a href="#" title="Вторник" data-toggle="tooltip" data-placement="right">
+            <span class="fa fa-circle" aria-hidden="true"></span>
+            </a></li>
+        <li><a href="#" title="Среда" data-toggle="tooltip" data-placement="right">
+            <span class="fa fa-circle" aria-hidden="true"></span>
+            </a></li>
+        <li><a href="#" title="Четверг" data-toggle="tooltip" data-placement="right">
+            <span class="fa fa-circle" aria-hidden="true"></span>
+            </a></li>
+        <li><a href="#" title="Пятница" data-toggle="tooltip" data-placement="right">
+            <span class="fa fa-circle" aria-hidden="true"></span>
+            </a></li>
+    </ul>
 
     <?php
     // Product Navigation
