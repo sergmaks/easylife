@@ -31,34 +31,27 @@ function Anchor() {
        anchor.tooltip('show'); 
     });
     
-    console.log(jQuery("#tuesday").offset().top);
-    console.log(jQuery(window).scrollTop());
-    
-    
+
 }
 
 // выделение пункта при скролле страницы 
 function ScrollAnchor(day) {
+    var anchor = jQuery("a[href=\"#" + day + "\"]");
+    
     function showActive() {
-        var anchor     = jQuery("a[href=\"#" + day + "\"]");
         var offsetTop  = jQuery("#" + day).offset().top;
         var halfHeight = jQuery("#" + day).height()/2;
         
-        if ( jQuery(window).scrollTop() >= offsetTop) {
+        if ( jQuery(window).scrollTop() >= offsetTop - 400) {
             jQuery("#" + idMenu + ">li>a").removeClass(cActive);
             anchor.addClass(cActive);
-            alert("true");
-            //jQuery("#" + idMenu + ">li>a[href*=\"#\"]").tooltip('hide');
-            //anchor.tooltip('show'); 
         }
-        else {
-            alert("false");
-        }
-        
-        jQuery(window).scroll(showActive);
-        jQuery(window).resize(showActive);
         
     }
+    jQuery(window).scroll(showActive);
+    jQuery(window).resize(showActive);
+//    jQuery("#" + idMenu + ">li>a[href*=\"#\"]").tooltip('hide');
+//    anchor.tooltip('show'); 
 }
 
 jQuery(function () {
