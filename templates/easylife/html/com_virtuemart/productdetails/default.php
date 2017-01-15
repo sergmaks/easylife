@@ -30,6 +30,7 @@ echo shopFunctionsF::renderVmSubLayout('askrecomjs',array('product'=>$this->prod
 // Добавляем CSS переопределения стилей virtuemart
 $doc = JFactory::getDocument();
 $doc->addStyleSheet( JUri::base(true) . '/templates/easylife/css/virtuemart-overrides.css' );
+$doc->addScript( JUri::base(true) . '/templates/easylife/js/days-bar.js' );
 
 if(vRequest::getInt('print',false)){ ?>
 <body onload="javascript:print();">
@@ -38,19 +39,19 @@ if(vRequest::getInt('print',false)){ ?>
 <div class="product-container productdetails-view productdetails">
     
     <ul id="days-bar">
-        <li><a class="active" href="#" title="Понедельник" data-toggle="tooltip" data-placement="right">
+        <li><a href="#monday" title="Понедельник" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
-        <li><a href="#" title="Вторник" data-toggle="tooltip" data-placement="right">
+        <li><a href="#tuesday" title="Вторник" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
-        <li><a href="#" title="Среда" data-toggle="tooltip" data-placement="right">
+        <li><a href="#wednesday" title="Среда" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
-        <li><a href="#" title="Четверг" data-toggle="tooltip" data-placement="right">
+        <li><a href="#thursday" title="Четверг" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
-        <li><a href="#" title="Пятница" data-toggle="tooltip" data-placement="right">
+        <li><a href="#friday" title="Пятница" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
     </ul>
