@@ -39,10 +39,12 @@ if(vRequest::getInt('print',false)){ ?>
 <div class="product-container productdetails-view productdetails">
     
     <ul id="days-bar">
-        <li><a href="#monday" title="Понедельник" data-toggle="tooltip" data-placement="right">
+        <li title="Понедельник" data-toggle="tooltip" data-placement="right">
+            <a href="#monday" title="Понедельник" data-toggle="popover" data-placement="right" data-content="Блюдо на понедельник" data-trigger="manual"> 
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
-        <li><a href="#tuesday" title="Вторник" data-toggle="tooltip" data-placement="right">
+        <li title="Вторник" data-toggle="tooltip" data-placement="right">
+            <a href="#tuesday" title="Вторник" data-toggle="popover" data-placement="right" data-content="Блюдо на вторник" data-trigger="manual">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
         <li><a href="#wednesday" title="Среда" data-toggle="tooltip" data-placement="right">

@@ -1,8 +1,8 @@
 /* 
- * 
+ * Скрипт для боковой панели с днями недели
  */
-var idMenu   = "days-bar";
-var cActive  = "active";
+var idMenu   = "days-bar"; // id боковой панели
+var cActive  = "active"; // активная кнопка
 
 // если сущесвуют хэши в URL, удаляем их
 function AnchorHash() {
@@ -21,14 +21,11 @@ function AnchorHash() {
 function Anchor() {
     var anchor = jQuery(this);
     
-    jQuery("#" + idMenu + ">li>a").removeClass(cActive);
-    anchor.addClass(cActive);
-    jQuery("#" + idMenu + ">li>a[href*=\"#\"]").tooltip('hide');
+    jQuery("#" + idMenu + ">li>a[href*=\"#\"]").popover('hide');
     jQuery("html, body").animate({
         scrollTop: jQuery(anchor.attr("href")).offset().top
     }, 1000, function(){
-       
-       anchor.tooltip('show'); 
+       //anchor.popover('show'); 
     });
     
 
@@ -36,25 +33,28 @@ function Anchor() {
 
 // выделение пункта при скролле страницы 
 function ScrollAnchor(day) {
-    var anchor = jQuery("a[href=\"#" + day + "\"]");
+    var anchor = jQuery("#" + idMenu + ">li>a[href=\"#" + day + "\"]");
     
     function showActive() {
         var offsetTop  = jQuery("#" + day).offset().top;
         var halfHeight = jQuery("#" + day).height()/2;
-        
-        if ( jQuery(window).scrollTop() >= offsetTop - 400) {
+      
+        if ( jQuery(window).scrollTop() >= offsetTop - halfHeight && jQuery(window).scrollTop() < offsetTop + halfHeight + 50 ) {
             jQuery("#" + idMenu + ">li>a").removeClass(cActive);
             anchor.addClass(cActive);
+            anchor.popover('show');            
+        } else {
+            anchor.popover('hide');
         }
         
     }
     jQuery(window).scroll(showActive);
     jQuery(window).resize(showActive);
-//    jQuery("#" + idMenu + ">li>a[href*=\"#\"]").tooltip('hide');
-//    anchor.tooltip('show'); 
+         
 }
 
 jQuery(function () {
+   jQuery('[data-toggle="popover"]').popover();  
    AnchorHash();
    jQuery("#" + idMenu + ">li>a[href*=\"#\"]").on("click", Anchor);
    ScrollAnchor("monday");

@@ -15,6 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 $doc = JFactory::getDocument();
 $doc->addScript( JUri::base(true) . '/templates/easylife/js/slider-menu.js' );
 
+
 $product = $viewData['product'];
 $position = $viewData['position'];
 $customTitle = isset($viewData['customTitle'])? $viewData['customTitle']: false;
@@ -43,16 +44,28 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 $recepie      = str_replace("\n", "<br>", $product->customfieldsSorted[$position][3]->display);
                 $steps_images = array();
                 
+//                $days_bar = "jQuery(function () {"
+//                            . "jQuery(\"#days-bar\").append("
+//                            .    "'<li title=\"" . $day_of_week . "\" data-toggle=\"tooltip\" data-placement=\"right\">"
+//                            .        "<a href=\"#" . $position . "\" title=\"" . $day_of_week . "\" data-toggle=\"popover\" data-placement=\"right\" data-content=\"" . $dish_name . "\" data-trigger=\"manual\">"
+//                            .        "<span class=\"fa fa-circle\" aria-hidden=\"true\"></span>"
+//                            .        "</a>"
+//                            .    "</li>'"
+//                            . ");"
+//                            ."});";
+                
+                $doc->addScriptDeclaration($days_bar);
                 // Наполнение массива с изображениями шагов
                 for ( $i = 5; $i < $steps_count + 5; $i++ ) {
                     $steps_images[] = $product->customfieldsSorted[$position][$i]->display;
                 }
-                ?>                
+                ?>
                 
+            <div id="<?php echo $position ?>">
                 <table class="dish-slider" align="center">
                     <thead>
                         <tr>
-                            <h2 id="<?php echo $position ?>"><?php echo $day_of_week; ?></h2>
+                            <h2><?php echo $day_of_week; ?></h2>
                             <h3><?php echo $dish_name; ?></h3>
                         </tr>
                     </thead>
@@ -74,7 +87,7 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                         </tr>
                     </tbody>
                 </table>
-               
+            </div>   
         <div class="clear"></div>
 <?php
 } ?>
