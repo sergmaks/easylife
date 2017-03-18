@@ -39,12 +39,13 @@ function ScrollAnchor(day) {
         var offsetTop  = jQuery("#" + day).offset().top;
         var halfHeight = jQuery("#" + day).height()/2;
       
-        if ( jQuery(window).scrollTop() >= offsetTop - halfHeight && jQuery(window).scrollTop() < offsetTop + halfHeight + 50 ) {
+        if ( jQuery(window).scrollTop() >= offsetTop - halfHeight && jQuery(window).scrollTop() < offsetTop + halfHeight + 55 ) {
             jQuery("#" + idMenu + ">li>a").removeClass(cActive);
             anchor.addClass(cActive);
             anchor.popover('show');            
         } else {
             anchor.popover('hide');
+            //jQuery("#" + idMenu + ">li>a").removeClass(cActive);
         }
         
     }
@@ -56,7 +57,4 @@ function ScrollAnchor(day) {
 jQuery(function () {
    jQuery('[data-toggle="popover"]').popover();  
    AnchorHash();
-   jQuery("#" + idMenu + ">li>a[href*=\"#\"]").on("click", Anchor);
-   ScrollAnchor("monday");
-   ScrollAnchor("tuesday");
 });

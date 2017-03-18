@@ -11,13 +11,11 @@ function checkMobile() {
         jQuery('#nav-bar').outerHeight(50);
         jQuery('#nav-bar').show();
         jQuery('#nav-bar li > ul').show();
-        jQuery('[data-toggle="tooltip"]').tooltip('enable');
         jQuery('#nav-bar li').unbind('click', showMobileDropdown);
     } else {  // if mobile
         jQuery('#nav-bar').css({height:"auto"});    
         jQuery('#nav-bar').hide();  // hide menu block
         jQuery('#nav-bar li > ul').hide();  // hide dropdown menu
-        jQuery('[data-toggle="tooltip"]').tooltip('disable');  // disable bootstrap tooltips
         jQuery('#nav-bar li').unbind('click', showMobileDropdown);
         jQuery('#nav-bar li').bind('click', showMobileDropdown);
     }
@@ -39,7 +37,8 @@ function hideFooter() {
   
 jQuery(document).ready(
     function() {
-        jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});  // Enable Bootstrap tooltips            
+        jQuery('.main-nav').attr({"data-toggle":"tooltip", "data-placement":"bottom"});  // Enable Bootstrap tooltips 
+        jQuery('[data-toggle="tooltip"]').tooltip('enable');
         jQuery('#menu-trigger').click(function(){
             jQuery('#nav-bar li > ul').hide();  // hide dropdown menu
             jQuery('#nav-bar').slideToggle('normal');

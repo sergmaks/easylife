@@ -1,5 +1,5 @@
 /**
- * Virtuemart Overrides for template "Eeasylife" 
+ * Virtuemart Overrides for template "Easylife" 
 */
 
 /* Общий контейнер детального представления товара */
@@ -85,7 +85,7 @@ table.dish-slider {
 /* Стрелки прокрутки слайдера */
 .slider-nav {
     cursor: pointer;
-    font-size: 36px;
+    font-size: 50px;
     vertical-align: middle;
     background-color: #fff;
     opacity: 0.8;
@@ -114,6 +114,9 @@ table.dish-slider {
     padding-right: 1%;
     display: inline-block;
     cursor: pointer;
+}
+.step-image:hover {
+    width: 25.2%;
 }
 .step-image img {
     width: 100%; 

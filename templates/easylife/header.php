@@ -5,7 +5,7 @@
 <!-- Top Header bar -->
     <div class="row" id="top-bar">
         <!--Mobile head caption-->
-        <div class="col-xs-8 col-xs-offset-2 visible-xs" style="font-size: 170%">
+        <div class="col-xs-8 col-xs-offset-2 visible-xs" id="sitename">
             <?php echo '<p align="center">' . $sitename . '</p>' ?>        
         </div>           
         <div id="logo">

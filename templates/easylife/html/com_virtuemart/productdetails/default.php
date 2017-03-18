@@ -39,7 +39,7 @@ if(vRequest::getInt('print',false)){ ?>
 <div class="product-container productdetails-view productdetails">
     
     <ul id="days-bar">
-        <li title="Понедельник" data-toggle="tooltip" data-placement="right">
+<!--        <li title="Понедельник" data-toggle="tooltip" data-placement="right">
             <a href="#monday" title="Понедельник" data-toggle="popover" data-placement="right" data-content="Блюдо на понедельник" data-trigger="manual"> 
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>
@@ -55,7 +55,7 @@ if(vRequest::getInt('print',false)){ ?>
             </a></li>
         <li><a href="#friday" title="Пятница" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
-            </a></li>
+            </a></li>-->
     </ul>
 
     <?php
@@ -233,7 +233,7 @@ if(vRequest::getInt('print',false)){ ?>
 
     </div>
 <?php
-    /**
+    /*
 	$count_images = count ($this->product->images);
 	if ($count_images > 1) {
 		echo $this->loadTemplate('images_additional');

@@ -44,15 +44,19 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 $recepie      = str_replace("\n", "<br>", $product->customfieldsSorted[$position][3]->display);
                 $steps_images = array();
                 
-//                $days_bar = "jQuery(function () {"
-//                            . "jQuery(\"#days-bar\").append("
-//                            .    "'<li title=\"" . $day_of_week . "\" data-toggle=\"tooltip\" data-placement=\"right\">"
-//                            .        "<a href=\"#" . $position . "\" title=\"" . $day_of_week . "\" data-toggle=\"popover\" data-placement=\"right\" data-content=\"" . $dish_name . "\" data-trigger=\"manual\">"
-//                            .        "<span class=\"fa fa-circle\" aria-hidden=\"true\"></span>"
-//                            .        "</a>"
-//                            .    "</li>'"
-//                            . ");"
-//                            ."});";
+                // скрипт добавления элементов в боковую панель с днями недели
+                $days_bar = 'jQuery(function () {'
+                            . 'jQuery("#days-bar").append('
+                            .    "'<li title=\"" . $day_of_week . "\" data-toggle=\"tooltip\" data-placement=\"right\">"
+                            .        "<a href=\"#" . $position . "\" title=\"" . $day_of_week . "\" data-toggle=\"popover\" data-placement=\"right\" data-content=\"" . $dish_name . "\" data-trigger=\"manual\">"
+                            .        "<span class=\"fa fa-circle\" aria-hidden=\"true\"></span>"
+                            .        "</a>"
+                            .    "</li>'"
+                            . ");"
+                            . 'AnchorHash();'
+                            . 'jQuery("#" + idMenu + ">li>a[href*=\"#\"]").on("click", Anchor);'
+                            . 'ScrollAnchor("' . $position . '");'
+                            .'});';
                 
                 $doc->addScriptDeclaration($days_bar);
                 // Наполнение массива с изображениями шагов
@@ -60,7 +64,6 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                     $steps_images[] = $product->customfieldsSorted[$position][$i]->display;
                 }
                 ?>
-                
             <div id="<?php echo $position ?>">
                 <table class="dish-slider" align="center">
                     <thead>
