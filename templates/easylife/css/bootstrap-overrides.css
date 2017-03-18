@@ -25,3 +25,9 @@
 .tooltip.bottom-right .tooltip-arrow {
     border-bottom-color: #3e2423;
 }
+
+/*----- Popover override -----*/
+div.popover {
+    max-width: 150px;
+    min-width: 150px;
+}

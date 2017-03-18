@@ -65,7 +65,7 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 }
                 ?>
             <div id="<?php echo $position ?>">
-                <table class="dish-slider" align="center">
+                <table class="dish-slider" align="right">
                     <thead>
                         <tr>
                             <h2><?php echo $day_of_week; ?></h2>

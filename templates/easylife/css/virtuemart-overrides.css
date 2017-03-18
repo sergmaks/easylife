@@ -48,6 +48,7 @@ span.addtocart-button input.notify-button {
     background-color: #ff9900;
     border-radius: 50px;
     border-color: transparent;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 span.addtocart-button input.addtocart-button:hover, 
 span.addtocart-button input.notify-button:hover {
@@ -69,6 +70,7 @@ span.addtocart-button input.notify-button:hover {
 /* ---------------- Слайдер с блюдом на день ------------------ */
 table.dish-slider {
     max-width: 70%;
+    margin-right: 30px;
     text-align: left;
     border-color: transparent;
     border-collapse: separate;
@@ -116,7 +118,7 @@ table.dish-slider {
     cursor: pointer;
 }
 .step-image:hover {
-    width: 25.2%;
+/*    width: 25.2%;*/
 }
 .step-image img {
     width: 100%; 
@@ -139,14 +141,28 @@ table.dish-slider {
     position: fixed;
     left: 0;
     top: 37%;
+    padding: 20px 15px 20px 30px;
     list-style-type: none;
     font-size: 24px;
     color: #61B73C;
+    background: rgb(252,234,187);
+    background: -moz-linear-gradient(left, rgb(252,234,187) 0%, rgb(252,205,77) 25%, rgb(248,181,0) 74%, rgb(248,181,0) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgb(252,234,187)), color-stop(25%, rgb(252,205,77)), color-stop(74%, rgb(248,181,0)), color-stop(100%, rgb(248,181,0)));
+    background: -webkit-linear-gradient(left, rgb(252,234,187) 0%, rgb(252,205,77) 25%, rgb(248,181,0) 74%, rgb(248,181,0) 100%);
+    background: -o-linear-gradient(left, rgb(252,234,187) 0%, rgb(252,205,77) 25%, rgb(248,181,0) 74%, rgb(248,181,0) 100%);
+    background: -ms-linear-gradient(left, rgb(252,234,187) 0%, rgb(252,205,77) 25%, rgb(248,181,0) 74%, rgb(248,181,0) 100%);
+    background: linear-gradient(to right, rgb(252,234,187) 0%, rgb(252,205,77) 25%, rgb(248,181,0) 74%, rgb(248,181,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#f8b500', GradientType=1 );
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 #days-bar a {
-   color: #61B73C; 
+   padding: 0px;
+   color: #61B73C;
+   text-shadow: 0px 0px 2px #3e2423;
 }
 #days-bar a.active {
    font-size: 30px;
-   color: #FF9900;
+   color: #fff;
+   text-shadow: 0px 0px 12px #fff;
 }
