@@ -44,21 +44,6 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 $recepie      = str_replace("\n", "<br>", $product->customfieldsSorted[$position][3]->display);
                 $steps_images = array();
                 
-                // скрипт добавления элементов в боковую панель с днями недели
-                $days_bar = 'jQuery(function () {'
-                            . 'jQuery("#days-bar").append('
-                            .    "'"
-                            .        "<a name=\"#{$position}\">"
-                            .        "<i class=\"fa fa-sun-o\" aria-hidden=\"true\"> </i>". " {$day_of_week}: {$dish_name}"                                    
-                            .        "</a>"
-                            .    "'"
-                            . ");"
-                            . 'AnchorHash();'
-                            . 'jQuery("#" + idMenu + ">a[name*=\"#\"]").on("click", Anchor);'
-                            . 'ScrollAnchor("' . $position . '");'
-                            .'});';
-                
-                $doc->addScriptDeclaration($days_bar);
                 // Наполнение массива с изображениями шагов
                 for ( $i = 5; $i < $steps_count + 5; $i++ ) {
                     $steps_images[] = $product->customfieldsSorted[$position][$i]->display;

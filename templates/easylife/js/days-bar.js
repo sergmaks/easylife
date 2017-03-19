@@ -51,3 +51,12 @@ function ScrollAnchor(day) {
     jQuery(window).resize(showActive);
          
 }
+
+jQuery(function(){
+    AnchorHash();
+    jQuery("#" + idMenu + ">a[name*=\"#\"]").on("click", Anchor);
+    ScrollAnchor("monday"); 
+    ScrollAnchor("tuesday");
+    ScrollAnchor("monday"); 
+    ScrollAnchor("wednesday"); 
+});

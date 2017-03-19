@@ -42,23 +42,15 @@ if(vRequest::getInt('print',false)){ ?>
         <p style="margin-left: 30px">
             <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i> Выберите день недели:
         </p>
-<!--        <li title="Понедельник" data-toggle="tooltip" data-placement="right">
-            <a href="#monday" title="Понедельник" data-toggle="popover" data-placement="right" data-content="Блюдо на понедельник" data-trigger="manual"> 
-            <span class="fa fa-circle" aria-hidden="true"></span>
-            </a></li>
-        <li title="Вторник" data-toggle="tooltip" data-placement="right">
-            <a href="#tuesday" title="Вторник" data-toggle="popover" data-placement="right" data-content="Блюдо на вторник" data-trigger="manual">
-            <span class="fa fa-circle" aria-hidden="true"></span>
-            </a></li>
-        <li><a href="#wednesday" title="Среда" data-toggle="tooltip" data-placement="right">
-            <span class="fa fa-circle" aria-hidden="true"></span>
-            </a></li>
-        <li><a href="#thursday" title="Четверг" data-toggle="tooltip" data-placement="right">
-            <span class="fa fa-circle" aria-hidden="true"></span>
-            </a></li>
-        <li><a href="#friday" title="Пятница" data-toggle="tooltip" data-placement="right">
-            <span class="fa fa-circle" aria-hidden="true"></span>
-            </a></li>-->
+        <?php
+            // Для каждой кастомной позиции: $pos - имя позиции, $data - ее содержимое
+            foreach ($this->product->customfieldsSorted as $pos=>$data) : 
+        ?>
+        <a name="#<?=$pos?>">
+            <?php // Выводим сслыку с названием дня недели ($data[0]->custom_title) и блюда дня ($data[1]->display) ?>
+            <i class="fa fa-sun-o" aria-hidden="true"> </i> <?= $data[0]->custom_title ?>: <?= $data[1]->display ?>
+        </a>
+        <?php endforeach; ?>
     </div>
 
     <?php
