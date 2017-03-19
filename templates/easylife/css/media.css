@@ -43,6 +43,9 @@
     #nav-bar li {
         float: none;
     }
+    #nav-bar li > ul {
+        box-shadow: none;
+    }
     #menu-container {
         padding: 0;
     }

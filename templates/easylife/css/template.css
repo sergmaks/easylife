@@ -118,7 +118,7 @@ a.socials:hover {
     z-index: 99;
     margin-top: 9px;
     margin-left: -30px;
-    padding: 9px 15px 9px 15px;
+    padding: 0px 15px 9px 15px;
     display: block;
     line-height: 30px;
     background-color: white;
@@ -149,7 +149,6 @@ a.socials:hover {
     color: #3e2423;
     text-decoration: none;
     border-bottom: 2px solid transparent;
-    transition: all 0.5s;
 }
 
 #nav-bar li > ul a:hover {

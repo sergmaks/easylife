@@ -47,14 +47,14 @@ if ( ! empty($product->customfieldsSorted[$position]) ) {
                 // скрипт добавления элементов в боковую панель с днями недели
                 $days_bar = 'jQuery(function () {'
                             . 'jQuery("#days-bar").append('
-                            .    "'<li title=\"" . $day_of_week . "\" data-toggle=\"tooltip\" data-placement=\"right\">"
-                            .        "<a href=\"#" . $position . "\" title=\"" . $day_of_week . "\" data-toggle=\"popover\" data-placement=\"right\" data-content=\"" . $dish_name . "\" data-trigger=\"manual\">"
-                            .        "<span class=\"fa fa-circle\" aria-hidden=\"true\"></span>"
+                            .    "'"
+                            .        "<a name=\"#{$position}\">"
+                            .        "<i class=\"fa fa-sun-o\" aria-hidden=\"true\"> </i>". " {$day_of_week}: {$dish_name}"                                    
                             .        "</a>"
-                            .    "</li>'"
+                            .    "'"
                             . ");"
                             . 'AnchorHash();'
-                            . 'jQuery("#" + idMenu + ">li>a[href*=\"#\"]").on("click", Anchor);'
+                            . 'jQuery("#" + idMenu + ">a[name*=\"#\"]").on("click", Anchor);'
                             . 'ScrollAnchor("' . $position . '");'
                             .'});';
                 

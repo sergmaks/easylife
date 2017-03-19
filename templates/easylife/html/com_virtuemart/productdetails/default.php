@@ -38,7 +38,10 @@ if(vRequest::getInt('print',false)){ ?>
 
 <div class="product-container productdetails-view productdetails">
     
-    <ul id="days-bar">
+    <div id="days-bar">
+        <p style="margin-left: 30px">
+            <i class="fa fa-calendar-check-o fa-2x" aria-hidden="true"></i> Выберите день недели:
+        </p>
 <!--        <li title="Понедельник" data-toggle="tooltip" data-placement="right">
             <a href="#monday" title="Понедельник" data-toggle="popover" data-placement="right" data-content="Блюдо на понедельник" data-trigger="manual"> 
             <span class="fa fa-circle" aria-hidden="true"></span>
@@ -56,7 +59,7 @@ if(vRequest::getInt('print',false)){ ?>
         <li><a href="#friday" title="Пятница" data-toggle="tooltip" data-placement="right">
             <span class="fa fa-circle" aria-hidden="true"></span>
             </a></li>-->
-    </ul>
+    </div>
 
     <?php
     // Product Navigation
