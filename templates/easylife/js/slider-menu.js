@@ -60,10 +60,16 @@
     // Клик на слайд и смена главного изображения
     stepImage.click(function() {
         var thisImage = jQuery(this).children('img:first').attr('src'); // cсылка на картинку выбранного слайда
+        var thisImageDesc = jQuery(this).children('img:first').attr('alt');
         var mainImage = jQuery(this).parent().parent().parent().parent().children('tr:first').children('.main-image:first').children('img:first'); // cсылка на главное изображения
+        var mainImageDesc = jQuery(this).parent().parent().parent().parent().children('tr:first').children('.image-desc');
+        
+        jQuery(this).parent().children('.step-image').children('.selected').remove();
+        jQuery(this).append('<div class="selected"></div>');
         
         mainImage.fadeTo(500, 0.05, function() {
             mainImage.attr('src',thisImage);
+            mainImageDesc.html(thisImageDesc);
         });
         
         mainImage.fadeTo('500', 1);

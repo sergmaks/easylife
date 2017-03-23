@@ -89,9 +89,16 @@ table.dish-slider {
     cursor: pointer;
     font-size: 50px;
     vertical-align: middle;
-    background-color: #fff;
+    background-color: transparent;
     opacity: 0.8;
     filter: alpha(opacity=80);
+    -webkit-transition: color .5s;
+    -moz-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s; 
+}
+.slider-nav:hover {
+    color: #ff9900;
 }
 .prev {
     visibility: hidden;
@@ -103,6 +110,7 @@ table.dish-slider {
 }
 .main-image img {
     max-height: 100%;
+    border-radius: inherit;
 }
 
 /* Описание главного изображения */
@@ -112,6 +120,7 @@ table.dish-slider {
 
 /* Изображение шага */
 .step-image {
+    position: relative;
     width: 25%;
     padding-right: 1%;
     display: inline-block;
@@ -128,6 +137,28 @@ table.dish-slider {
     box-shadow: 0 15px 15px -15px gray,
                 15px 0 15px -15px gray,
                 -15px 0 15px -15px gray;
+}
+
+.selected {
+    z-index: 80;
+    position: absolute;
+    display: block;
+    top: 0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background: #fff;
+    font-size: 300%;
+    opacity: 0.6;
+    filter: alpha(opacity=80);
+}
+.main-image,
+.image-desc,
+.slides-container {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
 
 .main-image,

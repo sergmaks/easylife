@@ -4,6 +4,7 @@ body {
     min-height: 500px;
     color: #3e2423;
     font-family: 'Open Sans', sans-serif;
+    background-color: #fbfbfb;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
